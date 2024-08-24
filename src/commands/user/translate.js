@@ -11,7 +11,7 @@ const translateCommand = {
   data: {
     name: "translate",
     type: 1,
-    description: "Translate a text to Bulgarian/English AI.",
+    description: "Translate a text to Bulgarian/English using AI.",
     options: [
       {
         name: "text",

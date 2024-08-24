@@ -36,6 +36,7 @@ const helpCommand = {
 - \`/word\` - Gives you information about the pronunciation of a Bulgarian word, its meaning, synonyms, and more
 - \`/stress\` - Shows the correct way to pronounce a word, e.g., кѝно
 - \`/resources\` - A list of resources for learning bulgarian
+- \`/to-cyrillic\` - Converts latin written bulgarian into cyrillic
 - \`/books\` - A list of books in bulgarian
 - \`/alphabet\` - An image of the alphabet
 

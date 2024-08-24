@@ -5,12 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "run": "node src/index.js",
+    "start": "node src/index.js",
     "register": "node src/standalone/registerCommands.js"
   },
   "author": "Maxim",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.15.3"
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5"
   }
 }

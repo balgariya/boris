@@ -15,6 +15,13 @@ const toCyrillicCommand = {
         required: true,
         type: 3,
       },
+      {
+        name: "hidden",
+        description: "Do you want to hide the answer from other users?",
+        required: false,
+        default: false,
+        type: 5,
+      },
     ],
     integration_types: [0, 1],
     contexts: [0, 1, 2],
@@ -22,7 +29,9 @@ const toCyrillicCommand = {
   async execute(interaction) {
     const text = interaction.options.getString("text");
 
-    await interaction.deferReply();
+    const hidden = interaction.options.getBoolean("hidden");
+
+    await interaction.deferReply({ ephemeral: hidden });
 
     try {
       const embed = new EmbedBuilder()

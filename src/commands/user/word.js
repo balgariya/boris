@@ -119,7 +119,7 @@ const wordCommand = {
         embed.addFields({ name: "Връзки", value: links, inline: false });
       }
 
-      await interaction.editReply({ embeds: [embed], ephemeral: hidden });
+      await interaction.editReply({ embeds: [embed] });
     } catch (error) {
       if (error.response && error.response.status === 404) {
         const $ = cheerio.load(error.response.data);
@@ -137,7 +137,7 @@ const wordCommand = {
             inline: false,
           });
 
-        await interaction.editReply({ embeds: [embed], ephemeral: hidden });
+        await interaction.editReply({ embeds: [embed] });
       } else {
         await interaction.editReply({
           ephemeral: hidden,

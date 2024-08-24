@@ -17,6 +17,13 @@ const stressCommand = {
         required: true,
         type: 3,
       },
+      {
+        name: "hidden",
+        description: "Do you want to hide the answer from other users?",
+        required: false,
+        default: false,
+        type: 5,
+      },
     ],
     integration_types: [0, 1],
     contexts: [0, 1, 2],
@@ -24,7 +31,9 @@ const stressCommand = {
   async execute(interaction) {
     const word = interaction.options.getString("word");
 
-    await interaction.deferReply();
+    const hidden = interaction.options.getBoolean("hidden");
+
+    await interaction.deferReply({ ephemeral: hidden });
 
     try {
       const response = await axios.get(

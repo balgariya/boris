@@ -58,7 +58,7 @@ const stressCommand = {
 
       await interaction.editReply({ embeds: [embed] });
     } catch (error) {
-      console.error(error);
+
       if (error.response && error.response.status === 404) {
         const $ = cheerio.load(error.response.data);
         const similarWords = $(".similar-words .data ul li")

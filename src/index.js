@@ -48,7 +48,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
   }
 
-  /*if (!interaction.member.roles.cache.has(process.env.ADMIN_ROLE_ID)) {
+  /*if (user check / role check) {
     interaction.reply({
       content: "Sorry but you dont have the permission to use this command!",
       ephemeral: true,

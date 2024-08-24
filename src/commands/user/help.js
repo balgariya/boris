@@ -15,7 +15,7 @@ const helpCommand = {
         name: "hidden",
         description: "Do you want to hide the answer from other users?",
         required: false,
-        default: true,
+        default: false,
         type: 5,
       },
     ],
@@ -23,7 +23,7 @@ const helpCommand = {
     contexts: [0, 1, 2],
   },
   async execute(interaction) {
-    const hidden = interaction.options.getBoolean("hidden");
+    const hidden = interaction.options.getBoolean("hidden") ?? true;
 
     await interaction.deferReply({ ephemeral: hidden });
 

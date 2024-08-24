@@ -8,6 +8,8 @@ import { toCyrillicCommand } from "./commands/user/to_cyrillic.js";
 import { translateCommand } from "./commands/user/translate.js";
 import { helpCommand } from "./commands/user/help.js";
 import { resourcesCommand } from "./commands/user/resources.js";
+import { booksCommand } from "./commands/user/books.js";
+import { alphabetCommand } from "./commands/user/alphabet.js";
 
 const client = new Client({
   intents: [],
@@ -20,6 +22,8 @@ const commands = [
   translateCommand.data,
   helpCommand.data,
   resourcesCommand.data,
+  booksCommand.data,
+  alphabetCommand.data,
 ];
 
 client.once(Events.ClientReady, async (c) => {
@@ -68,6 +72,12 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
     case "resources":
       await resourcesCommand.execute(interaction);
+      return;
+    case "books":
+      await booksCommand.execute(interaction);
+      return;
+    case "alphabet":
+      await alphabetCommand.execute(interaction);
       return;
   }
 

@@ -23,7 +23,7 @@ const resourcesCommand = {
     contexts: [0, 1, 2],
   },
   async execute(interaction) {
-    const hidden = interaction.options.getBoolean("hidden");
+    const hidden = interaction.options.getBoolean("hidden") ?? true;
 
     await interaction.deferReply({ ephemeral: hidden });
 

@@ -23,21 +23,19 @@ const alphabetCommand = {
     contexts: [0, 1, 2],
   },
   async execute(interaction) {
-
     const hidden = interaction.options.getBoolean("hidden") ?? true;
 
     await interaction.deferReply({ ephemeral: hidden });
 
-          const embed = new EmbedBuilder()
-        .setTitle("The alphabet")
-        .setColor(0x0099ff)
-        .setImage(
-          "https://bulgarian-wiki.eu/api/files.get?sig=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ1cGxvYWRzLzQ3NTBiZWY2LWY5MjQtNGEyOS1hYjljLWEwZmE5NWVhNDY5YS8yZTVhMzE0Yi0xYjMwLTRjM2MtOWU2ZC0zNTZhMGNkZDE1MWQvaW1hZ2UgKDM0KSAoMSkgKDEpLnBuZyIsInR5cGUiOiJhdHRhY2htZW50IiwiaWF0IjoxNzI0NTE2MDcxLCJleHAiOjE3MjQ1MTYxMzF9.rGMgbf549Ew3YXoqnhbMA6GWxRVggtBOWpdZCjh8S38"
-        );
+    const embed = new EmbedBuilder()
+      .setTitle("The alphabet")
+      .setColor(0x0099ff)
+      .setImage(
+        "https://github.com/Bulgarian-Assistant/Bot/blob/main/resources/bg-alphabet.png?raw=true"
+      );
 
-      await interaction.editReply({ embeds: [embed] });
-    }
-  
+    await interaction.editReply({ embeds: [embed] });
+  },
 };
 
 export { alphabetCommand };

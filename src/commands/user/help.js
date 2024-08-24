@@ -35,6 +35,9 @@ const helpCommand = {
 - \`/translate\` - Translates any Bulgarian/English sentence into the other language
 - \`/word\` - Gives you information about the pronunciation of a Bulgarian word, its meaning, synonyms, and more
 - \`/stress\` - Shows the correct way to pronounce a word, e.g., кѝно
+- \`/resources\` - A list of resources for learning bulgarian
+- \`/books\` - A list of books in bulgarian
+- \`/alphabet\` - An image of the alphabet
 
 # Source code
 This bot is open source, which means you can find the source code [here](https://github.com/Bulgarian-Assistant/Bot)

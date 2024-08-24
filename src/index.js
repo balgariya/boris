@@ -4,12 +4,13 @@ dotenv.config();
 import { Client, Events, ActivityType, GatewayIntentBits } from "discord.js";
 import { wordCommand } from "./commands/user/word.js";
 import { stressCommand } from "./commands/user/stress.js";
+import { toCyrillicCommand } from "./commands/user/to_cyrillic.js";
 
 const client = new Client({
   intents: [],
 });
 
-const commands = [wordCommand.data, stressCommand.data];
+const commands = [wordCommand.data, stressCommand.data, toCyrillicCommand.data];
 
 client.once(Events.ClientReady, async (c) => {
   console.log("Bot with name " + client.user.username + " is running!");
@@ -17,7 +18,7 @@ client.once(Events.ClientReady, async (c) => {
   client.user.setPresence({
     activities: [
       {
-        name: `to your questions`,
+        name: `bulgarian radio`,
         type: ActivityType.Listening,
       },
     ],
@@ -45,6 +46,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
     case "stress":
       await stressCommand.execute(interaction);
+      return;
+    case "to-cyrillic":
+      await toCyrillicCommand.execute(interaction);
       return;
   }
 

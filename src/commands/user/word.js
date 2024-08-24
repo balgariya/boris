@@ -18,14 +18,22 @@ const wordCommand = {
         required: true,
         type: 3,
       },
+      {
+        name: "hidden",
+        description: "Do you want to hide the answer from other users?",
+        required: false,
+        default: false,
+        type: 5,
+      },
     ],
     integration_types: [0, 1],
     contexts: [0, 1, 2],
   },
   async execute(interaction) {
     const word = interaction.options.getString("word");
+    const hidden = interaction.options.getBoolean("hidden");
 
-    await interaction.deferReply();
+    await interaction.deferReply({ ephemeral: hidden });
 
     try {
       const response = await axios.get(
@@ -111,9 +119,8 @@ const wordCommand = {
         embed.addFields({ name: "Връзки", value: links, inline: false });
       }
 
-      await interaction.editReply({ embeds: [embed] });
+      await interaction.editReply({ embeds: [embed], ephemeral: hidden });
     } catch (error) {
-      console.error(error);
       if (error.response && error.response.status === 404) {
         const $ = cheerio.load(error.response.data);
         const similarWords = $(".similar-words .data ul li")
@@ -130,11 +137,12 @@ const wordCommand = {
             inline: false,
           });
 
-        await interaction.editReply({ embeds: [embed] });
+        await interaction.editReply({ embeds: [embed], ephemeral: hidden });
       } else {
-        await interaction.editReply(
-          "Възникна грешка при търсенето на думата. Моля, опитайте отново по-късно."
-        );
+        await interaction.editReply({
+          ephemeral: hidden,
+          text: "Възникна грешка при търсенето на думата. Моля, опитайте отново по-късно.",
+        });
       }
     }
   },

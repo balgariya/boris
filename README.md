@@ -1,3 +1,4 @@
+# Bulgarian Assistant
 This bot helps you learn Bulgarian with commands for translation, word meanings, pronunciation, and more. 
 You view resource lists for learning bulgarian, book recommendations & more.
 
@@ -13,9 +14,7 @@ You view resource lists for learning bulgarian, book recommendations & more.
 
 # Selfhosting
 
-## 1.
 `npm install`
-
 
 .env:
 ```

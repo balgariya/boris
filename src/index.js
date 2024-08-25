@@ -12,6 +12,7 @@ import { booksCommand } from "./commands/user/books.js";
 import { alphabetCommand } from "./commands/user/alphabet.js";
 import { sendInfoEmbed } from "./embeds/info.js";
 import { sendRulesEmbed } from "./embeds/rules.js";
+import { handleHangmanMessage } from "./commands/game/hangman.js";
 
 const client = new Client({
   intents: [
@@ -53,13 +54,14 @@ client.once(Events.ClientReady, async (c) => {
   }
 });
 
-client.on(Events.MessageCreate, async (interaction) => {
-  if (
-    interaction.author.username == "maximde" &&
-    interaction.content == "!rules"
-  ) {
-    sendRulesEmbed(interaction.channel);
+client.on(Events.MessageCreate, async (message) => {
+  if (message.author.bot) return;
+
+  if (message.author.username == "maximde" && message.content == "!rules") {
+    sendRulesEmbed(message.channel);
   }
+
+  await handleHangmanMessage(message);
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {

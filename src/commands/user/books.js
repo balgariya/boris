@@ -27,7 +27,7 @@ const booksCommand = {
 
     const embed = new EmbedBuilder()
       .setTitle("Bulgarian Books for Language Learners")
-      .setColor(0x0099ff).setDescription(`
+      .setColor("#2fb966").setDescription(`
 # Old and complex books
 * **Под игото** (Иван Вазов - 1894 г)
   * [[PDF]](https://chitanka.info/text/3753-pod-igoto.pdf)

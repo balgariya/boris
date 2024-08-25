@@ -29,7 +29,7 @@ const helpCommand = {
 
     const embed = new EmbedBuilder()
       .setTitle("About this bot")
-      .setColor(0x0099ff)
+      .setColor("#2fb966")
       .setDescription(
         `# Commands
 - \`/translate\` - Translates any Bulgarian/English sentence into the other language

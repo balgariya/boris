@@ -29,7 +29,7 @@ const alphabetCommand = {
 
     const embed = new EmbedBuilder()
       .setTitle("The alphabet")
-      .setColor(0x0099ff)
+      .setColor("#2fb966")
       .setImage(
         "https://github.com/Bulgarian-Assistant/Bot/blob/main/resources/bg-alphabet.png?raw=true"
       );

@@ -29,7 +29,7 @@ const resourcesCommand = {
 
     const embed = new EmbedBuilder()
       .setTitle("Resources for Learning Bulgarian")
-      .setColor(0x0099ff)
+      .setColor("#2fb966")
       .addFields(
         {
           name: "Sites without Audio",

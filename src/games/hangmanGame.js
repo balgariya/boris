@@ -3,14 +3,17 @@ import path from "path";
 import { EmbedBuilder } from "discord.js";
 import { activeGames, setGameActive, removeGame } from "./gameUtils.js";
 
-const WORD_TYPES = ["adjectives", "nouns", "verbs"];
-const MAX_INCORRECT_GUESSES = 7;
+import { gpt } from "gpti";
+
+const WORD_TYPES = ["adjectives", "nouns"];
+const MAX_INCORRECT_GUESSES = 8;
 
 const HANGMAN_STAGES = [
   `
- 🥶
- /|\\
- / \\  
+                       
+          👀
+          /|\\
+          / \\       
  `,
   `
        
@@ -19,61 +22,70 @@ const HANGMAN_STAGES = [
       
       
       
-=========
+       =========       
 `,
   `
        
       
       
-      |
-      |
-      |
-=========
+             |
+             |
+             |
+       =========       
 `,
   `
-  +---+
-      |
-      |
-      |
-      |
-      |
-========
+         +---+
+             |
+             |
+             |
+             |
+             |
+       ========       
 `,
   `
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
+         +---+
+         |   |
+             |
+             |
+             |
+             |
+       =========       
 `,
   `
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
+         +---+
+         |   |
+         O   |
+             |
+             |
+             |
+       =========       
 `,
   `
-  +---+
-  |   |
-  O   |
- /|\\  |
-      |
-      |
-=========   
+         +---+
+         |   |
+         O   |
+         |   |
+             |
+             |
+       =========       
 `,
   `
-  +---+
-  |   |
- 💀   |
- /|\\   |
- / \\   |
-       |
-=========           
+         +---+
+         |   |
+         O   |
+        /|\\  |
+             |
+             |
+       =========       
+`,
+  `
+         +---+
+         |   |
+        💀  |
+        /|\\ |
+        / \\ |
+             |
+       =========       
 `,
 ];
 
@@ -109,7 +121,7 @@ export class HangmanGame {
     this.wordType = wordType.slice(0, -1);
   }
 
-  guess(letter, user_id) {
+  async guess(letter, user_id) {
     letter = letter.toLowerCase();
     if (this.guessedLetters.has(letter)) {
       return {
@@ -123,20 +135,20 @@ export class HangmanGame {
     if (!this.word.includes(letter)) {
       this.incorrectGuesses++;
       if (this.incorrectGuesses >= MAX_INCORRECT_GUESSES) {
-        return { status: "game_over", embed: this.getGameOverEmbed() };
+        return { status: "game_over", embed: await this.getGameOverEmbed() };
       }
     }
 
     if (this.isWordGuessed()) {
-      return { status: "win", embed: this.getWinEmbed(user_id) };
+      return { status: "win", embed: await this.getWinEmbed(user_id) };
     }
 
-    return { status: "continue", embed: this.getGameEmbed() };
+    return { status: "continue", embed: await this.getGameEmbed() };
   }
 
-  guessWord(word, user_id) {
+  async guessWord(word, user_id) {
     if (word.toLowerCase() === this.word) {
-      return { status: "win", embed: this.getWinEmbed(user_id) };
+      return { status: "win", embed: await this.getWinEmbed(user_id) };
     }
     return { status: "ignore" };
   }
@@ -163,16 +175,39 @@ export class HangmanGame {
     return embed;
   }
 
-  getGameOverEmbed() {
-    const embed = new EmbedBuilder()
-      .setTitle("Game Over!")
-      .setDescription(`The word was: ${this.word}`)
-      .addFields({
-        name: " ",
-        value: "```" + HANGMAN_STAGES[HANGMAN_STAGES.length - 1] + "```",
-      })
-      .setColor("#ff0000");
-    return embed;
+  async getGameOverEmbed() {
+    try {
+      const translation = await askGPT(
+        "You act like google translate. Translate the following word into English and add a small note in () after the translation for the meaning of the word. Respond with the translation and the meaning only, without any additional text or symbols. Here is the word: " +
+          this.word
+      );
+
+      const embed = new EmbedBuilder()
+        .setTitle("Game Over!")
+        .setDescription(`The word was: ${this.word}`)
+        .addFields(
+          {
+            name: "Meaning (Source: ChatGPT)",
+            value: "-# " + translation,
+          },
+          {
+            name: " ",
+            value: "```" + HANGMAN_STAGES[HANGMAN_STAGES.length - 1] + "```",
+          }
+        )
+        .setColor("#ff0000");
+
+      return embed;
+    } catch (error) {
+      return new EmbedBuilder()
+        .setTitle("Game Over!")
+        .setDescription(`The word was: ${this.word}`)
+        .addFields({
+          name: " ",
+          value: "```" + HANGMAN_STAGES[HANGMAN_STAGES.length - 1] + "```",
+        })
+        .setColor("#ff0000");
+    }
   }
 
   getWinEmbed(user_id) {
@@ -196,4 +231,24 @@ export class HangmanGame {
       .map((letter) => (this.guessedLetters.has(letter) ? letter : "▨"))
       .join(" ");
   }
+}
+
+async function askGPT(prompt) {
+  return new Promise((resolve, reject) => {
+    gpt(
+      {
+        prompt: prompt,
+        model: "GPT-4",
+        markdown: false,
+      },
+      (err, data) => {
+        if (err != null) {
+          console.log(err);
+          reject("An error occurred!");
+        } else {
+          resolve(data.gpt);
+        }
+      }
+    );
+  });
 }

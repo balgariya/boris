@@ -28,10 +28,10 @@ export async function handleHangmanMessage(message) {
   const game = getGameState(message.channel.id);
 
   if (content.length === 1) {
-    const result = game.guess(content, message.author.id);
+    const result = await game.guess(content, message.author.id);
     handleGameResult(result, message);
   } else if (content.length > 1) {
-    const result = game.guessWord(content, message.author.id);
+    const result = await game.guessWord(content, message.author.id);
     if (result.status !== "ignore") {
       handleGameResult(result, message);
     }

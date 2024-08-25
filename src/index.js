@@ -10,9 +10,15 @@ import { helpCommand } from "./commands/user/help.js";
 import { resourcesCommand } from "./commands/user/resources.js";
 import { booksCommand } from "./commands/user/books.js";
 import { alphabetCommand } from "./commands/user/alphabet.js";
+import { sendInfoEmbed } from "./embeds/info.js";
+import { sendRulesEmbed } from "./embeds/rules.js";
 
 const client = new Client({
-  intents: [],
+  intents: [
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.Guilds,
+  ],
 });
 
 const commands = [
@@ -44,6 +50,15 @@ client.once(Events.ClientReady, async (c) => {
     console.log("Successfully registered global commands!");
   } catch (error) {
     console.error("Error registering global commands:", error);
+  }
+});
+
+client.on(Events.MessageCreate, async (interaction) => {
+  if (
+    interaction.author.username == "maximde" &&
+    interaction.content == "!rules"
+  ) {
+    sendRulesEmbed(interaction.channel);
   }
 });
 

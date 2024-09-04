@@ -21,7 +21,6 @@ const stressCommand = {
         name: "hidden",
         description: "Do you want to hide the answer from other users?",
         required: false,
-        default: false,
         type: 5,
       },
     ],
@@ -58,7 +57,6 @@ const stressCommand = {
 
       await interaction.editReply({ embeds: [embed] });
     } catch (error) {
-
       if (error.response && error.response.status === 404) {
         const $ = cheerio.load(error.response.data);
         const similarWords = $(".similar-words .data ul li")

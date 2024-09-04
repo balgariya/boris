@@ -23,7 +23,6 @@ const translateCommand = {
         name: "hidden",
         description: "Do you want to hide the answer from other users?",
         required: false,
-        default: false,
         type: 5,
       },
     ],

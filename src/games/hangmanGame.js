@@ -96,6 +96,7 @@ export class HangmanGame {
     this.guessedLetters = new Set();
     this.incorrectGuesses = 0;
     this.wordType = "";
+    this.waitingForResult = false;
   }
 
   async start() {
@@ -159,7 +160,7 @@ export class HangmanGame {
 
   getGameEmbed() {
     const embed = new EmbedBuilder()
-      .setTitle(this.wordType.charAt(0).toUpperCase() + this.wordType.slice(1))
+      .setTitle("Find the word - (It's a: " + this.wordType.charAt(0).toUpperCase() + this.wordType.slice(1) + ")")
       .setDescription(this.getWordProgress())
       .addFields(
         {
@@ -176,6 +177,7 @@ export class HangmanGame {
   }
 
   async getGameOverEmbed() {
+    this.waitingForResult = true;
     try {
       const translation = await askGPT(
         "You act like google translate. Translate the following word into English and add a small note in () after the translation for the meaning of the word. Respond with the translation and the meaning only, without any additional text or symbols. Here is the word: " +
@@ -184,7 +186,11 @@ export class HangmanGame {
 
       const embed = new EmbedBuilder()
         .setTitle("Game Over!")
-        .setDescription(`The word was: ${this.word}`)
+        .setDescription(
+          `The word was: ${this.word} (${
+            this.wordType.charAt(0).toUpperCase() + this.wordType.slice(1)
+          })`
+        )
         .addFields(
           {
             name: "Meaning (Source: ChatGPT)",
@@ -201,7 +207,11 @@ export class HangmanGame {
     } catch (error) {
       return new EmbedBuilder()
         .setTitle("Game Over!")
-        .setDescription(`The word was: ${this.word}`)
+        .setDescription(
+          `The word was: ${this.word} (${
+            this.wordType.charAt(0).toUpperCase() + this.wordType.slice(1)
+          })`
+        )
         .addFields({
           name: " ",
           value: "```" + HANGMAN_STAGES[HANGMAN_STAGES.length - 1] + "```",

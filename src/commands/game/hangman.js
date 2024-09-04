@@ -26,16 +26,16 @@ export async function handleHangmanMessage(message) {
   if (!isGameActive(message.channel.id)) return;
 
   const game = getGameState(message.channel.id);
-
-  if (content.length === 1) {
-    const result = await game.guess(content, message.author.id);
-    handleGameResult(result, message);
-  } else if (content.length > 1) {
-    const result = await game.guessWord(content, message.author.id);
-    if (result.status !== "ignore") {
+  if (game.waitingForResult) return;
+    if (content.length === 1) {
+      const result = await game.guess(content, message.author.id);
       handleGameResult(result, message);
+    } else if (content.length > 1) {
+      const result = await game.guessWord(content, message.author.id);
+      if (result.status !== "ignore") {
+        handleGameResult(result, message);
+      }
     }
-  }
 }
 
 function handleGameResult(result, message) {

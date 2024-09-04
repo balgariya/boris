@@ -13,7 +13,6 @@ const booksCommand = {
         name: "hidden",
         description: "Do you want to hide the message from other users?",
         required: false,
-        default: true,
         type: 5,
       },
     ],

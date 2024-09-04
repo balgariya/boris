@@ -2,10 +2,18 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { Client, Events, ActivityType, GatewayIntentBits } from "discord.js";
-
+import { wordCommand } from "./commands/user/word.js";
+import { stressCommand } from "./commands/user/stress.js";
+import { toCyrillicCommand } from "./commands/user/to_cyrillic.js";
+import { translateCommand } from "./commands/user/translate.js";
+import { helpCommand } from "./commands/user/help.js";
+import { resourcesCommand } from "./commands/user/resources.js";
+import { booksCommand } from "./commands/user/books.js";
+import { alphabetCommand } from "./commands/user/alphabet.js";
 import { sendInfoEmbed } from "./embeds/info.js";
 import { sendRulesEmbed } from "./embeds/rules.js";
 import { handleHangmanMessage } from "./commands/game/hangman.js";
+import { meaningCommand } from "./commands/user/meaning.js";
 
 const client = new Client({
   intents: [
@@ -15,23 +23,18 @@ const client = new Client({
   ],
 });
 
-
-
-
 client.once(Events.ClientReady, async (c) => {
   console.log("Bot with name " + client.user.username + " is running!");
 
   client.user.setPresence({
     activities: [
       {
-        name: `bulgarian radio`,
-        type: ActivityType.Listening,
+        name: `Слави Клашъра`,
+        type: ActivityType.Watching,
       },
     ],
     status: "online",
   });
-
-
 });
 
 client.on(Events.MessageCreate, async (message) => {
@@ -76,6 +79,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
     case "alphabet":
       await alphabetCommand.execute(interaction);
       return;
+    case "meaning":
+      await meaningCommand.execute(interaction);
+      return;
   }
 
   /*if (user check / role check) {
@@ -95,6 +101,5 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
   }
 });
-
 
 client.login(process.env.TOKEN);

@@ -41,7 +41,7 @@ const wordCommand = {
       const $ = cheerio.load(response.data);
 
       const title = $("h1#first-heading").text().trim();
-      const stressedWord = $("[id^='name-stressed_']").text().trim();
+      const stressedWord = $("[id^='name-stressed_']").first().text().trim();
 
       const typeElement = $("[id^='type_']");
       let typeText = "";
@@ -117,6 +117,11 @@ const wordCommand = {
       if (links) {
         embed.addFields({ name: "Връзки", value: links, inline: false });
       }
+
+      embed.setFooter({
+        text: "Source: rechnik.chitanka.info",
+        iconURL: "https://rechnik.chitanka.info/favicon.ico",
+      });
 
       await interaction.editReply({ embeds: [embed] });
     } catch (error) {

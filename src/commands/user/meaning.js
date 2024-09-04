@@ -5,11 +5,11 @@ import { EmbedBuilder } from "discord.js";
 
 dotenv.config();
 
-const stressCommand = {
+const meaningCommand = {
   data: {
-    name: "stress",
+    name: "meaning",
     type: 1,
-    description: "Find the right pronunciation of a word",
+    description: "Find the meaning a word",
     options: [
       {
         name: "word",
@@ -40,18 +40,19 @@ const stressCommand = {
       );
       const $ = cheerio.load(response.data);
 
-      const stressedWord = $("[id^='name-stressed_']").first().text().trim();
+      const meaningElement = $("[id^='meaning_']");
+      const meaning = meaningElement.length ? meaningElement.text().trim() : "";
 
       const embed = new EmbedBuilder()
-        .setTitle("Pronunciation of the word " + word)
+        .setTitle("Meaning of the word " + word)
         .setColor(0x0099ff)
         .setURL(`https://rechnik.chitanka.info/w/${encodeURIComponent(word)}`);
 
-      if (stressedWord) {
-        embed.setDescription(stressedWord);
+      if (meaning) {
+        embed.setDescription(meaning);
       } else {
         embed.setDescription(
-          "Pronunciation for the word " + word + " not found :("
+          "Meaning for the word " + word + " not found :("
         );
       }
 
@@ -88,4 +89,4 @@ const stressCommand = {
   },
 };
 
-export { stressCommand };
+export { meaningCommand };

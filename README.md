@@ -11,6 +11,8 @@ You view resource lists for learning bulgarian, book recommendations & more.
 - /resources - A list of resources for learning bulgarian
 - /books - A list of books in bulgarian
 - /alphabet - An image of the alphabet
+И така нататък 
+
 
 # Selfhosting
 

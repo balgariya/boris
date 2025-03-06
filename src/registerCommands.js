@@ -9,7 +9,6 @@ import { helpCommand } from "./commands/user/help.js";
 import { resourcesCommand } from "./commands/user/resources.js";
 import { booksCommand } from "./commands/user/books.js";
 import { alphabetCommand } from "./commands/user/alphabet.js";
-import { meaningCommand } from "./commands/user/meaning.js";
 
 const rest = new REST().setToken(process.env.TOKEN);
 
@@ -25,8 +24,7 @@ const commands = [
   helpCommand.data,
   resourcesCommand.data,
   booksCommand.data,
-  alphabetCommand.data,
-  meaningCommand.data
+  alphabetCommand.data
 ];
 
 rest

@@ -11,7 +11,6 @@ import { resourcesCommand } from "./commands/user/resources.js";
 import { booksCommand } from "./commands/user/books.js";
 import { alphabetCommand } from "./commands/user/alphabet.js";
 import { sendRulesEmbed } from "./embeds/rules.js";
-import { meaningCommand } from "./commands/user/meaning.js";
 
 const client = new Client({
   intents: [
@@ -75,9 +74,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
     case "alphabet":
       await alphabetCommand.execute(interaction);
-      return;
-    case "meaning":
-      await meaningCommand.execute(interaction);
       return;
   }
 

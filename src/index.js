@@ -50,32 +50,32 @@ client.on(Events.InteractionCreate, async (interaction) => {
   /*
   User commands
   */
-  switch (commandName) {
-    case "word":
-      await wordCommand.execute(interaction);
-      return;
-    case "stress":
-      await stressCommand.execute(interaction);
-      return;
-    case "to-cyrillic":
-      await toCyrillicCommand.execute(interaction);
-      return;
-    case "translate":
-      await translateCommand.execute(interaction);
-      return;
-    case "help":
-      await helpCommand.execute(interaction);
-      return;
-    case "resources":
-      await resourcesCommand.execute(interaction);
-      return;
-    case "books":
-      await booksCommand.execute(interaction);
-      return;
-    case "alphabet":
-      await alphabetCommand.execute(interaction);
-      return;
-  }
+    switch (commandName) {
+      case "word":
+        await executeCommandSafely(wordCommand.execute, interaction);
+        return;
+      case "stress":
+        await executeCommandSafely(stressCommand.execute, interaction);
+        return;
+      case "to-cyrillic":
+        await executeCommandSafely(toCyrillicCommand.execute, interaction);
+        return;
+      case "translate":
+        await executeCommandSafely(translateCommand.execute, interaction);
+        return;
+      case "help":
+        await executeCommandSafely(helpCommand.execute, interaction);
+        return;
+      case "resources":
+        await executeCommandSafely(resourcesCommand.execute, interaction);
+        return;
+      case "books":
+        await executeCommandSafely(booksCommand.execute, interaction);
+        return;
+      case "alphabet":
+        await executeCommandSafely(alphabetCommand.execute, interaction);
+        return;
+    }
 
   /*if (user check / role check) {
     interaction.reply({
@@ -94,5 +94,32 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
   }
 });
+
+async function executeCommandSafely(commandExecute, interaction) {
+  try {
+    await commandExecute(interaction);
+  } catch (error) {
+    console.error(
+      `Error executing command '${interaction.commandName}':`,
+      error
+    );
+
+    if (interaction.deferred || interaction.replied) {
+      await interaction
+        .followUp({
+          content: "Sorry, there was an error executing this command.",
+          ephemeral: true,
+        })
+        .catch(console.error);
+    } else {
+      await interaction
+        .reply({
+          content: "Sorry, there was an error executing this command.",
+          ephemeral: true,
+        })
+        .catch(console.error);
+    }
+  }
+}
 
 client.login(process.env.TOKEN);

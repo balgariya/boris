@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import { EmbedBuilder } from "discord.js";
+import { requestAI } from "../../utils/aiRequest.js";
 
 dotenv.config();
 
@@ -49,11 +50,12 @@ const meaningCommand = {
         .setURL(`https://rechnik.chitanka.info/w/${encodeURIComponent(word)}`);
 
       if (meaning) {
-        embed.setDescription(meaning);
-      } else {
-        embed.setDescription(
-          "Meaning for the word " + word + " not found :("
+        const englishTranslation = await requestAI(
+          `Meaning of this bulgarian word in english summarized: ${word}`
         );
+        embed.setDescription(`${meaning}\n\n---\n\n${englishTranslation}`);
+      } else {
+        embed.setDescription("Meaning for the word " + word + " not found :(");
       }
 
       embed.setFooter({

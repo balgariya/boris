@@ -26,8 +26,8 @@ const resourcesCommand = {
 
     await interaction.deferReply({ ephemeral: hidden });
 
-    const embed = new EmbedBuilder()
-      .setTitle("Resources for Learning Bulgarian")
+    const embed1 = new EmbedBuilder()
+      .setTitle("Resources for Learning Bulgarian (Part 1)")
       .setColor("#2fb966")
       .addFields(
         {
@@ -68,7 +68,7 @@ const resourcesCommand = {
             "• [IBL Grammar Q&A](https://ibl.bas.bg/ezikovi_spravki/) - Tricky Bulgarian grammar rules",
         },
         {
-          name: "YouTube Channels",
+          name: "YouTube Channels - Learning",
           value:
             "• [Gol y Plot](https://www.youtube.com/@golyplot/videos)\n" +
             "• [Monoglossia](https://www.youtube.com/@Monoglossia/videos)\n" +
@@ -76,6 +76,47 @@ const resourcesCommand = {
             "• [Day-to-day situations in Bulgarian](https://www.youtube.com/watch?v=9NC5zumL2yM&list=PLgofZjs3lghPvSjKzQhWL5JXPtSEKACFP)\n" +
             "• [Videos for children learning Bulgarian](https://www.youtube.com/@ItsyBitsyBg/videos)\n" +
             "• [TV series for children](https://www.youtube.com/@blaguniteseries34/videos)",
+        },
+        {
+          name: "YouTube Channels - Facts & Comedy",
+          value:
+            "• [PATSO](https://www.youtube.com/@patsoofficial) - Random facts\n" +
+            "• [TheClashers](https://www.youtube.com/@TheClashers) - Random facts\n" +
+            "• [Djordjbo](https://www.youtube.com/@djordjbo) - Comedy\n" +
+            "• [Vankata](https://www.youtube.com/@Vankata) - Comedy",
+        }
+      );
+
+    const embed2 = new EmbedBuilder()
+      .setTitle("Resources for Learning Bulgarian (Part 2)")
+      .setColor("#2fb966")
+      .addFields(
+        {
+          name: "YouTube Channels - Gaming & History",
+          value:
+            "• [Yoan Hristov](https://www.youtube.com/@yoan_hristov) - Gaming\n" +
+            "• [NoThx TV](https://www.youtube.com/c/NoThxTV) - Gaming\n" +
+            "• [Bulgarian History](https://www.youtube.com/@BulgarianHistory1/) - History\n" +
+            "• [Mr Maestro Muzika](https://www.youtube.com/@MrMaestromuzika) - Reading books\n" +
+            "• [minus273.15](https://www.youtube.com/@minus273dot15) - Reading books",
+        },
+        {
+          name: "YouTube Channels - Various Content",
+          value:
+            "• [Aethelthryth](https://www.youtube.com/@Aethelthryth1337) - Various content\n" +
+            "• [Wankicha](https://www.youtube.com/@wankicha/videos) - Various content\n" +
+            "• [AydeBG](https://www.youtube.com/@AydeBG) - Famous content creator\n" +
+            "• [Chris Zahariev](https://www.youtube.com/@ChrisZahariev) - Vlogs\n" +
+            "• [Plami Dimitrova](https://www.youtube.com/@plami_d) - Various content\n" +
+            "• [TheBleChannel](https://www.youtube.com/user/TheBleChannel) - Various content",
+        },
+        {
+          name: "YouTube Channels - Specialized Content",
+          value:
+            "• [Bri4ka.COM](https://www.youtube.com/@Bri4kaCOM) - Cars\n" +
+            "• [Physics Channel](https://www.youtube.com/channel/UCzXAiQqcReX41lMCrWiuHhg) - Physics\n" +
+            "• [BG Food](https://www.youtube.com/channel/UC8K5HKWARo8xGVCBnU8Uoiw) - Bulgarian cuisine\n" +
+            "• [Channel 4 Podcast](https://www.youtube.com/@Channel4Podcast) - Podcast",
         },
         {
           name: "Bulgarian Radio",
@@ -149,7 +190,9 @@ const resourcesCommand = {
         }
       );
 
-    await interaction.editReply({ embeds: [embed] });
+
+    await interaction.editReply({ embeds: [embed1] });
+    await interaction.followUp({ embeds: [embed2], ephemeral: hidden });
   },
 };
 

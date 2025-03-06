@@ -10,9 +10,7 @@ import { helpCommand } from "./commands/user/help.js";
 import { resourcesCommand } from "./commands/user/resources.js";
 import { booksCommand } from "./commands/user/books.js";
 import { alphabetCommand } from "./commands/user/alphabet.js";
-import { sendInfoEmbed } from "./embeds/info.js";
 import { sendRulesEmbed } from "./embeds/rules.js";
-import { handleHangmanMessage } from "./commands/game/hangman.js";
 import { meaningCommand } from "./commands/user/meaning.js";
 
 const client = new Client({
@@ -44,7 +42,6 @@ client.on(Events.MessageCreate, async (message) => {
     sendRulesEmbed(message.channel);
   }
 
-  await handleHangmanMessage(message);
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {

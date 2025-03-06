@@ -20,7 +20,10 @@ You view resource lists for learning bulgarian, book recommendations & more.
 
 .env:
 ```
-TOKEN=""
+TOKEN="" (Discord Bot Token)
+AI_API_KEY="" (e.g. OpenRouter)
+AI_MODEL=openai/gpt-4o-mini
+AI_ENDPOINT=https://openrouter.ai/api/v1/chat/completions
 ```
 
 ![img](https://github.com/Bulgarian-Assistant/Bot/blob/main/resources/command_example_1.png?raw=true)

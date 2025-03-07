@@ -4,11 +4,13 @@ dotenv.config();
 import { wordCommand } from "./commands/user/word.js";
 import { stressCommand } from "./commands/user/stress.js";
 import { toCyrillicCommand } from "./commands/user/to_cyrillic.js";
-import { translateCommand } from "./commands/user/translate.js";
+import { translateCommand, translateMessageCommand } from "./commands/user/translate.js";
+import { checkCommand, checkMessageCommand } from "./commands/user/sentence.js";
 import { helpCommand } from "./commands/user/help.js";
 import { resourcesCommand } from "./commands/user/resources.js";
 import { booksCommand } from "./commands/user/books.js";
 import { alphabetCommand } from "./commands/user/alphabet.js";
+import { bgjargonCommand } from "./commands/user/bgjargon.js";
 
 const rest = new REST().setToken(process.env.TOKEN);
 
@@ -21,10 +23,14 @@ const commands = [
   stressCommand.data,
   toCyrillicCommand.data,
   translateCommand.data,
+  translateMessageCommand.data,
   helpCommand.data,
   resourcesCommand.data,
   booksCommand.data,
-  alphabetCommand.data
+  alphabetCommand.data,
+  checkCommand.data,
+  checkMessageCommand.data,
+  bgjargonCommand.data
 ];
 
 rest

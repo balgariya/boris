@@ -116,7 +116,9 @@ export async function scrapeBasDictionary(word, progressCallback = null) {
       }
 
       if (progressCallback) {
-        await progressCallback("Solving CAPTCHA...");
+        await progressCallback(
+          "Solving CAPTCHA...\nA real human is solving your captcha now <:shushing_slavi_theclashers:1276520372702941204>"
+        );
       }
 
       const captchaToken = await solveCaptcha(url, siteKey);

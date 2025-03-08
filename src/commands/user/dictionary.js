@@ -66,9 +66,6 @@ const dictionaryCommand = {
       }
 
       progressEmbed.setDescription(`Solving captcha...`);
-      progressEmbed.setFooter(
-        "A real human is solving your captcha now <:shushing_slavi_theclashers:1276520372702941204>"
-      );
       await interaction.editReply({ embeds: [progressEmbed] });
 
       const dictData = await scrapeBasDictionary(word, async (status) => {

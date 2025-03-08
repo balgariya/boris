@@ -18,8 +18,8 @@ We do not sell, trade, or otherwise transfer your information to third parties.
 ## 4. Third-Party Services
 The Bot uses third-party APIs to retrieve data for certain commands. This includes:
 
-- https://rechnik.chitanka.info - Used for retrieving word pronunciations and related data.
-- https://github.com/yandricr/gpti-js - Used for processing certain AI-related commands.
+- https://rechnik.chitanka.info & https://bgjargon.com - Used for retrieving word pronunciations and related data.
+- https://openrouter.ai/ & https://openai.com/ - Used for processing certain AI-related commands.
 
 These third parties may collect certain information as part of their services. Please review their respective privacy policies for more information.
 

@@ -61,7 +61,13 @@ class WordGame {
     const correctAnswer = this.wordData[targetLang].toLowerCase();
 
     this.collector.on("collect", async (message) => {
-      const guess = message.content.toLowerCase().trim();
+      const guess = message.content
+        .toLowerCase()
+        .trim()
+        .replace(".", "")
+        .replace("!", "")
+        .replace(",", "")
+        .replace("?", "");
 
       if (guess === correctAnswer) {
         const timeTaken = ((Date.now() - this.startTime) / 1000).toFixed(3);

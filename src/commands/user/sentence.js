@@ -90,7 +90,7 @@ const checkCommand = {
 
 const checkMessageCommand = {
   data: {
-    name: "Check Bulgarian Grammar",
+    name: "Check Grammar",
     type: 3, 
     integration_types: [0, 1],
     contexts: [0, 1, 2],

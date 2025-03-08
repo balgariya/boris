@@ -17,7 +17,6 @@ import { checkCommand, checkMessageCommand } from "./commands/user/sentence.js";
 import { sendRulesEmbed } from "./embeds/rules.js";
 import { bgjargonCommand } from "./commands/user/bgjargon.js";
 import { aiCommand, aiMessageCommand } from "./commands/user/ai.js";
-import { borisCommand } from "./commands/user/boris.js";
 
 import {
   wordGameCommand,
@@ -120,9 +119,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
     case "ai":
       await executeCommandSafely(aiCommand.execute, interaction);
-      return;
-    case "boris":
-      await executeCommandSafely(borisCommand.execute, interaction);
       return;
     case "wordgame":
       await executeCommandSafely(wordGameCommand.execute, interaction);

@@ -15,7 +15,6 @@ import { booksCommand } from "./commands/user/books.js";
 import { alphabetCommand } from "./commands/user/alphabet.js";
 import { bgjargonCommand } from "./commands/user/bgjargon.js";
 import { aiCommand, aiMessageCommand } from "./commands/user/ai.js";
-import { borisCommand } from "./commands/user/boris.js";
 import { wordGameCommand } from "./commands/user/wordgame.js";
 
 const rest = new REST().setToken(process.env.TOKEN);
@@ -39,7 +38,6 @@ const commands = [
   bgjargonCommand.data,
   aiCommand.data,
   aiMessageCommand.data,
-  borisCommand.data,
   wordGameCommand.data,
 ];
 

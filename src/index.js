@@ -16,6 +16,13 @@ import { alphabetCommand } from "./commands/user/alphabet.js";
 import { checkCommand, checkMessageCommand } from "./commands/user/sentence.js";
 import { sendRulesEmbed } from "./embeds/rules.js";
 import { bgjargonCommand } from "./commands/user/bgjargon.js";
+import { aiCommand, aiMessageCommand } from "./commands/user/ai.js";
+import { borisCommand } from "./commands/user/boris.js";
+
+import {
+  wordGameCommand,
+  handleWordGameButton,
+} from "./commands/user/wordgame.js";
 
 const client = new Client({
   intents: [
@@ -48,6 +55,13 @@ client.on(Events.MessageCreate, async (message) => {
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {
+  if (interaction.isButton()) {
+    if (interaction.customId.startsWith("wordgame_again_")) {
+      await executeCommandSafely(handleWordGameButton, interaction);
+      return;
+    }
+  }
+
   if (interaction.isMessageContextMenuCommand()) {
     const { commandName } = interaction;
 
@@ -60,6 +74,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
         return;
       case "Check Bulgarian Grammar":
         await executeCommandSafely(checkMessageCommand.execute, interaction);
+        return;
+      case "Ask AI About This":
+        await executeCommandSafely(aiMessageCommand.execute, interaction);
         return;
     }
   }
@@ -100,6 +117,15 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
     case "bgjargon":
       await executeCommandSafely(bgjargonCommand.execute, interaction);
+      return;
+    case "ai":
+      await executeCommandSafely(aiCommand.execute, interaction);
+      return;
+    case "boris":
+      await executeCommandSafely(borisCommand.execute, interaction);
+      return;
+    case "wordgame":
+      await executeCommandSafely(wordGameCommand.execute, interaction);
       return;
   }
 

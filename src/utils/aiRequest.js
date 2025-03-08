@@ -11,10 +11,6 @@ export async function requestAI(prompt, maxRetries = 3) {
           model: process.env.AI_MODEL,
           messages: [
             {
-              role: "system",
-              content: "",
-            },
-            {
               role: "user",
               content: prompt,
             },

@@ -5,6 +5,9 @@ import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 
+const userCooldowns = new Map();
+const COOLDOWN_SECONDS = 20; 
+
 function getDirname() {
   const __filename = fileURLToPath(import.meta.url);
   return path.dirname(__filename);
@@ -33,6 +36,27 @@ const dictionaryCommand = {
     contexts: [0, 1, 2],
   },
   async execute(interaction) {
+
+    const userId = interaction.user.id;
+    const now = Date.now();
+
+    if (userCooldowns.has(userId)) {
+      const lastUsage = userCooldowns.get(userId);
+      const timeElapsed = now - lastUsage;
+      const timeRemaining = COOLDOWN_SECONDS * 1000 - timeElapsed;
+
+      if (timeRemaining > 0) {
+        return interaction.reply({
+          content: `Моля, изчакайте още ${(timeRemaining / 1000).toFixed(
+            1
+          )} секунди преди да използвате тази команда отново.`,
+          ephemeral: true,
+        });
+      }
+    }
+
+    userCooldowns.set(userId, now);
+
     const allowedServerId = "658655311028289551";
     if (interaction.guildId !== allowedServerId) {
       return interaction.reply({
@@ -157,15 +181,16 @@ async function sendDefinitionEmbed(interaction, dictData, word, isCached) {
     .setURL(dictData.url)
     .setFooter({
       text: `Източник: Институт за български език - БАН${
-        isCached ? " (Cached)" : ""
+        isCached
+          ? " (Cached)"
+          : " (Executing this command had generated a cost of $0.1!)"
       }`,
-      iconURL:
-        "https://github.com/Bulgarian-Assistant/Bot/blob/main/resources/bg-alphabet.png?raw=true",
+      iconURL: "https://avatars.githubusercontent.com/u/179294549?s=200&v=4",
     });
 
   embeds.push(mainEmbed);
 
-  const MAX_FIELD_LENGTH = 1000; 
+  const MAX_FIELD_LENGTH = 1000;
   const definition = dictData.definition;
 
   let currentEmbed = mainEmbed;

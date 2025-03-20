@@ -17,6 +17,7 @@ import { bgjargonCommand } from "./commands/user/bgjargon.js";
 import { aiCommand, aiMessageCommand } from "./commands/user/ai.js";
 import { wordGameCommand } from "./commands/user/wordgame.js";
 import { dictionaryCommand } from "./commands/user/dictionary.js";
+import { leaderboardCommand } from "./commands/user/leaderboard.js";
 
 const rest = new REST().setToken(process.env.TOKEN);
 
@@ -41,6 +42,7 @@ const commands = [
   aiMessageCommand.data,
   wordGameCommand.data,
   dictionaryCommand.data,
+  leaderboardCommand.data
 ];
 
 rest

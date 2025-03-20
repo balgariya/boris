@@ -24,6 +24,7 @@ import {
 } from "./commands/user/wordgame.js";
 import { requestAI } from "./utils/aiRequest.js";
 import { dictionaryCommand } from "./commands/user/dictionary.js";
+import { leaderboardCommand } from "./commands/user/leaderboard.js";
 
 let chatChannel;
 
@@ -387,6 +388,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
     case "wordgame":
       await executeCommandSafely(wordGameCommand.execute, interaction);
+      return;
+    case "leaderboard":
+      await executeCommandSafely(leaderboardCommand.execute, interaction);
       return;
     case "dictionary":
       await executeCommandSafely(dictionaryCommand.execute, interaction);

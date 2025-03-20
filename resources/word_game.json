@@ -1,48 +1,3264 @@
 {
   "words": [
-    { "bg": "котка", "en": "cat" },
-    { "bg": "куче", "en": "dog" },
-    { "bg": "къща", "en": "house" },
-    { "bg": "град", "en": "city" },
-    { "bg": "море", "en": "sea" },
-    { "bg": "слънце", "en": "sun" },
-    { "bg": "време", "en": "time" },
-    { "bg": "храна", "en": "food" },
-    { "bg": "вода", "en": "water" },
-    { "bg": "приятел", "en": "friend" },
-    { "bg": "книга", "en": "book" },
-    { "bg": "маса", "en": "table" },
-    { "bg": "стол", "en": "chair" },
-    { "bg": "училище", "en": "school" },
-    { "bg": "работа", "en": "work" },
-    { "bg": "компютър", "en": "computer" },
-    { "bg": "игра", "en": "game" },
-    { "bg": "пътуване", "en": "travel" },
-    { "bg": "въображение", "en": "imagination" },
-    { "bg": "възможност", "en": "opportunity" },
-    { "bg": "успех", "en": "success" },
-    { "bg": "разговор", "en": "conversation" },
-    { "bg": "разнообразие", "en": "diversity" },
-    { "bg": "спокойствие", "en": "calmness" },
-    { "bg": "свобода", "en": "freedom" },
-    { "bg": "наука", "en": "science" },
-    { "bg": "технология", "en": "technology" },
-    { "bg": "история", "en": "history" },
-    { "bg": "култура", "en": "culture" },
-    { "bg": "образование", "en": "education" },
-    { "bg": "забавление", "en": "entertainment" },
-    { "bg": "процес", "en": "process" },
-    { "bg": "иновация", "en": "innovation" },
-    { "bg": "постижение", "en": "achievement" },
-    { "bg": "развитие", "en": "development" },
-    { "bg": "мотивация", "en": "motivation" },
-    { "bg": "комуникация", "en": "communication" },
-    { "bg": "организация", "en": "organization" },
-    { "bg": "отговорност", "en": "responsibility" },
-    { "bg": "адаптация", "en": "adaptation" },
-    { "bg": "психология", "en": "psychology" },
-    { "bg": "здраве", "en": "health" },
-    { "bg": "глупак", "en": "fool" },
-    { "bg": "любопитство", "en": "curiosity" }
+    {
+      "bg": "абонамент",
+      "en": "subscription"
+    },
+    {
+      "bg": "абонирам се",
+      "en": "to subscribe"
+    },
+    {
+      "bg": "адреналин",
+      "en": "adrenaline"
+    },
+    {
+      "bg": "летище",
+      "en": "airport"
+    },
+    {
+      "bg": "актуален",
+      "en": "actual, up to date"
+    },
+    {
+      "bg": "алея",
+      "en": "alley"
+    },
+    {
+      "bg": "анализ",
+      "en": "analysis"
+    },
+    {
+      "bg": "анатомия",
+      "en": "anatomy"
+    },
+    {
+      "bg": "атмосфера",
+      "en": "atmosphere"
+    },
+    {
+      "bg": "Балканската война",
+      "en": "Balkan war"
+    },
+    {
+      "bg": "бедствие",
+      "en": "disaster"
+    },
+    {
+      "bg": "безплатен",
+      "en": "for free, free"
+    },
+    {
+      "bg": "безработен",
+      "en": "unemployed"
+    },
+    {
+      "bg": "биология",
+      "en": "biology"
+    },
+    {
+      "bg": "благодарение на",
+      "en": "grace to"
+    },
+    {
+      "bg": "богатство",
+      "en": "wealth"
+    },
+    {
+      "bg": "болест",
+      "en": "disease"
+    },
+    {
+      "bg": "болка",
+      "en": "ache, pain"
+    },
+    {
+      "bg": "болница",
+      "en": "hospital"
+    },
+    {
+      "bg": "бомбардировка",
+      "en": "bombing"
+    },
+    {
+      "bg": "бонус",
+      "en": "bonus, extra"
+    },
+    {
+      "bg": "бакшиш",
+      "en": "tip"
+    },
+    {
+      "bg": "боря се",
+      "en": "to fight"
+    },
+    {
+      "bg": "бос",
+      "en": "barefoot"
+    },
+    {
+      "bg": "боя",
+      "en": "paint"
+    },
+    {
+      "bg": "бояджия",
+      "en": "painter"
+    },
+    {
+      "bg": "брада",
+      "en": "beard"
+    },
+    {
+      "bg": "брак",
+      "en": "marriage"
+    },
+    {
+      "bg": "брачен договор",
+      "en": "Wedding contract"
+    },
+    {
+      "bg": "брой",
+      "en": "number"
+    },
+    {
+      "bg": "буря",
+      "en": "storm"
+    },
+    {
+      "bg": "бъбрек",
+      "en": "kidney"
+    },
+    {
+      "bg": "Българската академия на науките",
+      "en": "Bulgarian Academy of science"
+    },
+    {
+      "bg": "в чест на",
+      "en": "in honor of…"
+    },
+    {
+      "bg": "вдъхновение",
+      "en": "inspiration"
+    },
+    {
+      "bg": "веднага",
+      "en": "immediately"
+    },
+    {
+      "bg": "велик",
+      "en": "great"
+    },
+    {
+      "bg": "взаимно",
+      "en": "mutual"
+    },
+    {
+      "bg": "вид",
+      "en": "type"
+    },
+    {
+      "bg": "византийски",
+      "en": "Byzantine"
+    },
+    {
+      "bg": "винная",
+      "en": "high school"
+    },
+    {
+      "bg": "високоскоростен",
+      "en": "high speed"
+    },
+    {
+      "bg": "висше образование",
+      "en": "higher education"
+    },
+    {
+      "bg": "включвам се",
+      "en": "to join"
+    },
+    {
+      "bg": "владея",
+      "en": "to rule; be fluent at"
+    },
+    {
+      "bg": "влак",
+      "en": "train"
+    },
+    {
+      "bg": "власт",
+      "en": "power"
+    },
+    {
+      "bg": "влечатление",
+      "en": "impression"
+    },
+    {
+      "bg": "вливя",
+      "en": "fight"
+    },
+    {
+      "bg": "влияние",
+      "en": "influence"
+    },
+    {
+      "bg": "влюбен",
+      "en": "be in love"
+    },
+    {
+      "bg": "вместо",
+      "en": "instead"
+    },
+    {
+      "bg": "внедряване",
+      "en": "implementation"
+    },
+    {
+      "bg": "води до",
+      "en": "it leads to"
+    },
+    {
+      "bg": "водно-електрическа",
+      "en": "hydroelectric"
+    },
+    {
+      "bg": "водопровод",
+      "en": "plumbing"
+    },
+    {
+      "bg": "водопроводчик",
+      "en": "plumber"
+    },
+    {
+      "bg": "военен",
+      "en": "military"
+    },
+    {
+      "bg": "война",
+      "en": "war"
+    },
+    {
+      "bg": "войник",
+      "en": "soldier"
+    },
+    {
+      "bg": "въобще",
+      "en": "at all, generally"
+    },
+    {
+      "bg": "вреда",
+      "en": "harm, damage"
+    },
+    {
+      "bg": "всякакъв",
+      "en": "various, of all kinds"
+    },
+    {
+      "bg": "въздух",
+      "en": "air"
+    },
+    {
+      "bg": "възможност",
+      "en": "opportunities"
+    },
+    {
+      "bg": "възобновяем",
+      "en": "renewable"
+    },
+    {
+      "bg": "възпитавам",
+      "en": "to educate, to bring up"
+    },
+    {
+      "bg": "Възраждане",
+      "en": "Renaissance"
+    },
+    {
+      "bg": "възрастен",
+      "en": "adult, aged, old"
+    },
+    {
+      "bg": "възстановявам",
+      "en": "to recover"
+    },
+    {
+      "bg": "възхищавам",
+      "en": "to admire"
+    },
+    {
+      "bg": "вълнуващ",
+      "en": "exciting"
+    },
+    {
+      "bg": "въглища",
+      "en": "coal"
+    },
+    {
+      "bg": "гадже",
+      "en": "boyfriend, girlfriend"
+    },
+    {
+      "bg": "газ",
+      "en": "gas"
+    },
+    {
+      "bg": "гениален",
+      "en": "genius"
+    },
+    {
+      "bg": "гимназия",
+      "en": "secondary school"
+    },
+    {
+      "bg": "гипсирам",
+      "en": "to put plaster"
+    },
+    {
+      "bg": "глас",
+      "en": "voice"
+    },
+    {
+      "bg": "гласувам",
+      "en": "to vote"
+    },
+    {
+      "bg": "глобально затопляне",
+      "en": "global warming"
+    },
+    {
+      "bg": "годишнина",
+      "en": "anniversary"
+    },
+    {
+      "bg": "гора",
+      "en": "forest"
+    },
+    {
+      "bg": "горд",
+      "en": "proud"
+    },
+    {
+      "bg": "гордея се",
+      "en": "to be proud"
+    },
+    {
+      "bg": "гордост",
+      "en": "pride"
+    },
+    {
+      "bg": "горски",
+      "en": "forest"
+    },
+    {
+      "bg": "градинар",
+      "en": "gardener"
+    },
+    {
+      "bg": "графика",
+      "en": "graphics"
+    },
+    {
+      "bg": "графичен",
+      "en": "graphic"
+    },
+    {
+      "bg": "грип",
+      "en": "flu, grippe"
+    },
+    {
+      "bg": "гробница",
+      "en": "tomb"
+    },
+    {
+      "bg": "гума",
+      "en": "tire, rubber, erase"
+    },
+    {
+      "bg": "гърло",
+      "en": "throat"
+    },
+    {
+      "bg": "далечен",
+      "en": "far away, distant"
+    },
+    {
+      "bg": "данни",
+      "en": "data"
+    },
+    {
+      "bg": "дано",
+      "en": "hopefully"
+    },
+    {
+      "bg": "движение",
+      "en": "movement, motion"
+    },
+    {
+      "bg": "двойка",
+      "en": "couple"
+    },
+    {
+      "bg": "дворец",
+      "en": "palace"
+    },
+    {
+      "bg": "дейност",
+      "en": "activity"
+    },
+    {
+      "bg": "деля",
+      "en": "to separate"
+    },
+    {
+      "bg": "демографски",
+      "en": "demographic"
+    },
+    {
+      "bg": "денонющие",
+      "en": "twenty-four hours"
+    },
+    {
+      "bg": "десетки",
+      "en": "dozens"
+    },
+    {
+      "bg": "детство",
+      "en": "childhood"
+    },
+    {
+      "bg": "джоб",
+      "en": "pocket"
+    },
+    {
+      "bg": "дигитална среда",
+      "en": "digital environment"
+    },
+    {
+      "bg": "дипломирам се",
+      "en": "to graduate"
+    },
+    {
+      "bg": "дистанционно",
+      "en": "distantly"
+    },
+    {
+      "bg": "дистанция",
+      "en": "distance"
+    },
+    {
+      "bg": "доброволец",
+      "en": "volunteer"
+    },
+    {
+      "bg": "доверие",
+      "en": "trust"
+    },
+    {
+      "bg": "доказам",
+      "en": "to prove"
+    },
+    {
+      "bg": "докосване",
+      "en": "touch, пипам, усещам"
+    },
+    {
+      "bg": "долина",
+      "en": "valley"
+    },
+    {
+      "bg": "досега",
+      "en": "so far"
+    },
+    {
+      "bg": "доставка",
+      "en": "delivery"
+    },
+    {
+      "bg": "доставчик",
+      "en": "provider"
+    },
+    {
+      "bg": "доставям",
+      "en": "to deliver"
+    },
+    {
+      "bg": "достигам",
+      "en": "to reach, to achieve"
+    },
+    {
+      "bg": "достъпен",
+      "en": "accessible; simple"
+    },
+    {
+      "bg": "доход",
+      "en": "income"
+    },
+    {
+      "bg": "драматург",
+      "en": "playwright"
+    },
+    {
+      "bg": "дребен",
+      "en": "small"
+    },
+    {
+      "bg": "древност",
+      "en": "antiquity"
+    },
+    {
+      "bg": "душа",
+      "en": "soul"
+    },
+    {
+      "bg": "дълголетие",
+      "en": "longevity"
+    },
+    {
+      "bg": "дърворезба",
+      "en": "wood-carving"
+    },
+    {
+      "bg": "държа",
+      "en": "to hold"
+    },
+    {
+      "bg": "единствен",
+      "en": "unique"
+    },
+    {
+      "bg": "едновременно",
+      "en": "simultaneously, at the same time"
+    },
+    {
+      "bg": "еднообразно",
+      "en": "monotonous"
+    },
+    {
+      "bg": "едър",
+      "en": "big"
+    },
+    {
+      "bg": "екип",
+      "en": "team"
+    },
+    {
+      "bg": "екологичен",
+      "en": "ecological"
+    },
+    {
+      "bg": "екология",
+      "en": "ecology"
+    },
+    {
+      "bg": "електричество",
+      "en": "electricity"
+    },
+    {
+      "bg": "електротехник",
+      "en": "electrician"
+    },
+    {
+      "bg": "емигрант",
+      "en": "emigrant"
+    },
+    {
+      "bg": "ефективен",
+      "en": "effective"
+    },
+    {
+      "bg": "жарава",
+      "en": "embers, live coals"
+    },
+    {
+      "bg": "жега",
+      "en": "heat"
+    },
+    {
+      "bg": "женен",
+      "en": "married"
+    },
+    {
+      "bg": "жесток",
+      "en": "cruel"
+    },
+    {
+      "bg": "жив",
+      "en": "alive"
+    },
+    {
+      "bg": "животно",
+      "en": "animal"
+    },
+    {
+      "bg": "жител",
+      "en": "inhabitant"
+    },
+    {
+      "bg": "за щастие",
+      "en": "luckily, fortunately"
+    },
+    {
+      "bg": "забавление",
+      "en": "entertainment"
+    },
+    {
+      "bg": "заведение",
+      "en": "a public house, bar, restaurant"
+    },
+    {
+      "bg": "завиждам",
+      "en": "to envy"
+    },
+    {
+      "bg": "зависи",
+      "en": "it depends"
+    },
+    {
+      "bg": "завършвам",
+      "en": "to graduate"
+    },
+    {
+      "bg": "загивам",
+      "en": "to die"
+    },
+    {
+      "bg": "загуба",
+      "en": "loss"
+    },
+    {
+      "bg": "заемам",
+      "en": "to take place, borrow"
+    },
+    {
+      "bg": "заемам място",
+      "en": "to take place"
+    },
+    {
+      "bg": "законен",
+      "en": "legal, legitimate"
+    },
+    {
+      "bg": "замърсен",
+      "en": "polluted"
+    },
+    {
+      "bg": "замърсявам",
+      "en": "to pollute"
+    },
+    {
+      "bg": "замърсяване",
+      "en": "pollution"
+    },
+    {
+      "bg": "занаят",
+      "en": "craft"
+    },
+    {
+      "bg": "занимание",
+      "en": "pleasure, recreation"
+    },
+    {
+      "bg": "запазвам",
+      "en": "to book"
+    },
+    {
+      "bg": "запалвам",
+      "en": "to light up"
+    },
+    {
+      "bg": "заради",
+      "en": "because of"
+    },
+    {
+      "bg": "зареждам",
+      "en": "to load"
+    },
+    {
+      "bg": "засаждам",
+      "en": "to plant"
+    },
+    {
+      "bg": "заспивам",
+      "en": "to fall asleep"
+    },
+    {
+      "bg": "защитавам",
+      "en": "to protect"
+    },
+    {
+      "bg": "защитник",
+      "en": "defender"
+    },
+    {
+      "bg": "звезда",
+      "en": "star"
+    },
+    {
+      "bg": "звучи",
+      "en": "it sounds"
+    },
+    {
+      "bg": "звъня",
+      "en": "to ring"
+    },
+    {
+      "bg": "здрав",
+      "en": "health, healthy"
+    },
+    {
+      "bg": "здравец",
+      "en": "geranium, crane’s-bill"
+    },
+    {
+      "bg": "здравсопазване",
+      "en": "health care"
+    },
+    {
+      "bg": "земеделие",
+      "en": "agriculture"
+    },
+    {
+      "bg": "земетресение",
+      "en": "earthquake"
+    },
+    {
+      "bg": "земя",
+      "en": "earth, land, ground"
+    },
+    {
+      "bg": "злато",
+      "en": "gold"
+    },
+    {
+      "bg": "зле",
+      "en": "bad"
+    },
+    {
+      "bg": "зло",
+      "en": "evil"
+    },
+    {
+      "bg": "знание",
+      "en": "knowledge"
+    },
+    {
+      "bg": "значение",
+      "en": "significance, importance, meaning"
+    },
+    {
+      "bg": "зона",
+      "en": "area"
+    },
+    {
+      "bg": "зрител",
+      "en": "viewer"
+    },
+    {
+      "bg": "зъб",
+      "en": "tooth"
+    },
+    {
+      "bg": "идва ми до гуша",
+      "en": "to be fed up"
+    },
+    {
+      "bg": "идеално",
+      "en": "ideally, ideal, perfect"
+    },
+    {
+      "bg": "избран",
+      "en": "selected"
+    },
+    {
+      "bg": "изваждам",
+      "en": "to take out"
+    },
+    {
+      "bg": "изведнъж",
+      "en": "suddenly"
+    },
+    {
+      "bg": "изгаряне",
+      "en": "burning"
+    },
+    {
+      "bg": "изглежда, че ...",
+      "en": "it seems that ..."
+    },
+    {
+      "bg": "издаден",
+      "en": "published"
+    },
+    {
+      "bg": "изискване",
+      "en": "requirements"
+    },
+    {
+      "bg": "изключителен",
+      "en": "exceptional, extraordinary"
+    },
+    {
+      "bg": "изкуство",
+      "en": "art"
+    },
+    {
+      "bg": "излитам",
+      "en": "to take off"
+    },
+    {
+      "bg": "изложение",
+      "en": "exposition"
+    },
+    {
+      "bg": "измества",
+      "en": "to replace, to take the place of"
+    },
+    {
+      "bg": "изнасям",
+      "en": "to export"
+    },
+    {
+      "bg": "изненада",
+      "en": "surprise"
+    },
+    {
+      "bg": "изненадан",
+      "en": "be surprised"
+    },
+    {
+      "bg": "изненадвам",
+      "en": "to surprise"
+    },
+    {
+      "bg": "изобретател",
+      "en": "inventor"
+    },
+    {
+      "bg": "изобретение",
+      "en": "invention"
+    },
+    {
+      "bg": "изобретявам",
+      "en": "to invent"
+    },
+    {
+      "bg": "изобщо",
+      "en": "at all"
+    },
+    {
+      "bg": "изолиран",
+      "en": "isolated"
+    },
+    {
+      "bg": "изолиране",
+      "en": "isolation"
+    },
+    {
+      "bg": "използван",
+      "en": "used"
+    },
+    {
+      "bg": "изпускам",
+      "en": "to miss"
+    },
+    {
+      "bg": "изразявам",
+      "en": "to express"
+    },
+    {
+      "bg": "изразяване",
+      "en": "expression"
+    },
+    {
+      "bg": "източник",
+      "en": "source"
+    },
+    {
+      "bg": "изхвърлям",
+      "en": "to throw"
+    },
+    {
+      "bg": "икона",
+      "en": "icon"
+    },
+    {
+      "bg": "икономически",
+      "en": "economical"
+    },
+    {
+      "bg": "именно",
+      "en": "precisely, exactly"
+    },
+    {
+      "bg": "император",
+      "en": "emperor"
+    },
+    {
+      "bg": "инвестирам",
+      "en": "to invest"
+    },
+    {
+      "bg": "инвеститор",
+      "en": "investor"
+    },
+    {
+      "bg": "индустриален",
+      "en": "industrial"
+    },
+    {
+      "bg": "индустрия",
+      "en": "industry"
+    },
+    {
+      "bg": "интелигентен",
+      "en": "intelligent"
+    },
+    {
+      "bg": "ирония",
+      "en": "irony"
+    },
+    {
+      "bg": "искрен",
+      "en": "sincere"
+    },
+    {
+      "bg": "истина",
+      "en": "truth"
+    },
+    {
+      "bg": "истински",
+      "en": "real"
+    },
+    {
+      "bg": "история",
+      "en": "history"
+    },
+    {
+      "bg": "кабелна телевизия",
+      "en": "cable TV"
+    },
+    {
+      "bg": "какво ли още не",
+      "en": "whatnot"
+    },
+    {
+      "bg": "кандидат",
+      "en": "candidate"
+    },
+    {
+      "bg": "кандидатствам",
+      "en": "to apply"
+    },
+    {
+      "bg": "кацам",
+      "en": "to land"
+    },
+    {
+      "bg": "качество",
+      "en": "quality"
+    },
+    {
+      "bg": "кашлям",
+      "en": "to cough"
+    },
+    {
+      "bg": "китка",
+      "en": "wrist"
+    },
+    {
+      "bg": "класация",
+      "en": "rating"
+    },
+    {
+      "bg": "клетка",
+      "en": "cell"
+    },
+    {
+      "bg": "кликване",
+      "en": "click"
+    },
+    {
+      "bg": "ключар",
+      "en": "locksmith"
+    },
+    {
+      "bg": "кожа",
+      "en": "skin"
+    },
+    {
+      "bg": "козметика",
+      "en": "cosmetics"
+    },
+    {
+      "bg": "коледар",
+      "en": "Christmas"
+    },
+    {
+      "bg": "колона",
+      "en": "column"
+    },
+    {
+      "bg": "коляно",
+      "en": "knee"
+    },
+    {
+      "bg": "командировка",
+      "en": "business trip"
+    },
+    {
+      "bg": "комбинация",
+      "en": "combination"
+    },
+    {
+      "bg": "коментатор",
+      "en": "newsman"
+    },
+    {
+      "bg": "коментирам",
+      "en": "to comment"
+    },
+    {
+      "bg": "комичество",
+      "en": "quantity"
+    },
+    {
+      "bg": "конник",
+      "en": "horse rider"
+    },
+    {
+      "bg": "континент",
+      "en": "continent"
+    },
+    {
+      "bg": "конференция",
+      "en": "conference"
+    },
+    {
+      "bg": "концентрирам",
+      "en": "to concentrate"
+    },
+    {
+      "bg": "кораб",
+      "en": "ship"
+    },
+    {
+      "bg": "кост",
+      "en": "bone"
+    },
+    {
+      "bg": "крак",
+      "en": "foot, leg"
+    },
+    {
+      "bg": "крачка",
+      "en": "step"
+    },
+    {
+      "bg": "крепостна стена",
+      "en": "castle wall"
+    },
+    {
+      "bg": "криза",
+      "en": "crisis"
+    },
+    {
+      "bg": "кръгла маса",
+      "en": "round table"
+    },
+    {
+      "bg": "крыв",
+      "en": "blood"
+    },
+    {
+      "bg": "крывно налягане",
+      "en": "blood pressure"
+    },
+    {
+      "bg": "кула",
+      "en": "tower"
+    },
+    {
+      "bg": "културен",
+      "en": "cultural"
+    },
+    {
+      "bg": "лавоболие",
+      "en": "headache"
+    },
+    {
+      "bg": "лакът",
+      "en": "elbow"
+    },
+    {
+      "bg": "лед",
+      "en": "ice"
+    },
+    {
+      "bg": "лекарство",
+      "en": "medicine"
+    },
+    {
+      "bg": "лекувам",
+      "en": "to treat, to cure"
+    },
+    {
+      "bg": "летище",
+      "en": "airport"
+    },
+    {
+      "bg": "летя",
+      "en": "to fly"
+    },
+    {
+      "bg": "лечебен",
+      "en": "healing"
+    },
+    {
+      "bg": "лечение",
+      "en": "treatment, cure"
+    },
+    {
+      "bg": "лечител",
+      "en": "healer"
+    },
+    {
+      "bg": "ликьор",
+      "en": "liqueur"
+    },
+    {
+      "bg": "лилия",
+      "en": "water-lily"
+    },
+    {
+      "bg": "литература",
+      "en": "literature"
+    },
+    {
+      "bg": "лишавам",
+      "en": "to deny oneself"
+    },
+    {
+      "bg": "лодка",
+      "en": "boat"
+    },
+    {
+      "bg": "луд съм по",
+      "en": "to be crazy about"
+    },
+    {
+      "bg": "любопитен",
+      "en": "curious"
+    },
+    {
+      "bg": "магистрала",
+      "en": "highway"
+    },
+    {
+      "bg": "маргаритка",
+      "en": "daisy"
+    },
+    {
+      "bg": "маслодaен",
+      "en": "oil-bearing"
+    },
+    {
+      "bg": "математически",
+      "en": "mathematical"
+    },
+    {
+      "bg": "медия",
+      "en": "media"
+    },
+    {
+      "bg": "международен",
+      "en": "international"
+    },
+    {
+      "bg": "меря",
+      "en": "to measure"
+    },
+    {
+      "bg": "миг",
+      "en": "moment"
+    },
+    {
+      "bg": "минало",
+      "en": "past"
+    },
+    {
+      "bg": "мир",
+      "en": "peace"
+    },
+    {
+      "bg": "мириша",
+      "en": "to smell"
+    },
+    {
+      "bg": "мисъл",
+      "en": "thought"
+    },
+    {
+      "bg": "мит",
+      "en": "myth, washed"
+    },
+    {
+      "bg": "мично",
+      "en": "personally"
+    },
+    {
+      "bg": "мнение",
+      "en": "opinion"
+    },
+    {
+      "bg": "Мога да се справя!",
+      "en": "I can handle it. I can manage."
+    },
+    {
+      "bg": "мозък",
+      "en": "brain"
+    },
+    {
+      "bg": "монтирам",
+      "en": "to fix"
+    },
+    {
+      "bg": "монтьор",
+      "en": "mechanic"
+    },
+    {
+      "bg": "мост",
+      "en": "bridge"
+    },
+    {
+      "bg": "мразя",
+      "en": "to hate"
+    },
+    {
+      "bg": "мълчалив",
+      "en": "silent"
+    },
+    {
+      "bg": "мълчиш",
+      "en": "be silent"
+    },
+    {
+      "bg": "мързелив",
+      "en": "lazy"
+    },
+    {
+      "bg": "мързелувам",
+      "en": "to laze, to be relaxed"
+    },
+    {
+      "bg": "мярка",
+      "en": "measure"
+    },
+    {
+      "bg": "наблюдавам",
+      "en": "to observe"
+    },
+    {
+      "bg": "наводнение",
+      "en": "flood"
+    },
+    {
+      "bg": "навсякъде",
+      "en": "everywhere"
+    },
+    {
+      "bg": "награда",
+      "en": "award"
+    },
+    {
+      "bg": "надявам се",
+      "en": "I hope"
+    },
+    {
+      "bg": "най-накрая",
+      "en": "finally, at last"
+    },
+    {
+      "bg": "намалявам",
+      "en": "to turn down, to reduce"
+    },
+    {
+      "bg": "нападение",
+      "en": "attack, assault, offense"
+    },
+    {
+      "bg": "напомням",
+      "en": "to remind"
+    },
+    {
+      "bg": "напоследък",
+      "en": "recently"
+    },
+    {
+      "bg": "например",
+      "en": "for example"
+    },
+    {
+      "bg": "напускам",
+      "en": "to leave"
+    },
+    {
+      "bg": "наред",
+      "en": "in order, OK, alright, fine, okay"
+    },
+    {
+      "bg": "Народна банка",
+      "en": "National Bank"
+    },
+    {
+      "bg": "население",
+      "en": "population"
+    },
+    {
+      "bg": "наскоро",
+      "en": "recently, lately"
+    },
+    {
+      "bg": "наследство",
+      "en": "heritage"
+    },
+    {
+      "bg": "наспивам се",
+      "en": "to get enough sleep"
+    },
+    {
+      "bg": "настанявам се",
+      "en": "to accommodate"
+    },
+    {
+      "bg": "настивам",
+      "en": "to catch a cold"
+    },
+    {
+      "bg": "настроение",
+      "en": "mood"
+    },
+    {
+      "bg": "наука",
+      "en": "science"
+    },
+    {
+      "bg": "нахален",
+      "en": "cheeky, impudent"
+    },
+    {
+      "bg": "начало",
+      "en": "beginning"
+    },
+    {
+      "bg": "невероятен",
+      "en": "incredible"
+    },
+    {
+      "bg": "невероятно",
+      "en": "incredible"
+    },
+    {
+      "bg": "невъзможен",
+      "en": "impossible"
+    },
+    {
+      "bg": "невъзможно",
+      "en": "impossible"
+    },
+    {
+      "bg": "негативен",
+      "en": "negative"
+    },
+    {
+      "bg": "недостатък",
+      "en": "defect, fault, disadvantage"
+    },
+    {
+      "bg": "незабравим",
+      "en": "unforgettable"
+    },
+    {
+      "bg": "независимо",
+      "en": "independently"
+    },
+    {
+      "bg": "ненужен",
+      "en": "unnecessary"
+    },
+    {
+      "bg": "необикновен",
+      "en": "extraordinary"
+    },
+    {
+      "bg": "необичаен",
+      "en": "unusual, strange, uncommon"
+    },
+    {
+      "bg": "необходимо",
+      "en": "necessary"
+    },
+    {
+      "bg": "неописуем",
+      "en": "unspeakable"
+    },
+    {
+      "bg": "неопитен",
+      "en": "unexperienced"
+    },
+    {
+      "bg": "неприличен",
+      "en": "obscene"
+    },
+    {
+      "bg": "неработеш",
+      "en": "corrupted"
+    },
+    {
+      "bg": "нервен",
+      "en": "nervous"
+    },
+    {
+      "bg": "нетърпение",
+      "en": "impatience"
+    },
+    {
+      "bg": "нефт",
+      "en": "oil"
+    },
+    {
+      "bg": "нещастен",
+      "en": "unhappy"
+    },
+    {
+      "bg": "нива",
+      "en": "piece of land"
+    },
+    {
+      "bg": "ниво",
+      "en": "level"
+    },
+    {
+      "bg": "нито",
+      "en": "neither, nor"
+    },
+    {
+      "bg": "обаче",
+      "en": "however"
+    },
+    {
+      "bg": "обединен",
+      "en": "united"
+    },
+    {
+      "bg": "обединявам",
+      "en": "to unite, to unify"
+    },
+    {
+      "bg": "обективен",
+      "en": "objective"
+    },
+    {
+      "bg": "обикалям",
+      "en": "to tour"
+    },
+    {
+      "bg": "обичай",
+      "en": "custom"
+    },
+    {
+      "bg": "област",
+      "en": "area"
+    },
+    {
+      "bg": "баси",
+      "en": "no way, are you serious"
+    },
+    {
+      "bg": "лани",
+      "en": "last year"
+    },
+    {
+      "bg": "пладне",
+      "en": "noon"
+    },
+    {
+      "bg": "лоло",
+      "en": "lol"
+    },
+    {
+      "bg": "образ",
+      "en": "image"
+    },
+    {
+      "bg": "образование",
+      "en": "education"
+    },
+    {
+      "bg": "обратна връзка",
+      "en": "feedback"
+    },
+    {
+      "bg": "обръщам внимание на",
+      "en": "to take notice"
+    },
+    {
+      "bg": "обсъждам",
+      "en": "to discuss"
+    },
+    {
+      "bg": "обучение",
+      "en": "teaching, training"
+    },
+    {
+      "bg": "обущар",
+      "en": "shoemaker"
+    },
+    {
+      "bg": "обхващам",
+      "en": "to include"
+    },
+    {
+      "bg": "общ",
+      "en": "common"
+    },
+    {
+      "bg": "обществен",
+      "en": "public"
+    },
+    {
+      "bg": "общество",
+      "en": "society, community"
+    },
+    {
+      "bg": "община",
+      "en": "Municipality"
+    },
+    {
+      "bg": "общувам",
+      "en": "to communicate"
+    },
+    {
+      "bg": "огромен",
+      "en": "enormous, huge"
+    },
+    {
+      "bg": "огьн",
+      "en": "fire"
+    },
+    {
+      "bg": "одобрявам",
+      "en": "to approve"
+    },
+    {
+      "bg": "оживен",
+      "en": "alive"
+    },
+    {
+      "bg": "оздравявам",
+      "en": "to get well"
+    },
+    {
+      "bg": "оказвам влияние",
+      "en": "to influence"
+    },
+    {
+      "bg": "океан",
+      "en": "ocean"
+    },
+    {
+      "bg": "око",
+      "en": "eye"
+    },
+    {
+      "bg": "околна среда",
+      "en": "environment"
+    },
+    {
+      "bg": "омраза",
+      "en": "hate"
+    },
+    {
+      "bg": "омьжена",
+      "en": "married"
+    },
+    {
+      "bg": "опазвам",
+      "en": "to preserve"
+    },
+    {
+      "bg": "опазване",
+      "en": "preservation"
+    },
+    {
+      "bg": "опасен",
+      "en": "dangerous"
+    },
+    {
+      "bg": "операция",
+      "en": "surgery"
+    },
+    {
+      "bg": "описвам",
+      "en": "to describe"
+    },
+    {
+      "bg": "опит",
+      "en": "experience"
+    },
+    {
+      "bg": "опитвам се",
+      "en": "to try"
+    },
+    {
+      "bg": "оплаквам",
+      "en": "to complain of"
+    },
+    {
+      "bg": "опознавам",
+      "en": "to get to know"
+    },
+    {
+      "bg": "определям",
+      "en": "to define"
+    },
+    {
+      "bg": "опростен",
+      "en": "simplified"
+    },
+    {
+      "bg": "опростявам",
+      "en": "to simplify"
+    },
+    {
+      "bg": "ориентирам се",
+      "en": "to orientate"
+    },
+    {
+      "bg": "оркестър",
+      "en": "orchestra"
+    },
+    {
+      "bg": "осветён",
+      "en": "lit"
+    },
+    {
+      "bg": "основа",
+      "en": "basis"
+    },
+    {
+      "bg": "основен",
+      "en": "basic, main"
+    },
+    {
+      "bg": "основно",
+      "en": "basically"
+    },
+    {
+      "bg": "основно образование",
+      "en": "a primary school"
+    },
+    {
+      "bg": "особено",
+      "en": "especially"
+    },
+    {
+      "bg": "оставам",
+      "en": "to stay"
+    },
+    {
+      "bg": "оставям",
+      "en": "to leave, abandon"
+    },
+    {
+      "bg": "остатък",
+      "en": "remains, residue"
+    },
+    {
+      "bg": "осъждам",
+      "en": "to convict, to sentence"
+    },
+    {
+      "bg": "осъществявам",
+      "en": "to realize, to fulfill"
+    },
+    {
+      "bg": "от",
+      "en": "from"
+    },
+    {
+      "bg": "отбелязан",
+      "en": "mentioned, marked, noticed"
+    },
+    {
+      "bg": "отглеждам",
+      "en": "to cultivate, to grow"
+    },
+    {
+      "bg": "отдавна",
+      "en": "long time ago"
+    },
+    {
+      "bg": "отдалечавам се",
+      "en": "to move away"
+    },
+    {
+      "bg": "отдих",
+      "en": "rest, repose, relaxation"
+    },
+    {
+      "bg": "отказвам се",
+      "en": "to give up"
+    },
+    {
+      "bg": "открива се",
+      "en": "opens"
+    },
+    {
+      "bg": "откривам",
+      "en": "to invent, to discover"
+    },
+    {
+      "bg": "откривател",
+      "en": "inventor"
+    },
+    {
+      "bg": "открит",
+      "en": "open"
+    },
+    {
+      "bg": "отопление",
+      "en": "heating"
+    },
+    {
+      "bg": "отпадък",
+      "en": "waste"
+    },
+    {
+      "bg": "отразява се на",
+      "en": "reflects"
+    },
+    {
+      "bg": "отрязан",
+      "en": "severed, cut"
+    },
+    {
+      "bg": "отрязвам",
+      "en": "to cut off"
+    },
+    {
+      "bg": "отслабвам",
+      "en": "to lose weight"
+    },
+    {
+      "bg": "отхвърлям",
+      "en": "to reject, to deny, to decline"
+    },
+    {
+      "bg": "оценка",
+      "en": "evaluation, estimation"
+    },
+    {
+      "bg": "очарован",
+      "en": "fascinated by"
+    },
+    {
+      "bg": "очен лекар",
+      "en": "ophthalmologist"
+    },
+    {
+      "bg": "паве",
+      "en": "paving stone"
+    },
+    {
+      "bg": "павилион",
+      "en": "kiosk"
+    },
+    {
+      "bg": "палатка",
+      "en": "tent"
+    },
+    {
+      "bg": "памет",
+      "en": "memory"
+    },
+    {
+      "bg": "панаир",
+      "en": "fair"
+    },
+    {
+      "bg": "парад",
+      "en": "parade"
+    },
+    {
+      "bg": "Парламент",
+      "en": "Parliament"
+    },
+    {
+      "bg": "партньор",
+      "en": "partner"
+    },
+    {
+      "bg": "патриотичен",
+      "en": "patriotic"
+    },
+    {
+      "bg": "пейзаж",
+      "en": "landscape"
+    },
+    {
+      "bg": "пейка",
+      "en": "bench"
+    },
+    {
+      "bg": "петрол",
+      "en": "oil"
+    },
+    {
+      "bg": "печеля",
+      "en": "to win"
+    },
+    {
+      "bg": "пещера",
+      "en": "cave"
+    },
+    {
+      "bg": "писетел",
+      "en": "writer"
+    },
+    {
+      "bg": "писменост",
+      "en": "writing"
+    },
+    {
+      "bg": "питка",
+      "en": "round bread"
+    },
+    {
+      "bg": "пластмаса",
+      "en": "plastic"
+    },
+    {
+      "bg": "плача",
+      "en": "to cry, to weep"
+    },
+    {
+      "bg": "плеса",
+      "en": "play"
+    },
+    {
+      "bg": "плодороден",
+      "en": "fertile"
+    },
+    {
+      "bg": "плодородие",
+      "en": "fruitfulness"
+    },
+    {
+      "bg": "побеждавам",
+      "en": "to win"
+    },
+    {
+      "bg": "повечето",
+      "en": "majority, most, mostly"
+    },
+    {
+      "bg": "повишавам",
+      "en": "to increase"
+    },
+    {
+      "bg": "поговорка",
+      "en": "proverb"
+    },
+    {
+      "bg": "подготвям",
+      "en": "to prepare"
+    },
+    {
+      "bg": "подготовка",
+      "en": "training, preparation"
+    },
+    {
+      "bg": "подкрепям",
+      "en": "to support"
+    },
+    {
+      "bg": "подобрявам",
+      "en": "to improve"
+    },
+    {
+      "bg": "подписвам",
+      "en": "to sign"
+    },
+    {
+      "bg": "подробен",
+      "en": "detailed"
+    },
+    {
+      "bg": "позволявам",
+      "en": "to allow, to permit"
+    },
+    {
+      "bg": "позволявам си",
+      "en": "to afford, to allow myself"
+    },
+    {
+      "bg": "позитивен",
+      "en": "positive"
+    },
+    {
+      "bg": "позиция",
+      "en": "position"
+    },
+    {
+      "bg": "полет",
+      "en": "flight"
+    },
+    {
+      "bg": "полза",
+      "en": "profit, use"
+    },
+    {
+      "bg": "политик",
+      "en": "politician"
+    },
+    {
+      "bg": "политически",
+      "en": "political"
+    },
+    {
+      "bg": "полуостров",
+      "en": "peninsula"
+    },
+    {
+      "bg": "полюс",
+      "en": "pole"
+    },
+    {
+      "bg": "помощ",
+      "en": "help"
+    },
+    {
+      "bg": "помощник",
+      "en": "assistant"
+    },
+    {
+      "bg": "поправям",
+      "en": "to repair, to correct"
+    },
+    {
+      "bg": "порта",
+      "en": "gate"
+    },
+    {
+      "bg": "поръчка",
+      "en": "order"
+    },
+    {
+      "bg": "посветен",
+      "en": "devoted"
+    },
+    {
+      "bg": "посвещавам",
+      "en": "to devote, to dedicate"
+    },
+    {
+      "bg": "постен",
+      "en": "vegetarian"
+    },
+    {
+      "bg": "потвърждавам",
+      "en": "to confirm"
+    },
+    {
+      "bg": "потребител",
+      "en": "user"
+    },
+    {
+      "bg": "похарча",
+      "en": "to spend money"
+    },
+    {
+      "bg": "почва",
+      "en": "soil"
+    },
+    {
+      "bg": "почина",
+      "en": "passed away"
+    },
+    {
+      "bg": "почистване",
+      "en": "cleaning"
+    },
+    {
+      "bg": "появявам се",
+      "en": "to appear"
+    },
+    {
+      "bg": "православен",
+      "en": "orthodox"
+    },
+    {
+      "bg": "правостоящ",
+      "en": "standing up"
+    },
+    {
+      "bg": "прадядо",
+      "en": "great grandfather"
+    },
+    {
+      "bg": "практикувам",
+      "en": "to practice"
+    },
+    {
+      "bg": "превръщам",
+      "en": "to transform"
+    },
+    {
+      "bg": "преглед",
+      "en": "examination"
+    },
+    {
+      "bg": "преглеждам",
+      "en": "to examine a patient"
+    },
+    {
+      "bg": "предаване",
+      "en": "broadcast"
+    },
+    {
+      "bg": "предварително",
+      "en": "previously"
+    },
+    {
+      "bg": "предимно",
+      "en": "mostly, mainly"
+    },
+    {
+      "bg": "предимство",
+      "en": "priority, privilege, advantage"
+    },
+    {
+      "bg": "предишен",
+      "en": "previous"
+    },
+    {
+      "bg": "предписвам",
+      "en": "to prescribe"
+    },
+    {
+      "bg": "представим",
+      "en": "to introduce, to present"
+    },
+    {
+      "bg": "представям си",
+      "en": "to imagine"
+    },
+    {
+      "bg": "предупреждавам",
+      "en": "to warn, to notify"
+    },
+    {
+      "bg": "предучилищен",
+      "en": "preschool"
+    },
+    {
+      "bg": "презентация",
+      "en": "presentation"
+    },
+    {
+      "bg": "прекалено",
+      "en": "too much"
+    },
+    {
+      "bg": "прекарвам",
+      "en": "to spend"
+    },
+    {
+      "bg": "преминавам",
+      "en": "to pass, to get through"
+    },
+    {
+      "bg": "пренесен",
+      "en": "brought, carry, transfer"
+    },
+    {
+      "bg": "препоръка",
+      "en": "recommendation"
+    },
+    {
+      "bg": "препоръчвам",
+      "en": "to recommend"
+    },
+    {
+      "bg": "престижен",
+      "en": "prestigious"
+    },
+    {
+      "bg": "престилка",
+      "en": "apron"
+    },
+    {
+      "bg": "престой",
+      "en": "stay, stop"
+    },
+    {
+      "bg": "прибавям",
+      "en": "to add"
+    },
+    {
+      "bg": "приближавам се",
+      "en": "to come near, to approach"
+    },
+    {
+      "bg": "привилегия",
+      "en": "privilege"
+    },
+    {
+      "bg": "привлекателен",
+      "en": "attractive"
+    },
+    {
+      "bg": "привличам",
+      "en": "to attract"
+    },
+    {
+      "bg": "приемам",
+      "en": "to accept"
+    },
+    {
+      "bg": "приказлив",
+      "en": "talkative"
+    },
+    {
+      "bg": "приложение",
+      "en": "application, app"
+    },
+    {
+      "bg": "примитивен",
+      "en": "primitive"
+    },
+    {
+      "bg": "пристанище",
+      "en": "port"
+    },
+    {
+      "bg": "пристигам",
+      "en": "to arrive"
+    },
+    {
+      "bg": "притеснен",
+      "en": "uneasy, anxious, nervous"
+    },
+    {
+      "bg": "притеснявам се",
+      "en": "to worry"
+    },
+    {
+      "bg": "причинявам",
+      "en": "to cause"
+    },
+    {
+      "bg": "приятелство",
+      "en": "friendship"
+    },
+    {
+      "bg": "ще се състои",
+      "en": "to be held"
+    },
+    {
+      "bg": "провинция",
+      "en": "countryside"
+    },
+    {
+      "bg": "програмист",
+      "en": "programmer, code"
+    },
+    {
+      "bg": "продължавам",
+      "en": "to continue"
+    },
+    {
+      "bg": "продължителност",
+      "en": "continuation"
+    },
+    {
+      "bg": "произвеждам",
+      "en": "to produce"
+    },
+    {
+      "bg": "произход",
+      "en": "origin"
+    },
+    {
+      "bg": "промишлен",
+      "en": "industrial"
+    },
+    {
+      "bg": "промоция",
+      "en": "promotion"
+    },
+    {
+      "bg": "промяна",
+      "en": "change"
+    },
+    {
+      "bg": "просто",
+      "en": "just, simply"
+    },
+    {
+      "bg": "пространство",
+      "en": "space"
+    },
+    {
+      "bg": "проучване",
+      "en": "research"
+    },
+    {
+      "bg": "процес",
+      "en": "process"
+    },
+    {
+      "bg": "пръв поглед",
+      "en": "first sight, first look, first glance"
+    },
+    {
+      "bg": "пръст",
+      "en": "finger, toe"
+    },
+    {
+      "bg": "психолог",
+      "en": "psychologist"
+    },
+    {
+      "bg": "публика",
+      "en": "audience"
+    },
+    {
+      "bg": "публикуван",
+      "en": "published"
+    },
+    {
+      "bg": "пуша",
+      "en": "to smoke"
+    },
+    {
+      "bg": "пушач",
+      "en": "smoker"
+    },
+    {
+      "bg": "пътепис",
+      "en": "Travel Notes"
+    },
+    {
+      "bg": "пътник",
+      "en": "passenger"
+    },
+    {
+      "bg": "работилница",
+      "en": "workshop"
+    },
+    {
+      "bg": "работлив",
+      "en": "hard-working, diligent"
+    },
+    {
+      "bg": "работодател",
+      "en": "employer"
+    },
+    {
+      "bg": "радвам се",
+      "en": "to be glad"
+    },
+    {
+      "bg": "раждам",
+      "en": "to give birth"
+    },
+    {
+      "bg": "раждане",
+      "en": "birth"
+    },
+    {
+      "bg": "разболявам се",
+      "en": "to get ill, to get sick"
+    },
+    {
+      "bg": "развивам",
+      "en": "to develop"
+    },
+    {
+      "bg": "развитие",
+      "en": "development"
+    },
+    {
+      "bg": "развлечение",
+      "en": "pastime, entertainment"
+    },
+    {
+      "bg": "развод",
+      "en": "divorce"
+    },
+    {
+      "bg": "раздел",
+      "en": "section, part"
+    },
+    {
+      "bg": "разделно",
+      "en": "separately"
+    },
+    {
+      "bg": "разделям",
+      "en": "to divide"
+    },
+    {
+      "bg": "разказ",
+      "en": "story"
+    },
+    {
+      "bg": "разказвам",
+      "en": "to tell"
+    },
+    {
+      "bg": "разкошен",
+      "en": "gorgeous, amazing, wonderful, beautiful, pretty"
+    },
+    {
+      "bg": "различен",
+      "en": "different"
+    },
+    {
+      "bg": "разнообразен",
+      "en": "diverse"
+    },
+    {
+      "bg": "разочаровам",
+      "en": "to disappoint"
+    },
+    {
+      "bg": "разочарован",
+      "en": "disappointed"
+    },
+    {
+      "bg": "разположен",
+      "en": "located"
+    },
+    {
+      "bg": "разположение",
+      "en": "location"
+    },
+    {
+      "bg": "разпространен",
+      "en": "spread"
+    },
+    {
+      "bg": "разрушен",
+      "en": "destroyed"
+    },
+    {
+      "bg": "разсейвам",
+      "en": "to distract"
+    },
+    {
+      "bg": "разстояние",
+      "en": "distance"
+    },
+    {
+      "bg": "рай",
+      "en": "paradise"
+    },
+    {
+      "bg": "растение",
+      "en": "plant"
+    },
+    {
+      "bg": "реален",
+      "en": "real"
+    },
+    {
+      "bg": "реализирам",
+      "en": "to realise"
+    },
+    {
+      "bg": "ревнувам",
+      "en": "to be jealous"
+    },
+    {
+      "bg": "регистрирам",
+      "en": "to register"
+    },
+    {
+      "bg": "ред",
+      "en": "row"
+    },
+    {
+      "bg": "редовно",
+      "en": "regularly"
+    },
+    {
+      "bg": "режа",
+      "en": "to cut"
+    },
+    {
+      "bg": "реколта",
+      "en": "harvest"
+    },
+    {
+      "bg": "ремонт",
+      "en": "repair"
+    },
+    {
+      "bg": "ремонтирам",
+      "en": "to repair"
+    },
+    {
+      "bg": "ремонтирани",
+      "en": "repaired"
+    },
+    {
+      "bg": "рейтинг",
+      "en": "rating, level"
+    },
+    {
+      "bg": "Ренесанс",
+      "en": "Renaissance, Revival"
+    },
+    {
+      "bg": "репортаж",
+      "en": "reportage"
+    },
+    {
+      "bg": "репортер",
+      "en": "reporter"
+    },
+    {
+      "bg": "рецепта",
+      "en": "prescription"
+    },
+    {
+      "bg": "рециклиране",
+      "en": "recycling"
+    },
+    {
+      "bg": "решавам",
+      "en": "to decide"
+    },
+    {
+      "bg": "рибар",
+      "en": "fisherman"
+    },
+    {
+      "bg": "римлянин",
+      "en": "Roman"
+    },
+    {
+      "bg": "риск",
+      "en": "risk"
+    },
+    {
+      "bg": "ритуал",
+      "en": "ritual"
+    },
+    {
+      "bg": "родина",
+      "en": "motherland"
+    },
+    {
+      "bg": "розобер",
+      "en": "rose-picking"
+    },
+    {
+      "bg": "розово масло",
+      "en": "rose oil"
+    },
+    {
+      "bg": "роман",
+      "en": "novel"
+    },
+    {
+      "bg": "ръка",
+      "en": "hand"
+    },
+    {
+      "bg": "саксия",
+      "en": "flower pot"
+    },
+    {
+      "bg": "самочувствие",
+      "en": "self-confidence, self-esteem"
+    },
+    {
+      "bg": "сватба",
+      "en": "wedding"
+    },
+    {
+      "bg": "световноизвестен",
+      "en": "world famous"
+    },
+    {
+      "bg": "свещен",
+      "en": "sacred"
+    },
+    {
+      "bg": "свързан",
+      "en": "connected"
+    },
+    {
+      "bg": "свързан с",
+      "en": "associated with"
+    },
+    {
+      "bg": "свързвам",
+      "en": "to connect"
+    },
+    {
+      "bg": "сгодявам се",
+      "en": "to engage"
+    },
+    {
+      "bg": "селско стопанство",
+      "en": "agriculture"
+    },
+    {
+      "bg": "семеен",
+      "en": "married, family"
+    },
+    {
+      "bg": "семинар",
+      "en": "seminar"
+    },
+    {
+      "bg": "сещам се",
+      "en": "to remember, to recall"
+    },
+    {
+      "bg": "сигнал",
+      "en": "signal"
+    },
+    {
+      "bg": "сигурност",
+      "en": "security"
+    },
+    {
+      "bg": "симпатичен",
+      "en": "cute, nice"
+    },
+    {
+      "bg": "сиряк",
+      "en": "orphan"
+    },
+    {
+      "bg": "скала",
+      "en": "rock"
+    },
+    {
+      "bg": "скален",
+      "en": "rocky"
+    },
+    {
+      "bg": "скрит",
+      "en": "hidden"
+    },
+    {
+      "bg": "скромен",
+      "en": "modest"
+    },
+    {
+      "bg": "скулптор",
+      "en": "sculptor"
+    },
+    {
+      "bg": "скучно",
+      "en": "boring"
+    },
+    {
+      "bg": "следван",
+      "en": "followed"
+    },
+    {
+      "bg": "следващ",
+      "en": "next"
+    },
+    {
+      "bg": "служител",
+      "en": "employee"
+    },
+    {
+      "bg": "случайно",
+      "en": "accidentally, occasionally"
+    },
+    {
+      "bg": "сметка",
+      "en": "bill"
+    },
+    {
+      "bg": "смъртоносен",
+      "en": "deadly, lethal"
+    },
+    {
+      "bg": "смятам",
+      "en": "to reckon, to believe"
+    },
+    {
+      "bg": "собствен",
+      "en": "own"
+    },
+    {
+      "bg": "солиден",
+      "en": "solid, serious"
+    },
+    {
+      "bg": "социален живот",
+      "en": "social life"
+    },
+    {
+      "bg": "спасен",
+      "en": "safe"
+    },
+    {
+      "bg": "спасявам",
+      "en": "to save"
+    },
+    {
+      "bg": "специалист",
+      "en": "specialty"
+    },
+    {
+      "bg": "спешно",
+      "en": "urgently"
+    },
+    {
+      "bg": "списък",
+      "en": "list"
+    },
+    {
+      "bg": "споделям",
+      "en": "to share"
+    },
+    {
+      "bg": "спокойствие",
+      "en": "calmness"
+    },
+    {
+      "bg": "спомен",
+      "en": "memory"
+    },
+    {
+      "bg": "спомням си",
+      "en": "to remind, to remember"
+    },
+    {
+      "bg": "според мене",
+      "en": "in my opinion"
+    },
+    {
+      "bg": "споря",
+      "en": "to argue"
+    },
+    {
+      "bg": "справедливост",
+      "en": "justice"
+    },
+    {
+      "bg": "сред",
+      "en": "among, между"
+    },
+    {
+      "bg": "среда",
+      "en": "middle, background"
+    },
+    {
+      "bg": "средно образование",
+      "en": "secondary school"
+    },
+    {
+      "bg": "средновековен",
+      "en": "medieval"
+    },
+    {
+      "bg": "средство",
+      "en": "mean"
+    },
+    {
+      "bg": "ставам",
+      "en": "to become"
+    },
+    {
+      "bg": "стаж",
+      "en": "internship"
+    },
+    {
+      "bg": "стажант",
+      "en": "apprentice, trainee"
+    },
+    {
+      "bg": "статистика",
+      "en": "statistics"
+    },
+    {
+      "bg": "статия",
+      "en": "article"
+    },
+    {
+      "bg": "стигам",
+      "en": "to get to, reach"
+    },
+    {
+      "bg": "стока",
+      "en": "stock, goods"
+    },
+    {
+      "bg": "столица",
+      "en": "capital"
+    },
+    {
+      "bg": "стомах",
+      "en": "stomach"
+    },
+    {
+      "bg": "сграда",
+      "en": "building"
+    },
+    {
+      "bg": "страдам",
+      "en": "to suffer"
+    },
+    {
+      "bg": "страхувам се",
+      "en": "to be afraid"
+    },
+    {
+      "bg": "страшен",
+      "en": "scary"
+    },
+    {
+      "bg": "строг",
+      "en": "strict, severe"
+    },
+    {
+      "bg": "строител",
+      "en": "builder"
+    },
+    {
+      "bg": "струва ми се, че ...",
+      "en": "I think that ..."
+    },
+    {
+      "bg": "структура",
+      "en": "structure"
+    },
+    {
+      "bg": "стъпало",
+      "en": "step, stage"
+    },
+    {
+      "bg": "супер",
+      "en": "super"
+    },
+    {
+      "bg": "суша",
+      "en": "dry"
+    },
+    {
+      "bg": "сфера",
+      "en": "field, sphere"
+    },
+    {
+      "bg": "сцена",
+      "en": "stage"
+    },
+    {
+      "bg": "счупен",
+      "en": "broken"
+    },
+    {
+      "bg": "събирам",
+      "en": "to collect, to gather"
+    },
+    {
+      "bg": "събитие",
+      "en": "event"
+    },
+    {
+      "bg": "съвет",
+      "en": "advice"
+    },
+    {
+      "bg": "съветвам",
+      "en": "to advise"
+    },
+    {
+      "bg": "съвременен",
+      "en": "contemporary, up to date"
+    },
+    {
+      "bg": "съдба",
+      "en": "fate, destiny"
+    },
+    {
+      "bg": "създавам",
+      "en": "to create"
+    },
+    {
+      "bg": "създаден",
+      "en": "created"
+    },
+    {
+      "bg": "създател",
+      "en": "creator"
+    },
+    {
+      "bg": "съкровище",
+      "en": "treasure"
+    },
+    {
+      "bg": "съмнявам се",
+      "en": "to doubt"
+    },
+    {
+      "bg": "съобщавам",
+      "en": "to announce"
+    },
+    {
+      "bg": "съобщение",
+      "en": "message"
+    },
+    {
+      "bg": "състезател",
+      "en": "contestant"
+    },
+    {
+      "bg": "състои се от",
+      "en": "consists of"
+    },
+    {
+      "bg": "съществувам",
+      "en": "to exist"
+    },
+    {
+      "bg": "таблетка",
+      "en": "tablet"
+    },
+    {
+      "bg": "тайна",
+      "en": "secret"
+    },
+    {
+      "bg": "такса",
+      "en": "fee"
+    },
+    {
+      "bg": "такъв",
+      "en": "such"
+    },
+    {
+      "bg": "талант",
+      "en": "talent"
+    },
+    {
+      "bg": "творчество",
+      "en": "creative work, creation"
+    },
+    {
+      "bg": "тегло",
+      "en": "weight"
+    },
+    {
+      "bg": "тежа",
+      "en": "to weigh"
+    },
+    {
+      "bg": "тема",
+      "en": "topic"
+    },
+    {
+      "bg": "технически",
+      "en": "technical"
+    },
+    {
+      "bg": "технология",
+      "en": "technology"
+    },
+    {
+      "bg": "тишина",
+      "en": "silence"
+    },
+    {
+      "bg": "тогава",
+      "en": "then"
+    },
+    {
+      "bg": "тоне",
+      "en": "ton"
+    },
+    {
+      "bg": "топлина",
+      "en": "warmth"
+    },
+    {
+      "bg": "топя",
+      "en": "to melt"
+    },
+    {
+      "bg": "традиционен",
+      "en": "traditional"
+    },
+    {
+      "bg": "традиция",
+      "en": "tradition"
+    },
+    {
+      "bg": "трапеза",
+      "en": "table set"
+    },
+    {
+      "bg": "трудност",
+      "en": "difficulty"
+    },
+    {
+      "bg": "тъй като",
+      "en": "as"
+    },
+    {
+      "bg": "търговец",
+      "en": "trader"
+    },
+    {
+      "bg": "търговия",
+      "en": "trade"
+    },
+    {
+      "bg": "търпение",
+      "en": "patience"
+    },
+    {
+      "bg": "тьжен",
+      "en": "sad"
+    },
+    {
+      "bg": "уважавам",
+      "en": "to respect"
+    },
+    {
+      "bg": "увеличавам",
+      "en": "to increase, to raise"
+    },
+    {
+      "bg": "увод",
+      "en": "introduction"
+    },
+    {
+      "bg": "удобно",
+      "en": "convenient"
+    },
+    {
+      "bg": "удобство",
+      "en": "convenience, comfort"
+    },
+    {
+      "bg": "украсявам",
+      "en": "to decorate"
+    },
+    {
+      "bg": "ум",
+      "en": "mind"
+    },
+    {
+      "bg": "умение",
+      "en": "skill"
+    },
+    {
+      "bg": "умирам",
+      "en": "to die"
+    },
+    {
+      "bg": "уникален",
+      "en": "unique"
+    },
+    {
+      "bg": "унищожавам",
+      "en": "to destroy"
+    },
+    {
+      "bg": "уреден",
+      "en": "arranged, settled"
+    },
+    {
+      "bg": "усещам",
+      "en": "to feel, to sense"
+    },
+    {
+      "bg": "усилие",
+      "en": "effort"
+    },
+    {
+      "bg": "условие",
+      "en": "condition"
+    },
+    {
+      "bg": "усмивка",
+      "en": "smile"
+    },
+    {
+      "bg": "усмихнат",
+      "en": "smiling"
+    },
+    {
+      "bg": "успивам се",
+      "en": "to oversleep"
+    },
+    {
+      "bg": "усъвършенствам",
+      "en": "to upgrade"
+    },
+    {
+      "bg": "ухо",
+      "en": "ear"
+    },
+    {
+      "bg": "участвам",
+      "en": "to participate"
+    },
+    {
+      "bg": "участник",
+      "en": "participant"
+    },
+    {
+      "bg": "учен",
+      "en": "scientist"
+    },
+    {
+      "bg": "учудвам се",
+      "en": "to wonder, to be surprised"
+    },
+    {
+      "bg": "фенер",
+      "en": "lantern"
+    },
+    {
+      "bg": "фестивал",
+      "en": "festival"
+    },
+    {
+      "bg": "физически",
+      "en": "physical"
+    },
+    {
+      "bg": "философия",
+      "en": "philosophy"
+    },
+    {
+      "bg": "форма",
+      "en": "form"
+    },
+    {
+      "bg": "формирам",
+      "en": "to form"
+    },
+    {
+      "bg": "форум",
+      "en": "forum"
+    },
+    {
+      "bg": "фотоволтаична централа",
+      "en": "photovoltaic plant"
+    },
+    {
+      "bg": "фронт",
+      "en": "front"
+    },
+    {
+      "bg": "характер",
+      "en": "character"
+    },
+    {
+      "bg": "харча",
+      "en": "to spend money"
+    },
+    {
+      "bg": "хваля",
+      "en": "to brag, to boast, to talk big"
+    },
+    {
+      "bg": "хващам",
+      "en": "to catch"
+    },
+    {
+      "bg": "хвърлям",
+      "en": "to throw"
+    },
+    {
+      "bg": "хеликоптер",
+      "en": "helicopter"
+    },
+    {
+      "bg": "хиляди",
+      "en": "thousands"
+    },
+    {
+      "bg": "хирург",
+      "en": "surgeon"
+    },
+    {
+      "bg": "храм",
+      "en": "church"
+    },
+    {
+      "bg": "хранителна добавка",
+      "en": "nutritional supplement"
+    },
+    {
+      "bg": "хрема",
+      "en": "running nose"
+    },
+    {
+      "bg": "Художествената академия",
+      "en": "Art academy"
+    },
+    {
+      "bg": "хумор",
+      "en": "humour"
+    },
+    {
+      "bg": "хълм",
+      "en": "hill"
+    },
+    {
+      "bg": "цар",
+      "en": "king"
+    },
+    {
+      "bg": "цветен",
+      "en": "colorful"
+    },
+    {
+      "bg": "цел",
+      "en": "aim, goal, purpose"
+    },
+    {
+      "bg": "ценен",
+      "en": "valuable"
+    },
+    {
+      "bg": "ценност",
+      "en": "value"
+    },
+    {
+      "bg": "централа",
+      "en": "power station, headquarters, plant"
+    },
+    {
+      "bg": "цивилизация",
+      "en": "civilization"
+    },
+    {
+      "bg": "църква",
+      "en": "church"
+    },
+    {
+      "bg": "цъфтя",
+      "en": "to blossom, to bloom"
+    },
+    {
+      "bg": "част",
+      "en": "part"
+    },
+    {
+      "bg": "частен",
+      "en": "private"
+    },
+    {
+      "bg": "черен дроб",
+      "en": "liver"
+    },
+    {
+      "bg": "честност",
+      "en": "honesty"
+    },
+    {
+      "bg": "чешма",
+      "en": "fountain, water tap"
+    },
+    {
+      "bg": "читалня",
+      "en": "reading-room"
+    },
+    {
+      "bg": "читател",
+      "en": "reader"
+    },
+    {
+      "bg": "член",
+      "en": "member"
+    },
+    {
+      "bg": "човешки права",
+      "en": "human rights"
+    },
+    {
+      "bg": "чувствам",
+      "en": "to feel"
+    },
+    {
+      "bg": "чувство",
+      "en": "feeling"
+    },
+    {
+      "bg": "чудо",
+      "en": "wonder, miracle"
+    },
+    {
+      "bg": "чужбина",
+      "en": "abroad, foreign land, foreign country"
+    },
+    {
+      "bg": "чужд",
+      "en": "foreign"
+    },
+    {
+      "bg": "шампионат",
+      "en": "Championship"
+    },
+    {
+      "bg": "шедьовър",
+      "en": "masterpiece"
+    },
+    {
+      "bg": "шивач",
+      "en": "tailor"
+    },
+    {
+      "bg": "шия",
+      "en": "to sew"
+    },
+    {
+      "bg": "шум",
+      "en": "noise"
+    },
+    {
+      "bg": "шумен",
+      "en": "noisy"
+    },
+    {
+      "bg": "щастлив",
+      "en": "happy"
+    },
+    {
+      "bg": "щета",
+      "en": "damage"
+    },
+    {
+      "bg": "явление",
+      "en": "phenomenon"
+    },
+    {
+      "bg": "ядосвам се",
+      "en": "I get angry"
+    },
+    {
+      "bg": "язовир",
+      "en": "dam"
+    },
+    {
+      "bg": "ястие",
+      "en": "meal, dish, food"
+    }
   ]
 }

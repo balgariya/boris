@@ -1,5 +1,218 @@
 {
   "words": [
+    { "bg": "никога", "en": "never" },
+    { "bg": "понякога", "en": "sometimes" },
+    { "bg": "почти никога", "en": "almost never" },
+    { "bg": "рядко", "en": "rarely" },
+    { "bg": "често", "en": "often" },
+    { "bg": "редовно", "en": "regularly" },
+    { "bg": "обикновено", "en": "usually" },
+    { "bg": "преди 10 дни", "en": "10 days ago" },
+    { "bg": "след 3 години", "en": "in 3 years, after 3 years" },
+    { "bg": "от време на време", "en": "from time to time" },
+    { "bg": "по-рано", "en": "earlier" },
+    { "bg": "сега", "en": "now" },
+    { "bg": "вчера", "en": "yesterday" },
+    { "bg": "тази сутрин", "en": "this morning" },
+    { "bg": "вече", "en": "already, not anymore" },
+    { "bg": "много скоро", "en": "very soon" },
+    { "bg": "днеска", "en": "today" },
+    { "bg": "късно", "en": "late" },
+    { "bg": "вчера вечерта", "en": "last night" },
+    { "bg": "късно следващия месец", "en": "late next month" },
+    { "bg": "в този момент", "en": "at the moment" },
+    { "bg": "по-късно", "en": "later" },
+    { "bg": "наскоро", "en": "recently" },
+    { "bg": "когато е готово", "en": "whenever it's ready" },
+    { "bg": "след седмица", "en": "in a week" },
+    { "bg": "миналата седмица", "en": "last week" },
+    { "bg": "късно вечерта", "en": "late evening" },
+    { "bg": "навреме", "en": "on time" },
+    { "bg": "откакто", "en": "ever since" },
+    { "bg": "всяка седмица", "en": "every week" },
+    { "bg": "тази вечер", "en": "this evening" },
+    { "bg": "всяка сутрин", "en": "every morning" },
+    { "bg": "скоро", "en": "soon" },
+    { "bg": "преди час", "en": "an hour ago" },
+    { "bg": "днес вечерта", "en": "tonight" },
+    { "bg": "през миналата година", "en": "last year" },
+    { "bg": "по-късно тази седмица", "en": "later this week" },
+    { "bg": "веднага", "en": "immediately" },
+    { "bg": "в миналото", "en": "in the past" },
+    { "bg": "преді", "en": "before" },
+    { "bg": "в бъдеще", "en": "in the future" },
+    { "bg": "още", "en": "more, still" },
+    { "bg": "още не", "en": "not yet" },
+    { "bg": "пак", "en": "again" },
+    { "bg": "отново", "en": "again" },
+    { "bg": "след това", "en": "after that" },
+    { "bg": "до после", "en": "see you later" },
+    { "bg": "до скоро", "en": "see you soon" },
+    { "bg": "понеделник", "en": "monday" },
+    { "bg": "вторник", "en": "tuesday" },
+    { "bg": "сряда", "en": "wednesday" },
+    { "bg": "четвъртък", "en": "thursday" },
+    { "bg": "петък", "en": "friday" },
+    { "bg": "събота", "en": "saturday" },
+    { "bg": "седмица", "en": "week" },
+    { "bg": "в понеделник", "en": "on monday" },
+    { "bg": "тази седмица", "en": "this week" },
+    { "bg": "следващата седмица", "en": "next week" },
+    { "bg": "днес", "en": "today" },
+    { "bg": "утре", "en": "tomorrow" },
+    { "bg": "завчера", "en": "the day before yesterday, vorgestern" },
+    { "bg": "вдругиден", "en": "the day after tomorrow, übermorgen" },
+    { "bg": "януари", "en": "january" },
+    { "bg": "февруари", "en": "february" },
+    { "bg": "март", "en": "march" },
+    { "bg": "април", "en": "april" },
+    { "bg": "май", "en": "may" },
+    { "bg": "юни", "en": "june" },
+    { "bg": "юли", "en": "july" },
+    { "bg": "август", "en": "august" },
+    { "bg": "септември", "en": "september" },
+    { "bg": "октомври", "en": "october" },
+    { "bg": "ноември", "en": "november" },
+    { "bg": "декември", "en": "december" },
+    { "bg": "през ноември", "en": "in november" },
+    { "bg": "пролет", "en": "spring" },
+    { "bg": "лято", "en": "summer" },
+    { "bg": "есен", "en": "autumn" },
+    { "bg": "зима", "en": "winter" },
+    { "bg": "през пролетта", "en": "in spring" },
+    { "bg": "през лятото", "en": "in summer" },
+    { "bg": "хайде", "en": "let's, lets" },
+    { "bg": "айде", "en": "let's, lets" },
+    { "bg": "ами", "en": "well" },
+    { "bg": "еми", "en": "well" },
+    { "bg": "леле", "en": "wow" },
+    { "bg": "виж", "en": "look" },
+    { "bg": "нали", "en": "right?" },
+    { "bg": "бързо", "en": "fast" },
+    { "bg": "по-бързо", "en": "faster" },
+    { "bg": "най-бързо", "en": "fastest" },
+    { "bg": "твърде бързо", "en": "too fast" },
+    { "bg": "не достатъчно бързо", "en": "not fast enough" },
+    { "bg": "малко", "en": "little, not much" },
+    { "bg": "достатъчно", "en": "enough" },
+    { "bg": "много", "en": "much, many" },
+    { "bg": "повече", "en": "more" },
+    { "bg": "най-много", "en": "most" },
+    { "bg": "твърде много", "en": "too much" },
+    { "bg": "това не е достатъчно", "en": "this is not enough" },
+    { "bg": "няколко", "en": "several" },
+    { "bg": "не много", "en": "not many" },
+    { "bg": "поне", "en": "at least" },
+    { "bg": "само", "en": "only" },
+    { "bg": "ако", "en": "if" },
+    { "bg": "въпреки", "en": "despite" },
+    { "bg": "въпреки това", "en": "despite this" },
+    { "bg": "правилно", "en": "right" },
+    { "bg": "неправилно", "en": "wrong" },
+    { "bg": "нека", "en": "lets (do this)" },
+    { "bg": "като", "en": "like" },
+    { "bg": "както", "en": "as, like" },
+    { "bg": "също", "en": "also" },
+    { "bg": "ходя", "en": "to walk" },
+    { "bg": "скачам", "en": "to jump" },
+    { "bg": "плувам", "en": "to swim" },
+    { "bg": "ям", "en": "to eat" },
+    { "bg": "пия", "en": "to drink" },
+    { "bg": "спя", "en": "to sleep" },
+    { "bg": "почивам", "en": "to rest" },
+    { "bg": "работя", "en": "to work" },
+    { "bg": "уча", "en": "to study" },
+    { "bg": "чета", "en": "to read" },
+    { "bg": "пиша", "en": "to write" },
+    { "bg": "говоря", "en": "to speak" },
+    { "bg": "слушам", "en": "to listen" },
+    { "bg": "чувам", "en": "to hear" },
+    { "bg": "виждам", "en": "to see" },
+    { "bg": "гледам", "en": "to watch, to look" },
+    { "bg": "намирам", "en": "to find" },
+    { "bg": "губя", "en": "to lose" },
+    { "bg": "играя", "en": "to play" },
+    { "bg": "танцувам", "en": "to dance" },
+    { "bg": "пея", "en": "to sing" },
+    { "bg": "смея се", "en": "to laugh" },
+    { "bg": "усмихвам се", "en": "to smile" },
+    { "bg": "разговарям", "en": "to talk" },
+    { "bg": "при нас", "en": "at our place, at our home" },
+    { "bg": "над нас", "en": "above us" },
+    { "bg": "отгоре", "en": "from above" },
+    { "bg": "отдолу", "en": "from below" },
+    { "bg": "до", "en": "next to, to" },
+    { "bg": "зад", "en": "behind" },
+    { "bg": "отзад", "en": "from behind" },
+    { "bg": "вътре", "en": "inside" },
+    { "bg": "вън", "en": "outside" },
+    { "bg": "вътрешно", "en": "inner" },
+    { "bg": "външно", "en": "outer, external" },
+    { "bg": "преди", "en": "before" },
+    { "bg": "след", "en": "after" },
+    { "bg": "между", "en": "between" },
+    { "bg": "до тук", "en": "up to here" },
+    { "bg": "някъде", "en": "somewhere" },
+    { "bg": "никъде", "en": "nowhere" },
+    { "bg": "навсякъде", "en": "everywhere" },
+    { "bg": "извън", "en": "outside" },
+    { "bg": "отвътре", "en": "from the inside" },
+    { "bg": "отвън", "en": "from the outside" },
+    { "bg": "докъде", "en": "until where" },
+    { "bg": "по-ниско", "en": "lower" },
+    { "bg": "по-горе", "en": "higher" },
+    { "bg": "надолу", "en": "downwards" },
+    { "bg": "нагоре", "en": "upwards" },
+    { "bg": "навън", "en": "outwards" },
+    { "bg": "навътре", "en": "inwards" },
+    { "bg": "от", "en": "from" },
+    { "bg": "във", "en": "in" },
+    { "bg": "на", "en": "on" },
+    { "bg": "из", "en": "out of" },
+    { "bg": "със", "en": "with" },
+    { "bg": "без", "en": "without" },
+    { "bg": "за", "en": "for" },
+    { "bg": "през", "en": "through" },
+    { "bg": "около", "en": "around" },
+    { "bg": "над", "en": "above, over" },
+    { "bg": "под", "en": "below, under" },
+    { "bg": "до", "en": "until" },
+    { "bg": "пред", "en": "before, in front of" },
+    { "bg": "срещу", "en": "against, opposite" },
+    { "bg": "тук", "en": "here" },
+    { "bg": "там", "en": "there" },
+    { "bg": "нула", "en": "zero, 0" },
+    { "bg": "едно", "en": "one, 1" },
+    { "bg": "две", "en": "two, 2" },
+    { "bg": "три", "en": "three, 3" },
+    { "bg": "четири", "en": "four, 4" },
+    { "bg": "пет", "en": "five, 5" },
+    { "bg": "шест", "en": "six, 6" },
+    { "bg": "седем", "en": "seven, 7" },
+    { "bg": "осем", "en": "eight, 8" },
+    { "bg": "девет", "en": "nine, 9" },
+    { "bg": "десет", "en": "ten, 10" },
+    { "bg": "единадесет", "en": "eleven, 11" },
+    { "bg": "дванадесет", "en": "twelve, 12" },
+    { "bg": "четиридесет", "en": "forty, 40" },
+    { "bg": "петдесет", "en": "fifty, 50" },
+    { "bg": "сто", "en": "one hundred, 100" },
+    { "bg": "триста", "en": "three hundred, 300" },
+    { "bg": "четиристотин", "en": "four hundred, 400" },
+    { "bg": "хиляда", "en": "one thousand" },
+    { "bg": "два милиарда", "en": "two billion" },
+    { "bg": "два дена", "en": "two days" },
+    { "bg": "три години", "en": "three years" },
+    { "bg": "един месец", "en": "one month" },
+    { "bg": "два века", "en": "two centuries" },
+    { "bg": "двама", "en": "two people, two" },
+    { "bg": "един път", "en": "once" },
+    { "bg": "седем пъти", "en": "seven times" },
+    { "bg": "първи път", "en": "first time" },
+    { "bg": "пети път", "en": "fifth time" },
+    { "bg": "тройка", "en": "trio" },
+    { "bg": "четворка", "en": "quartet" },
+    { "bg": "петица", "en": "group of five" },
     {
       "bg": "абонамент",
       "en": "subscription"
@@ -46,7 +259,7 @@
     },
     {
       "bg": "безплатен",
-      "en": "for free, free"
+      "en": "free, for free"
     },
     {
       "bg": "безработен",
@@ -114,7 +327,7 @@
     },
     {
       "bg": "брачен договор",
-      "en": "Wedding contract"
+      "en": "Wedding contract, marriage contract"
     },
     {
       "bg": "брой",
@@ -134,15 +347,11 @@
     },
     {
       "bg": "в чест на",
-      "en": "in honor of…"
+      "en": "in honor of"
     },
     {
       "bg": "вдъхновение",
       "en": "inspiration"
-    },
-    {
-      "bg": "веднага",
-      "en": "immediately"
     },
     {
       "bg": "велик",
@@ -159,10 +368,6 @@
     {
       "bg": "византийски",
       "en": "Byzantine"
-    },
-    {
-      "bg": "винная",
-      "en": "high school"
     },
     {
       "bg": "високоскоростен",
@@ -193,7 +398,7 @@
       "en": "impression"
     },
     {
-      "bg": "вливя",
+      "bg": "борба",
       "en": "fight"
     },
     {
@@ -202,7 +407,7 @@
     },
     {
       "bg": "влюбен",
-      "en": "be in love"
+      "en": "in love"
     },
     {
       "bg": "вместо",
@@ -258,7 +463,7 @@
     },
     {
       "bg": "възможност",
-      "en": "opportunities"
+      "en": "opportunity"
     },
     {
       "bg": "възобновяем",
@@ -306,11 +511,11 @@
     },
     {
       "bg": "гимназия",
-      "en": "secondary school"
+      "en": "secondary school, high school"
     },
     {
       "bg": "гипсирам",
-      "en": "to plaster, to put plaster, to put on a plaster"
+      "en": "to plaster, to put in a cast"
     },
     {
       "bg": "глас",
@@ -321,7 +526,7 @@
       "en": "to vote"
     },
     {
-      "bg": "глобально затопляне",
+      "bg": "глобално затопляне",
       "en": "global warming"
     },
     {
@@ -345,10 +550,6 @@
       "en": "pride"
     },
     {
-      "bg": "горски",
-      "en": "forest"
-    },
-    {
       "bg": "градинар",
       "en": "gardener"
     },
@@ -370,7 +571,7 @@
     },
     {
       "bg": "гума",
-      "en": "tire, rubber, erase"
+      "en": "tire, rubber, eraser"
     },
     {
       "bg": "гърло",
@@ -413,7 +614,7 @@
       "en": "demographic"
     },
     {
-      "bg": "денонющие",
+      "bg": "денонощие",
       "en": "twenty-four hours"
     },
     {
@@ -453,12 +654,12 @@
       "en": "trust"
     },
     {
-      "bg": "доказам",
+      "bg": "докажа",
       "en": "to prove"
     },
     {
       "bg": "докосване",
-      "en": "touch, пипам, усещам"
+      "en": "touch"
     },
     {
       "bg": "долина",
@@ -522,7 +723,7 @@
     },
     {
       "bg": "единствен",
-      "en": "unique"
+      "en": "only, sole, unique"
     },
     {
       "bg": "едновременно",
@@ -530,11 +731,11 @@
     },
     {
       "bg": "еднообразно",
-      "en": "monotonous"
+      "en": "uniformly, monotonously"
     },
     {
       "bg": "едър",
-      "en": "big"
+      "en": "large, big, huge, enormous"
     },
     {
       "bg": "екип",
@@ -598,11 +799,11 @@
     },
     {
       "bg": "забавление",
-      "en": "entertainment"
+      "en": "entertainment, amusement, fun"
     },
     {
       "bg": "заведение",
-      "en": "a public house, bar, restaurant"
+      "en": "establishment, bar, restaurant, a public house"
     },
     {
       "bg": "завиждам",
@@ -618,7 +819,7 @@
     },
     {
       "bg": "загивам",
-      "en": "to die"
+      "en": "to perish, to die"
     },
     {
       "bg": "загуба",
@@ -626,7 +827,7 @@
     },
     {
       "bg": "заемам",
-      "en": "to take place, borrow"
+      "en": "to occupy, borrow"
     },
     {
       "bg": "заемам място",
@@ -702,14 +903,14 @@
     },
     {
       "bg": "здрав",
-      "en": "health, healthy"
+      "en": "healthy, strong"
     },
     {
       "bg": "здравец",
       "en": "geranium, crane’s-bill"
     },
     {
-      "bg": "здравсопазване",
+      "bg": "Здравеопазване",
       "en": "health care"
     },
     {
@@ -762,7 +963,7 @@
     },
     {
       "bg": "идеално",
-      "en": "ideally, ideal, perfect"
+      "en": "ideally, perfectly"
     },
     {
       "bg": "избран",
@@ -822,11 +1023,11 @@
     },
     {
       "bg": "изненадан",
-      "en": "be surprised, surprised"
+      "en": "be surprised, surprised, astonished, amazed"
     },
     {
       "bg": "изненадвам",
-      "en": "to surprise"
+      "en": "to surprise, to astonish"
     },
     {
       "bg": "изобретател",
@@ -842,7 +1043,7 @@
     },
     {
       "bg": "изобщо",
-      "en": "at all"
+      "en": "at all, generally"
     },
     {
       "bg": "изолиран",
@@ -858,7 +1059,7 @@
     },
     {
       "bg": "изпускам",
-      "en": "to miss"
+      "en": "to miss, to drop"
     },
     {
       "bg": "изразявам",
@@ -874,7 +1075,7 @@
     },
     {
       "bg": "изхвърлям",
-      "en": "to throw"
+      "en": "to throw, to discard, to toss"
     },
     {
       "bg": "икона",
@@ -882,7 +1083,7 @@
     },
     {
       "bg": "икономически",
-      "en": "economical"
+      "en": "economical, economic"
     },
     {
       "bg": "именно",
@@ -925,6 +1126,18 @@
       "en": "truth"
     },
     {
+      "bg": "неделя",
+      "en": "sunday"
+    },
+    {
+      "bg": "къща",
+      "en": "house"
+    },
+    {
+      "bg": "немски",
+      "en": "german"
+    },
+    {
       "bg": "истински",
       "en": "real"
     },
@@ -938,7 +1151,7 @@
     },
     {
       "bg": "какво ли още не",
-      "en": "whatnot"
+      "en": "whatnot, etc., and so on, etcetera"
     },
     {
       "bg": "кандидат",
@@ -989,7 +1202,7 @@
       "en": "cosmetics"
     },
     {
-      "bg": "коледар",
+      "bg": "коледа",
       "en": "Christmas"
     },
     {
@@ -1010,7 +1223,7 @@
     },
     {
       "bg": "коментатор",
-      "en": "newsman"
+      "en": "newsman, commentator"
     },
     {
       "bg": "коментирам",
@@ -1022,7 +1235,7 @@
     },
     {
       "bg": "конник",
-      "en": "horse rider"
+      "en": "horse rider, equestrian"
     },
     {
       "bg": "континент",
@@ -1065,11 +1278,11 @@
       "en": "round table"
     },
     {
-      "bg": "крыв",
+      "bg": "кърв",
       "en": "blood"
     },
     {
-      "bg": "крывно налягане",
+      "bg": "кръвно налягане",
       "en": "blood pressure"
     },
     {
@@ -1099,10 +1312,6 @@
     {
       "bg": "лекувам",
       "en": "to treat, to cure"
-    },
-    {
-      "bg": "летище",
-      "en": "airport"
     },
     {
       "bg": "летя",
@@ -1194,14 +1403,14 @@
     },
     {
       "bg": "мисъл",
-      "en": "thought"
+      "en": "thought, idea, mind"
     },
     {
       "bg": "мит",
       "en": "myth, washed"
     },
     {
-      "bg": "мично",
+      "bg": "лично",
       "en": "personally"
     },
     {
@@ -1218,7 +1427,7 @@
     },
     {
       "bg": "монтирам",
-      "en": "to fix"
+      "en": "to fix, to assemble, to install"
     },
     {
       "bg": "монтьор",
@@ -1238,7 +1447,7 @@
     },
     {
       "bg": "мълчиш",
-      "en": "be silent"
+      "en": "to be silent"
     },
     {
       "bg": "мързелив",
@@ -1246,7 +1455,7 @@
     },
     {
       "bg": "мързелувам",
-      "en": "to laze, to be relaxed"
+      "en": "to laze, to be relaxed, to be lazy"
     },
     {
       "bg": "мярка",
@@ -1261,12 +1470,8 @@
       "en": "flood"
     },
     {
-      "bg": "навсякъде",
-      "en": "everywhere"
-    },
-    {
       "bg": "награда",
-      "en": "award"
+      "en": "award, prize"
     },
     {
       "bg": "надявам се",
@@ -1290,7 +1495,7 @@
     },
     {
       "bg": "напоследък",
-      "en": "recently"
+      "en": "recently, lately"
     },
     {
       "bg": "например",
@@ -1298,11 +1503,11 @@
     },
     {
       "bg": "напускам",
-      "en": "to leave"
+      "en": "to leave, to quit"
     },
     {
       "bg": "наред",
-      "en": "in order, OK, alright, fine, okay"
+      "en": "in order, okay, OK, alright, fine"
     },
     {
       "bg": "Народна банка",
@@ -1318,7 +1523,7 @@
     },
     {
       "bg": "наследство",
-      "en": "heritage"
+      "en": "heritage, inheritance"
     },
     {
       "bg": "наспивам се",
@@ -1386,7 +1591,7 @@
     },
     {
       "bg": "необикновен",
-      "en": "extraordinary"
+      "en": "extraordinary, exceptional, uncommon"
     },
     {
       "bg": "необичаен",
@@ -1406,11 +1611,11 @@
     },
     {
       "bg": "неприличен",
-      "en": "obscene"
+      "en": "obscene, indecent, improper"
     },
     {
       "bg": "неработещ",
-      "en": "corrupted, malfunctioning, broken"
+      "en": "corrupted, malfunctioning, broken, non-functional"
     },
     {
       "bg": "нервен",
@@ -1426,7 +1631,7 @@
     },
     {
       "bg": "нещастен",
-      "en": "unhappy"
+      "en": "unhappy, miserable"
     },
     {
       "bg": "нива",
@@ -1458,7 +1663,7 @@
     },
     {
       "bg": "обикалям",
-      "en": "to tour"
+      "en": "to tour, to roam, to travel around"
     },
     {
       "bg": "обичай",
@@ -1490,7 +1695,7 @@
     },
     {
       "bg": "образование",
-      "en": "education"
+      "en": "education, formation"
     },
     {
       "bg": "обратна връзка",
@@ -1550,7 +1755,7 @@
     },
     {
       "bg": "оживен",
-      "en": "alive"
+      "en": "alive, lively"
     },
     {
       "bg": "оздравявам",
@@ -1577,7 +1782,7 @@
       "en": "hate"
     },
     {
-      "bg": "омьжена",
+      "bg": "омъжена",
       "en": "married"
     },
     {
@@ -1606,7 +1811,7 @@
     },
     {
       "bg": "опитвам се",
-      "en": "to try"
+      "en": "to try, to attempt"
     },
     {
       "bg": "оплаквам",
@@ -1637,8 +1842,8 @@
       "en": "orchestra"
     },
     {
-      "bg": "осветён",
-      "en": "lit"
+      "bg": "осветен",
+      "en": "lit, illuminated, lighted"
     },
     {
       "bg": "основа",
@@ -1654,7 +1859,7 @@
     },
     {
       "bg": "основно образование",
-      "en": "a primary school"
+      "en": "a primary school, elementary education"
     },
     {
       "bg": "особено",
@@ -1679,10 +1884,6 @@
     {
       "bg": "осъществявам",
       "en": "to realize, to fulfill"
-    },
-    {
-      "bg": "от",
-      "en": "from"
     },
     {
       "bg": "отбелязан",
@@ -1710,7 +1911,7 @@
     },
     {
       "bg": "открива се",
-      "en": "opens"
+      "en": "opens, is discovered, becomes available"
     },
     {
       "bg": "откривам",
@@ -1722,7 +1923,7 @@
     },
     {
       "bg": "открит",
-      "en": "open"
+      "en": "open, discovered"
     },
     {
       "bg": "отопление",
@@ -1961,10 +2162,6 @@
       "en": "to devote, to dedicate"
     },
     {
-      "bg": "постен",
-      "en": "vegetarian"
-    },
-    {
       "bg": "потвърждавам",
       "en": "to confirm"
     },
@@ -1974,7 +2171,7 @@
     },
     {
       "bg": "похарча",
-      "en": "to spend money"
+      "en": "to spend money, to waste money"
     },
     {
       "bg": "почва",
@@ -1998,7 +2195,7 @@
     },
     {
       "bg": "правостоящ",
-      "en": "standing up"
+      "en": "standing up, standing"
     },
     {
       "bg": "прадядо",
@@ -2006,19 +2203,19 @@
     },
     {
       "bg": "практикувам",
-      "en": "to practice"
+      "en": "to practice, to perform"
     },
     {
       "bg": "превръщам",
-      "en": "to transform"
+      "en": "to transform, to change, to turn into"
     },
     {
       "bg": "преглед",
-      "en": "examination"
+      "en": "examination, checkup, review"
     },
     {
       "bg": "преглеждам",
-      "en": "to examine a patient"
+      "en": "to examine a patient, to inspect, to check"
     },
     {
       "bg": "предаване",
@@ -2146,11 +2343,11 @@
     },
     {
       "bg": "притеснен",
-      "en": "uneasy, anxious, nervous"
+      "en": "uneasy, anxious"
     },
     {
       "bg": "притеснявам се",
-      "en": "to worry"
+      "en": "to worry, to be concerned, to feel anxious"
     },
     {
       "bg": "причинявам",
@@ -2178,7 +2375,7 @@
     },
     {
       "bg": "продължителност",
-      "en": "continuation"
+      "en": "continuation, duration, length"
     },
     {
       "bg": "произвеждам",
@@ -2230,7 +2427,7 @@
     },
     {
       "bg": "публика",
-      "en": "audience"
+      "en": "audience, crowd"
     },
     {
       "bg": "публикуван",
@@ -2314,11 +2511,11 @@
     },
     {
       "bg": "разказвам",
-      "en": "to tell"
+      "en": "to tell, to narrate, to recount"
     },
     {
       "bg": "разкошен",
-      "en": "gorgeous, amazing, wonderful, beautiful, pretty"
+      "en": "gorgeous, amazing, wonderful, beautiful, pretty, luxurious, opulent"
     },
     {
       "bg": "различен",
@@ -2326,7 +2523,7 @@
     },
     {
       "bg": "разнообразен",
-      "en": "diverse"
+      "en": "diverse, varied, multifaceted"
     },
     {
       "bg": "разочаровам",
@@ -2358,7 +2555,7 @@
     },
     {
       "bg": "разстояние",
-      "en": "distance"
+      "en": "distance, range"
     },
     {
       "bg": "рай",
@@ -2374,7 +2571,7 @@
     },
     {
       "bg": "реализирам",
-      "en": "to realise"
+      "en": "to realize, to realise"
     },
     {
       "bg": "ревнувам",
@@ -2387,10 +2584,6 @@
     {
       "bg": "ред",
       "en": "row"
-    },
-    {
-      "bg": "редовно",
-      "en": "regularly"
     },
     {
       "bg": "режа",
@@ -2462,7 +2655,7 @@
     },
     {
       "bg": "розобер",
-      "en": "rose-picking"
+      "en": "rose picking, rose harvesting"
     },
     {
       "bg": "розово масло",
@@ -2662,11 +2855,11 @@
     },
     {
       "bg": "среда",
-      "en": "middle, background"
+      "en": "middle, background, environment"
     },
     {
       "bg": "средно образование",
-      "en": "secondary school"
+      "en": "secondary school, high school"
     },
     {
       "bg": "средновековен",
@@ -2718,11 +2911,27 @@
     },
     {
       "bg": "страдам",
-      "en": "to suffer"
+      "en": "to suffer, to be in pain"
     },
     {
       "bg": "страхувам се",
-      "en": "to be afraid"
+      "en": "to be afraid, I'm afraid, Im afraid"
+    },
+    {
+      "bg": "рамка",
+      "en": "frame"
+    },
+    {
+      "bg": "глухарче",
+      "en": "dandelion"
+    },
+    {
+      "bg": "зъболекар",
+      "en": "dentist"
+    },
+    {
+      "bg": "археолог",
+      "en": "archaelogist"
     },
     {
       "bg": "страшен",
@@ -2774,7 +2983,7 @@
     },
     {
       "bg": "събитие",
-      "en": "event"
+      "en": "event, incident"
     },
     {
       "bg": "съвет",
@@ -2782,7 +2991,7 @@
     },
     {
       "bg": "съветвам",
-      "en": "to advise"
+      "en": "to advise, to counsel"
     },
     {
       "bg": "съвременен",
@@ -2814,11 +3023,11 @@
     },
     {
       "bg": "съобщавам",
-      "en": "to announce"
+      "en": "to announce, to inform"
     },
     {
       "bg": "съобщение",
-      "en": "message"
+      "en": "message, notification"
     },
     {
       "bg": "състезател",
@@ -2826,11 +3035,11 @@
     },
     {
       "bg": "състои се от",
-      "en": "consists of"
+      "en": "consists of, is composed of, is made up of"
     },
     {
       "bg": "съществувам",
-      "en": "to exist"
+      "en": "to exist, to be"
     },
     {
       "bg": "таблетка",
@@ -2870,11 +3079,11 @@
     },
     {
       "bg": "технически",
-      "en": "technical"
+      "en": "technical, technological"
     },
     {
       "bg": "технология",
-      "en": "technology"
+      "en": "technology, tech"
     },
     {
       "bg": "тишина",
@@ -2922,14 +3131,14 @@
     },
     {
       "bg": "търговия",
-      "en": "trade"
+      "en": "trade, commerce"
     },
     {
       "bg": "търпение",
       "en": "patience"
     },
     {
-      "bg": "тьжен",
+      "bg": "тъжен",
       "en": "sad"
     },
     {
@@ -2942,7 +3151,7 @@
     },
     {
       "bg": "увод",
-      "en": "introduction"
+      "en": "introduction, preface"
     },
     {
       "bg": "удобно",
@@ -2962,7 +3171,7 @@
     },
     {
       "bg": "умение",
-      "en": "skill"
+      "en": "skill, ability"
     },
     {
       "bg": "умирам",
@@ -3006,7 +3215,7 @@
     },
     {
       "bg": "усъвършенствам",
-      "en": "to upgrade"
+      "en": "to upgrade, to refine"
     },
     {
       "bg": "ухо",
@@ -3026,7 +3235,7 @@
     },
     {
       "bg": "учудвам се",
-      "en": "to wonder, to be surprised"
+      "en": "to wonder, to be surprised, to be amazed, to be astonished"
     },
     {
       "bg": "фенер",
@@ -3226,7 +3435,7 @@
     },
     {
       "bg": "шия",
-      "en": "to sew"
+      "en": "to sew, neck"
     },
     {
       "bg": "шум",

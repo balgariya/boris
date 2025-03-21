@@ -123,8 +123,8 @@ class WordGame {
     );
 
     if (availableWords.length === 0) {
-      userProgress.users[this.userId][`solved_${this.language}`] = [];
-      saveUserProgress(userProgress);
+      /*userProgress.users[this.userId][`solved_${this.language}`] = [];
+      saveUserProgress(userProgress); This resets the users stats .. */ 
       availableWords = wordList;
     }
 

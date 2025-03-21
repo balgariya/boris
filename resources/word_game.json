@@ -38,7 +38,7 @@
     },
     {
       "bg": "Балканската война",
-      "en": "Balkan war"
+      "en": "Balkan war, The Balkan war"
     },
     {
       "bg": "бедствие",
@@ -189,7 +189,7 @@
       "en": "power"
     },
     {
-      "bg": "влечатление",
+      "bg": "впечатление",
       "en": "impression"
     },
     {
@@ -214,7 +214,7 @@
     },
     {
       "bg": "води до",
-      "en": "it leads to"
+      "en": "it leads to, leads to"
     },
     {
       "bg": "водно-електрическа",
@@ -302,7 +302,7 @@
     },
     {
       "bg": "гениален",
-      "en": "genius"
+      "en": "genius, brilliant"
     },
     {
       "bg": "гимназия",
@@ -310,7 +310,7 @@
     },
     {
       "bg": "гипсирам",
-      "en": "to put plaster"
+      "en": "to plaster, to put plaster, to put on a plaster"
     },
     {
       "bg": "глас",
@@ -822,7 +822,7 @@
     },
     {
       "bg": "изненадан",
-      "en": "be surprised"
+      "en": "be surprised, surprised"
     },
     {
       "bg": "изненадвам",
@@ -1081,7 +1081,7 @@
       "en": "cultural"
     },
     {
-      "bg": "лавоболие",
+      "bg": "главоболие",
       "en": "headache"
     },
     {
@@ -1409,8 +1409,8 @@
       "en": "obscene"
     },
     {
-      "bg": "неработеш",
-      "en": "corrupted"
+      "bg": "неработещ",
+      "en": "corrupted, malfunctioning, broken"
     },
     {
       "bg": "нервен",
@@ -1541,7 +1541,7 @@
       "en": "enormous, huge"
     },
     {
-      "bg": "огьн",
+      "bg": "огън",
       "en": "fire"
     },
     {
@@ -1554,7 +1554,7 @@
     },
     {
       "bg": "оздравявам",
-      "en": "to get well"
+      "en": "to get well, get better, regenerate"
     },
     {
       "bg": "оказвам влияние",
@@ -1698,7 +1698,7 @@
     },
     {
       "bg": "отдалечавам се",
-      "en": "to move away"
+      "en": "to move away, to go away"
     },
     {
       "bg": "отдих",
@@ -1718,7 +1718,7 @@
     },
     {
       "bg": "откривател",
-      "en": "inventor"
+      "en": "inventor, explorer"
     },
     {
       "bg": "открит",
@@ -1762,7 +1762,7 @@
     },
     {
       "bg": "очен лекар",
-      "en": "ophthalmologist"
+      "en": "ophthalmologist, eye doctor, eye care specialist"
     },
     {
       "bg": "паве",
@@ -1846,7 +1846,7 @@
     },
     {
       "bg": "плодороден",
-      "en": "fertile"
+      "en": "fertile, breedable"
     },
     {
       "bg": "плодородие",
@@ -2541,7 +2541,7 @@
       "en": "cute, nice"
     },
     {
-      "bg": "сиряк",
+      "bg": "сирак",
       "en": "orphan"
     },
     {
@@ -2658,7 +2658,7 @@
     },
     {
       "bg": "сред",
-      "en": "among, между"
+      "en": "among"
     },
     {
       "bg": "среда",
@@ -2762,7 +2762,7 @@
     },
     {
       "bg": "сцена",
-      "en": "stage"
+      "en": "stage, scene"
     },
     {
       "bg": "счупен",
@@ -2885,8 +2885,8 @@
       "en": "then"
     },
     {
-      "bg": "тоне",
-      "en": "ton"
+      "bg": "тон",
+      "en": "tone"
     },
     {
       "bg": "топлина",
@@ -3102,7 +3102,7 @@
     },
     {
       "bg": "хранителна добавка",
-      "en": "nutritional supplement"
+      "en": "nutritional supplement, food supplement"
     },
     {
       "bg": "хрема",
@@ -3126,7 +3126,7 @@
     },
     {
       "bg": "цветен",
-      "en": "colorful"
+      "en": "colorful, colourful"
     },
     {
       "bg": "цел",

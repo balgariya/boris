@@ -39,7 +39,7 @@
     { "bg": "по-късно тази седмица", "en": "later this week" },
     { "bg": "веднага", "en": "immediately" },
     { "bg": "в миналото", "en": "in the past" },
-    { "bg": "преді", "en": "before" },
+    { "bg": "преди", "en": "before" },
     { "bg": "в бъдеще", "en": "in the future" },
     { "bg": "още", "en": "more, still" },
     { "bg": "още не", "en": "not yet" },
@@ -60,8 +60,6 @@
     { "bg": "следващата седмица", "en": "next week" },
     { "bg": "днес", "en": "today" },
     { "bg": "утре", "en": "tomorrow" },
-    { "bg": "завчера", "en": "the day before yesterday, vorgestern" },
-    { "bg": "вдругиден", "en": "the day after tomorrow, übermorgen" },
     { "bg": "януари", "en": "january" },
     { "bg": "февруари", "en": "february" },
     { "bg": "март", "en": "march" },
@@ -163,7 +161,7 @@
     { "bg": "по-горе", "en": "higher" },
     { "bg": "надолу", "en": "downwards" },
     { "bg": "нагоре", "en": "upwards" },
-    { "bg": "навън", "en": "outwards" },
+    { "bg": "навън", "en": "outwards, outside" },
     { "bg": "навътре", "en": "inwards" },
     { "bg": "от", "en": "from" },
     { "bg": "във", "en": "in" },
@@ -371,7 +369,7 @@
     },
     {
       "bg": "високоскоростен",
-      "en": "high speed"
+      "en": "high speed, high-speed"
     },
     {
       "bg": "висше образование",
@@ -687,7 +685,7 @@
     },
     {
       "bg": "достъпен",
-      "en": "accessible; simple"
+      "en": "accessible, simple"
     },
     {
       "bg": "доход",
@@ -1607,7 +1605,7 @@
     },
     {
       "bg": "неопитен",
-      "en": "unexperienced"
+      "en": "inexperienced"
     },
     {
       "bg": "неприличен",
@@ -2048,10 +2046,6 @@
     {
       "bg": "плодороден",
       "en": "fertile, breedable"
-    },
-    {
-      "bg": "плодородие",
-      "en": "fruitfulness"
     },
     {
       "bg": "побеждавам",

@@ -321,7 +321,10 @@ async function handleBotMention(message) {
 
 client.on(Events.InteractionCreate, async (interaction) => {
   if (interaction.isButton()) {
-    if (interaction.customId.startsWith("wordgame_again_")) {
+    if (
+      interaction.customId.startsWith("wordgame_again_") ||
+      interaction.customId.startsWith("wordgame_mc_again_")
+    ) {
       await executeCommandSafely(handleWordGameButton, interaction);
       return;
     }

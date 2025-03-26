@@ -21,7 +21,6 @@ const loadUserProgress = () => {
   try {
     if (fs.existsSync(userProgressPath)) {
       const data = JSON.parse(fs.readFileSync(userProgressPath, "utf8"));
-
       if (data && data.users) {
         let needsSaving = false;
         Object.keys(data.users).forEach((userId) => {
@@ -44,12 +43,10 @@ const loadUserProgress = () => {
             }
           }
         });
-
         if (needsSaving) {
           saveUserProgress(data);
         }
       }
-
       return data;
     }
     return { users: {} };
@@ -99,14 +96,12 @@ class WordGame {
         solved_en: [],
       };
     }
-
     if (!Array.isArray(userProgress.users[this.userId].solved_bg)) {
       userProgress.users[this.userId].solved_bg = [];
     }
     if (!Array.isArray(userProgress.users[this.userId].solved_en)) {
       userProgress.users[this.userId].solved_en = [];
     }
-
     userProgress.users[this.userId].solved_bg = userProgress.users[
       this.userId
     ].solved_bg.filter((id) => id !== null);
@@ -117,28 +112,22 @@ class WordGame {
 
     const solvedWords =
       userProgress.users[this.userId][`solved_${this.language}`];
-
     let availableWords = wordList.filter(
       (word) => !solvedWords.includes(word.bg)
     );
-
     if (availableWords.length === 0) {
-      /*userProgress.users[this.userId][`solved_${this.language}`] = [];
-      saveUserProgress(userProgress); This resets the users stats .. */ 
       availableWords = wordList;
     }
-
     this.wordData =
       availableWords[Math.floor(Math.random() * availableWords.length)];
     this.startTime = Date.now();
 
     const targetLanguage = this.language === "bg" ? "English" : "Bulgarian";
-
     const embed = new EmbedBuilder()
       .setTitle(`Translation Game`)
       .setDescription(
         `Translate the following word into ${targetLanguage}:\n## \`${
-           this.wordData[this.language]
+          this.wordData[this.language]
         }\`\n\n`
       )
       .setColor("#2fb966")
@@ -147,7 +136,6 @@ class WordGame {
       });
 
     await this.interaction.editReply({ embeds: [embed] });
-
     this.createCollector();
   }
 
@@ -157,14 +145,12 @@ class WordGame {
       filter,
       time: 60000,
     });
-
     const targetLang = this.language === "bg" ? "en" : "bg";
     const correctAnswerRaw = this.wordData[targetLang];
 
     const processAnswers = (text) => {
       return text.split(",").map((answer) => {
         let cleaned = answer.toLowerCase().trim();
-
         if (targetLang === "en") {
           cleaned = cleaned.replace(/^(to get |to |the |a |an )/, "");
         } else if (targetLang === "bg") {
@@ -175,7 +161,6 @@ class WordGame {
     };
 
     const correctAnswers = processAnswers(correctAnswerRaw);
-
     const noIdeaResponses = [
       "kp",
       "idk",
@@ -191,13 +176,11 @@ class WordGame {
         .toLowerCase()
         .trim()
         .replace(/[.,!?]/g, "");
-
       if (correctAnswers.some((answer) => guess === answer)) {
         const timeTaken = ((Date.now() - this.startTime) / 1000).toFixed(3);
         await this.handleWin(message.author, timeTaken);
         this.collector.stop();
       }
-
       if (noIdeaResponses.includes(guess)) {
         await this.handleNoIdea(message.author);
         this.collector.stop();
@@ -238,21 +221,18 @@ class WordGame {
   async handleWin(winner, timeTaken) {
     const winnerId = winner.id;
     const userProgress = loadUserProgress();
-
     if (!userProgress.users[winnerId]) {
       userProgress.users[winnerId] = {
         solved_bg: [],
         solved_en: [],
       };
     }
-
     if (!Array.isArray(userProgress.users[winnerId].solved_bg)) {
       userProgress.users[winnerId].solved_bg = [];
     }
     if (!Array.isArray(userProgress.users[winnerId].solved_en)) {
       userProgress.users[winnerId].solved_en = [];
     }
-
     userProgress.users[winnerId].solved_bg = userProgress.users[
       winnerId
     ].solved_bg.filter((id) => id !== null);
@@ -325,6 +305,170 @@ class WordGame {
   }
 }
 
+class MultipleChoiceGame {
+  constructor(channelId, language, interaction) {
+    this.channelId = channelId;
+    this.language = language;
+    this.interaction = interaction;
+    this.wordData = null;
+    this.collector = null;
+    this.wrongGuessers = new Set();
+  }
+
+  async start() {
+    const rawData = fs.readFileSync(dataPath, "utf8");
+    const wordList = JSON.parse(rawData).words;
+    this.wordData = wordList[Math.floor(Math.random() * wordList.length)];
+    const targetLang = this.language === "bg" ? "en" : "bg";
+    const targetLanguageName = this.language === "bg" ? "English" : "Bulgarian";
+    const correctAnswer = this.wordData[targetLang];
+
+    let incorrectOptions = [];
+    while (incorrectOptions.length < 2) {
+      const candidate =
+        wordList[Math.floor(Math.random() * wordList.length)][targetLang];
+      if (
+        candidate !== correctAnswer &&
+        !incorrectOptions.includes(candidate)
+      ) {
+        incorrectOptions.push(candidate);
+      }
+    }
+    let options = [correctAnswer, ...incorrectOptions];
+    options = options.sort(() => Math.random() - 0.5);
+
+    const buttons = options.map((option, index) => {
+      const isCorrect = option === correctAnswer;
+      const customId = `wordgame_mc_${this.language}_${
+        isCorrect ? "correct" : "wrong"
+      }_${index}_${this.interaction.user.id}`;
+      return new ButtonBuilder()
+        .setCustomId(customId)
+        .setLabel(option)
+        .setStyle(ButtonStyle.Primary);
+    });
+    const row = new ActionRowBuilder().addComponents(...buttons);
+
+    const embed = new EmbedBuilder()
+      .setTitle("Multiple Choice Translation Game")
+      .setDescription(
+        `Translate the following word into ${targetLanguageName}:\n## \`${
+          this.wordData[this.language]
+        }\``
+      )
+      .setColor("#2fb966")
+      .setFooter({
+        text: "Select one of the options below. One correct answer wins!",
+      });
+
+    await this.interaction.editReply({ embeds: [embed], components: [row] });
+
+    const filter = (i) => !i.user.bot;
+    this.collector = this.interaction.channel.createMessageComponentCollector({
+      filter,
+      time: 60000,
+    });
+
+    this.collector.on("collect", async (i) => {
+      const parts = i.customId.split("_");
+
+      const gameLang = parts[2];
+      const type = parts[3]; 
+      if (gameLang !== this.language) return;
+
+      if (type === "correct") {
+        if (this.wrongGuessers.has(i.user.id)) {
+          await i.reply({
+            content: "You already guessed wrongly!",
+            ephemeral: true,
+          });
+          return;
+        }
+        const successEmbed = new EmbedBuilder()
+          .setDescription(`🎉 <@${i.user.id}> guessed correctly!`)
+          .addFields({
+            name: "Solution",
+            value: `${this.wordData[this.language]} ➡️ ${
+              this.wordData[targetLang]
+            }`,
+          })
+          .setColor("#2fb966")
+          .setFooter({
+            text: "Want to play again? Click the button below!",
+          });
+        const disabledRow = new ActionRowBuilder().addComponents(
+          ...buttons.map((btn) => ButtonBuilder.from(btn).setDisabled(true))
+        );
+        await i.update({ components: [disabledRow] });
+        await this.interaction.channel.send({
+          embeds: [successEmbed],
+          components: [
+            new ActionRowBuilder().addComponents(
+              new ButtonBuilder()
+                .setCustomId(
+                  `wordgame_mc_again_${this.language}_${this.interaction.user.id}`
+                )
+                .setLabel("Play Again")
+                .setStyle(ButtonStyle.Primary)
+            ),
+          ],
+        });
+        this.collector.stop("guessed");
+        activeGames.delete(this.channelId);
+      } else if (type === "wrong") {
+        if (this.wrongGuessers.has(i.user.id)) {
+          await i.reply({
+            content: "You already guessed wrongly!",
+            ephemeral: true,
+          });
+          return;
+        }
+        this.wrongGuessers.add(i.user.id);
+        const wrongEmbed = new EmbedBuilder()
+          .setDescription(`❌ <@${i.user.id}>, that's not correct!`)
+          .setColor("#ff6961");
+        await i.reply({ embeds: [wrongEmbed], ephemeral: true });
+      }
+    });
+
+    this.collector.on("end", async (collected, reason) => {
+      if (reason === "time") {
+        const timeoutEmbed = new EmbedBuilder()
+          .setTitle("Time's Up!")
+          .setDescription("Nobody guessed the correct translation.")
+          .addFields({
+            name: "Solution",
+            value: `${this.wordData[this.language]} ➡️ ${
+              this.wordData[targetLang]
+            }`,
+          })
+          .setColor("#ff6961")
+          .setFooter({
+            text: "Want to try again? Click the button below!",
+          });
+        const disabledRow = new ActionRowBuilder().addComponents(
+          ...buttons.map((btn) => ButtonBuilder.from(btn).setDisabled(true))
+        );
+        await this.interaction.editReply({ components: [disabledRow] });
+        await this.interaction.channel.send({
+          embeds: [timeoutEmbed],
+          components: [
+            new ActionRowBuilder().addComponents(
+              new ButtonBuilder()
+                .setCustomId(
+                  `wordgame_mc_again_${this.language}_${this.interaction.user.id}`
+                )
+                .setLabel("Play Again")
+                .setStyle(ButtonStyle.Primary)
+            ),
+          ],
+        });
+        activeGames.delete(this.channelId);
+      }
+    });
+  }
+}
+
 export const wordGameCommand = {
   data: {
     name: "wordgame",
@@ -348,6 +492,22 @@ export const wordGameCommand = {
         ],
       },
       {
+        name: "mode",
+        description: "Select the game mode",
+        required: false,
+        type: 3,
+        choices: [
+          {
+            name: "Normal",
+            value: "normal",
+          },
+          {
+            name: "Multiple Choice",
+            value: "multiplechoice",
+          },
+        ],
+      },
+      {
         name: "hidden",
         description: "Do you want to hide the initial command?",
         required: false,
@@ -360,6 +520,7 @@ export const wordGameCommand = {
 
   async execute(interaction) {
     const language = interaction.options.getString("language") || "bg";
+    const mode = interaction.options.getString("mode") || "normal";
     const hidden = interaction.options.getBoolean("hidden") ?? false;
     const channelId = interaction.channelId;
 
@@ -373,18 +534,25 @@ export const wordGameCommand = {
 
     await interaction.deferReply({ ephemeral: hidden });
 
-    const game = new WordGame(channelId, language, interaction);
-    activeGames.set(channelId, game);
-    await game.start();
+    if (mode === "multiplechoice") {
+      const game = new MultipleChoiceGame(channelId, language, interaction);
+      activeGames.set(channelId, game);
+      await game.start();
+    } else {
+      const game = new WordGame(channelId, language, interaction);
+      activeGames.set(channelId, game);
+      await game.start();
+    }
   },
 };
 
 export const handleWordGameButton = async (interaction) => {
   const customId = interaction.customId;
-
-  if (customId.startsWith("wordgame_again_")) {
+  if (
+    customId.startsWith("wordgame_again_") ||
+    customId.startsWith("wordgame_mc_again_")
+  ) {
     const channelId = interaction.channelId;
-
     if (activeGames.has(channelId)) {
       await interaction.reply({
         content: "A game is already running in this channel!",
@@ -392,19 +560,31 @@ export const handleWordGameButton = async (interaction) => {
       });
       return;
     }
-
     const parts = customId.split("_");
-    const language = parts[2];
-    const originalUserId = parts[3];
+    let language;
+    if (customId.startsWith("wordgame_mc_again_")) {
+
+      language = parts[3];
+    } else {
+      language = parts[2];
+    }
+
+    if (!interaction.replied && !interaction.deferred) {
+      await interaction.reply({ content: "New round!" });
+    } else {
+      await interaction.followUp({ content: "New round!" });
+    }
+    const mode = customId.includes("mc") ? "multiplechoice" : "normal";
     const currentUserId = interaction.user.id;
-
-    await interaction.reply({
-      content: "New round!",
-    });
-
-    const game = new WordGame(channelId, language, interaction);
-    game.userId = currentUserId;
-    activeGames.set(channelId, game);
-    await game.start();
+    if (mode === "multiplechoice") {
+      const game = new MultipleChoiceGame(channelId, language, interaction);
+      activeGames.set(channelId, game);
+      await game.start();
+    } else {
+      const game = new WordGame(channelId, language, interaction);
+      game.userId = currentUserId;
+      activeGames.set(channelId, game);
+      await game.start();
+    }
   }
 };

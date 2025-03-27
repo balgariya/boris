@@ -17,9 +17,6 @@ You view resource lists for learning bulgarian, book recommendations & more.
 
 
 # Selfhosting
-
-`npm install`
-
 .env:
 ```
 TOKEN="" (Discord Bot Token)
@@ -27,6 +24,9 @@ AI_API_KEY="" (e.g. OpenRouter)
 AI_MODEL=openai/gpt-4o-mini
 AI_ENDPOINT=https://openrouter.ai/api/v1/chat/completions
 CAPTCHA_KEY="" (https://2captcha.com/)
+```
+npm install
+npm run start
 ```
 
 ![image](https://github.com/user-attachments/assets/10b03257-27ca-417b-91d1-0a60f63648dd)

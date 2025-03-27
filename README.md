@@ -25,6 +25,7 @@ AI_MODEL=openai/gpt-4o-mini
 AI_ENDPOINT=https://openrouter.ai/api/v1/chat/completions
 CAPTCHA_KEY="" (https://2captcha.com/)
 ```
+```
 npm install
 npm run start
 ```

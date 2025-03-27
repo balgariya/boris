@@ -25,6 +25,7 @@ import {
 import { requestAI } from "./utils/aiRequest.js";
 import { dictionaryCommand } from "./commands/user/dictionary.js";
 import { leaderboardCommand } from "./commands/user/leaderboard.js";
+import { handleGenerateCommand } from "./utils/generateSentence.js";
 
 let chatChannel;
 
@@ -85,7 +86,7 @@ client.on(Events.GuildMemberAdd, async (member) => {
 client.on(Events.MessageCreate, async (message) => {
   if (message.author.bot) return;
   if (message.guild?.id !== "658655311028289551") return;
-
+  await handleGenerateCommand(message);
   try {
     const filterTriggered = await handleContentFilter(message);
     if (filterTriggered) return;

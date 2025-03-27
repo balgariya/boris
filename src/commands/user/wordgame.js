@@ -519,6 +519,16 @@ export const wordGameCommand = {
   },
 
   async execute(interaction) {
+
+
+    if (interaction.guildId == "658655311028289551" && interaction.channelId != "658676524995706931")  {
+      return interaction.reply({
+        content: "This command can only be used in <#658676524995706931>",
+        ephemeral: true,
+      });
+    }
+
+
     const language = interaction.options.getString("language") || "bg";
     const mode = interaction.options.getString("mode") || "normal";
     const hidden = interaction.options.getBoolean("hidden") ?? false;

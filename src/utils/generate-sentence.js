@@ -34,6 +34,8 @@ export async function handleGenerateCommand(message) {
       prompt = `Generate a random English sentence (only answer with the sentence) about this topic/situation for language learners. The sentence should use vocabulary and grammar suitable for the following language level: ${levelParam}. Please use simpler words, simpler sentence structure, and keep it concise if the level is beginner (e.g., a1 or a2). Topic: ${randomTopic}.`;
     }
 
+    await message.channel.sendTyping();
+
     const response = await requestAI(prompt);
 
     if (!response || response.trim().length === 0) {

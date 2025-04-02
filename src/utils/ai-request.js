@@ -16,7 +16,7 @@ export async function requestAI(prompt, maxRetries = 3) {
             },
           ],
           temperature: 0.8,
-          max_tokens: 200,
+          max_tokens: 1000,
         },
         {
           headers: {

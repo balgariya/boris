@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { EmbedBuilder } from "discord.js";
-import { requestAI } from "./aiRequest.js";
+import { requestAI } from "./ai-request.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const topicsPath = path.join(__dirname, "../../resources/topics.txt");

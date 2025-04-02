@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { EmbedBuilder } from "discord.js";
-import { scrapeBgJargon } from "../../utils/bgjargonScraper.js";
+import { scrapeBgJargon } from "../../utils/bgjargon-scraper.js";
 
 dotenv.config();
 

@@ -22,10 +22,10 @@ import {
   wordGameCommand,
   handleWordGameButton,
 } from "./commands/user/wordgame.js";
-import { requestAI } from "./utils/aiRequest.js";
+import { requestAI } from "./utils/ai-request.js";
 import { dictionaryCommand } from "./commands/user/dictionary.js";
 import { leaderboardCommand } from "./commands/user/leaderboard.js";
-import { handleGenerateCommand } from "./utils/generateSentence.js";
+import { handleGenerateCommand } from "./utils/generate-sentence.js";
 
 let chatChannel;
 
@@ -255,7 +255,6 @@ async function handleBotMention(message) {
 
     const contextMessages = await message.channel.messages.fetch({ limit: 4 });
     const messageContext = contextMessages
-      .filter((msg) => msg.id !== message.id && !msg.author.bot)
       .sort((a, b) => a.createdTimestamp - b.createdTimestamp)
       .map((msg) => `${msg.author.username}: ${msg.content}`)
       .slice(-3)
@@ -279,16 +278,25 @@ async function handleBotMention(message) {
       "November",
       "December",
     ];
-    const formattedDate = day + ". " + months[monthIndex] + " " + year;
+    const formattedDate = `${day}. ${months[monthIndex]} ${year}`;
 
-    const prompt = `You are a human assistant (named boris) made by Maxim on Discord (Bulgarian language server). Act natural and human-like.
+    const prompt = `You are a witty, smart, and helpful human assistant (named boris) made by Maxim on Discord (Bulgarian language server). Act natural and human-like.
       The current date is ${formattedDate}.
+      You current discord nickname is ${message.guild.members.me.nickname}
       Here are the server rules <#658658532786176022>
-      Use modern correct Bulgarian language
+      If someone requests these actions, respond normally but include the command (in your response) in brackets:
+      - To mute the user who asks (you can only mute him not a random user): [COMMAND:MUTE:<duration in seconds>]
+      - To change your nickname: [COMMAND:NICKNAME:<new name>]
+      - To unmute the user who asks (you can only unmute): [COMMAND:UNMUTE]
+      - To delete messages (amount max: 15): [COMMAND:DELETE:<amount>]
+      
+      If you use one command, tell the user that you have done the action.
+
+      Although this is a Bulgarian-language server, if a message is in English (or another language), respond in that language naturally.
       You're not a language model or AI.
       Fenix (aka fenix.here) is admin on the server
       Do not use normal emojis
-      You can only use these new emojis (write them exactly like this): :pain:, :gotcha:, :dumb:, :think:, :brain:, :eyes:, :cool:, :shushing:
+      You can only use these new emojis (write them exactly like this): :pain:, :gotcha:, :dumb:, :amazed:, :brain:, :eyes:, :cool:, :shushing:
       Keep your answers very short and match the language of the last message.
       Current channel: ${message.channel.name}
       Use informal language, slang and fitting jokes when appropriate.
@@ -301,22 +309,119 @@ async function handleBotMention(message) {
       User ${message.author.username} just mentioned you: ${cleanContent}`;
 
     let response = await requestAI(prompt, 3);
-    response = response
-      .replace(":pain:", "<:pain:722774554233274450>")
-      .replace(":gotcha:", "<:gotcha:722775690109386772>")
-      .replace(":dumb:", "<:facepalm:722774521710510080>")
-      .replace(":think:", "<:think:724561291594825769>")
-      .replace(":eyes:", "<:eyes:722774906630045816>")
-      .replace(":cool:", "<:shushing_slavi_theclashers:1276520372702941204>")
+
+    const commandRegex = /\[COMMAND:(\w+)(?::(.*?))?\]/g;
+    let commands = [];
+    let cleanedResponse = response
+      .replace(commandRegex, (match, action, param) => {
+        commands.push({ action: action.toUpperCase(), param });
+        return "";
+      })
+      .trim();
+
+    const confirmations = [];
+    for (const { action, param } of commands) {
+      try {
+        switch (action) {
+          case "MUTE":
+            const muteDuration = param ? parseInt(param) : 10;
+            confirmations.push(await handleMuteCommand(message, muteDuration));
+            break;
+            break;
+          case "NICKNAME":
+            confirmations.push(await handleNicknameCommand(message, param));
+            break;
+          case "UNMUTE":
+            confirmations.push(await handleUnmuteCommand(message));
+            break;
+          case "DELETE":
+            confirmations.push(await handleDeleteCommand(message, param));
+            break;
+        }
+      } catch (error) {
+        console.error(`Error processing command ${action}:`, error);
+      }
+    }
+
+    /*if (confirmations.length > 0) {
+      cleanedResponse += '\n' + confirmations.filter(c => c).join('\n');
+    }*/
+
+    cleanedResponse = cleanedResponse
+      .replace(/:pain:/g, "<:pain:722774554233274450>")
+      .replace(/:gotcha:/g, "<:gotcha:722775690109386772>")
+      .replace(/:dumb:/g, "<:facepalm:722774521710510080>")
+      .replace(/:amazed:/g, "<:Amazed_face:1282103289839878285>")
+      .replace(/:eyes:/g, "<:eyes:722774906630045816>")
+      .replace(/:cool:/g, "<:shushing_slavi_theclashers:1276520372702941204>")
       .replace(
-        ":shushing:",
+        /:shushing:/g,
         "<:shushing_slavi_theclashers:1276520372702941204>"
       )
-      .replace(":brain:", "<:bigbrain:724560906926817301>");
-    await message.reply(response);
+      .replace(/:brain:/g, "<:bigbrain:724560906926817301>");
+
+    await message.reply(cleanedResponse);
   } catch (error) {
     console.error("Error handling bot mention:", error);
     message.reply("Sorry, I'm having brain issues rn.");
+  }
+}
+
+async function handleUnmuteCommand(message) {
+  try {
+    await message.member.timeout(null);
+    return `Unmuted you! 🎉`;
+  } catch (error) {
+    console.error("Unmute error:", error);
+    return "I couldn't unmute you 😢";
+  }
+}
+
+async function handleMuteCommand(message, duration) {
+  try {
+
+    if (isNaN(duration) || duration <= 0) {
+      duration = 10; 
+    }
+
+    await message.member.timeout(duration * 100);
+    return `Muted you for ${duration} seconds ⏳`;
+  } catch (error) {
+    console.error("Mute error:", error);
+    return "I could not mute you 😢";
+  }
+}
+
+async function handleNicknameCommand(message, newName) {
+  try {
+    if (!newName) return "Need a name to change to!";
+
+    await message.guild.members.me.setNickname(newName);
+    return `You can now call me ${newName}!`;
+  } catch (error) {
+    console.error("Nickname error:", error);
+    return "Failed to change nickname 😣";
+  }
+}
+
+async function handleDeleteCommand(message, param) {
+  try {
+    const amount = Math.min(parseInt(param) || 1, 16);
+    const messages = await message.channel.messages.fetch({ limit: 16 });
+    const toDelete = messages
+      .filter((m) => m.createdTimestamp < message.createdTimestamp)
+      .first(amount);
+
+    if (toDelete.length > 0) {
+      await message.channel.bulkDelete(toDelete);
+      return `Deleted ${toDelete.length} message${
+        toDelete.length > 1 ? "s" : ""
+      } 🗑`;
+    }
+    return "Nothing to delete here 🤷♂️";
+  } catch (error) {
+    console.error("Delete error:", error);
+    return "Failed to delete messages 😣";
   }
 }
 

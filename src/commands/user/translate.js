@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import { EmbedBuilder } from "discord.js";
-import { requestAI } from "../../utils/aiRequest.js";
+import { requestAI } from "../../utils/ai-request.js";
 
 dotenv.config();
 
@@ -91,14 +91,14 @@ const translateCommand = {
 const translateMessageCommand = {
   data: {
     name: "Translate Message",
-    type: 3, 
+    type: 3,
     integration_types: [0, 1],
     contexts: [0, 1, 2],
   },
   async execute(interaction) {
     const message = interaction.targetMessage;
     const text = message.content;
-    const hidden = false; 
+    const hidden = false;
 
     const errorEmbed = new EmbedBuilder()
       .setTitle("Error")

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { EmbedBuilder } from "discord.js";
-import { requestAI } from "../../utils/aiRequest.js";
+import { requestAI } from "../../utils/ai-request.js";
 
 dotenv.config();
 
@@ -91,7 +91,7 @@ const checkCommand = {
 const checkMessageCommand = {
   data: {
     name: "Check Grammar",
-    type: 3, 
+    type: 3,
     integration_types: [0, 1],
     contexts: [0, 1, 2],
   },

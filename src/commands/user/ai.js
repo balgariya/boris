@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { EmbedBuilder } from "discord.js";
-import { requestAI } from "../../utils/aiRequest.js";
+import { requestAI } from "../../utils/ai-request.js";
 
 dotenv.config();
 

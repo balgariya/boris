@@ -2,8 +2,8 @@ import dotenv from "dotenv";
 import axios from "axios";
 import * as cheerio from "cheerio";
 import { EmbedBuilder } from "discord.js";
-import { requestAI } from "../../utils/aiRequest.js";
-import { scrapeBgJargon } from "../../utils/bgjargonScraper.js";
+import { requestAI } from "../../utils/ai-request.js";
+import { scrapeBgJargon } from "../../utils/bgjargon-scraper.js";
 
 dotenv.config();
 

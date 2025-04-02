@@ -1,5 +1,5 @@
 import { EmbedBuilder } from "discord.js";
-import { scrapeBasDictionary } from "../../utils/basDictionaryScraper.js";
+import { scrapeBasDictionary } from "../../utils/bas-dictionary-scraper.js";
 
 import fs from "fs/promises";
 import path from "path";

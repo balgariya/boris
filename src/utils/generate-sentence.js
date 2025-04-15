@@ -36,7 +36,7 @@ export async function handleGenerateCommand(message) {
 
     await message.channel.sendTyping();
 
-    const response = await requestAI(prompt);
+    const response = await requestAI(prompt, 3, 2, "openai/gpt-4o-mini");
 
     if (!response || response.trim().length === 0) {
       return message.reply(

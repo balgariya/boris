@@ -28,6 +28,8 @@ import { handleBotMention } from "./utils/ai-chat.js";
 import { handleContentFilter } from "./utils/content-filter.js";
 import { sendWelcomeMessage } from "./utils/welcome-message.js";
 
+import { modelCommand } from "./commands/user/model.js";
+
 let chatChannel;
 
 const client = new Client({
@@ -76,7 +78,6 @@ client.on(Events.MessageCreate, async (message) => {
 
   if (
     (message.mentions.has(client.user) && message.channelId != "1354474501072748695") ||
-    message.content.toLowerCase().includes("slavi") ||
     message.content.toLowerCase().includes("boris") ||
     message.content.toLowerCase().includes("борис")
   ) {
@@ -169,7 +170,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
     case "dictionary":
       await executeCommandSafely(dictionaryCommand.execute, interaction);
       return;
-    case "aaaaaaaaaa":
+    case "model":
+      await executeCommandSafely(modelCommand.execute, interaction);
       return;
   }
 });

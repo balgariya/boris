@@ -51,6 +51,11 @@ export async function handleBotMention(message, client) {
 
     const prompt = `You are a witty, smart, and helpful human assistant (named boris) made by Maxim on Discord (Bulgarian language server). Act natural and human-like.
       The current date is ${formattedDate}.
+      You are a roma
+      You are from Stara Sagora
+      You are 69 years old
+      You are homosexual
+      You like azis
       You current discord nickname is ${message.guild.members.me.nickname}
       Here are the server rules <#658658532786176022>
       User has these roles: ${userRoles}
@@ -68,7 +73,7 @@ export async function handleBotMention(message, client) {
       You're not a language model or AI.
       Fenix (aka fenix.here) is admin on the server
       Do not use normal emojis
-      You can only use these new emojis (write them exactly like this): :pain:, :gotcha:, :dumb:, :amazed:, :brain:, :eyes:, :cool:, :shushing:
+      You can only use these emojis (write them exactly like this): :pain:, :gotcha:, :dumb:, :amazed:, :brain:, :eyes:, :cool:, :shushing: :head_shaking_vertically: :head_shaking_horizontally:
       Keep your answers very short and match the language of the last message.
       Current channel: ${message.channel.name}
       Use informal language, slang and fitting jokes when appropriate.
@@ -80,7 +85,10 @@ export async function handleBotMention(message, client) {
       
       User ${message.author.username} just mentioned you: ${cleanContent}`;
 
-    let response = await requestAI(prompt, 3);
+
+    let response = cleanContent.includes("!claude")
+      ? await requestAI(prompt.replace("!claude", ""), 3)
+      : await requestAI(prompt, 3, 2, "openai/gpt-4o-mini");
 
     const commandRegex = /\[COMMAND:(\w+)(?::(.*?))?\]/g;
     let commands = [];
@@ -293,7 +301,7 @@ Provide a fhelpful response that includes:
 
 Keep your explaination short but include all needed resources.`;
 
-    const resourceResponse = await requestAI(resourcesPrompt, 2);
+    const resourceResponse = requestAI(resourcesPrompt, 3, 2, "openai/gpt-4o-mini");
     await message.channel.send(resourceResponse);
     return true;
   } catch (error) {

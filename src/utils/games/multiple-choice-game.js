@@ -2,7 +2,9 @@ import {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
-  EmbedBuilder,
+  ContainerBuilder,
+  TextDisplayBuilder,
+  MessageFlags,
 } from "discord.js";
 import { activeGames } from "./game-storage.js";
 import { getAllWords } from "../file-utils.js";
@@ -48,21 +50,27 @@ export class MultipleChoiceGame {
         .setLabel(option)
         .setStyle(ButtonStyle.Primary);
     });
-    const row = new ActionRowBuilder().addComponents(...buttons);
 
-    const embed = new EmbedBuilder()
-      .setTitle("Multiple Choice Translation Game")
-      .setDescription(
-        `Translate the following word into ${targetLanguageName}:\n## \`${
-          this.wordData[this.language]
-        }\``
-      )
-      .setColor("#2fb966")
-      .setFooter({
-        text: "Select one of the options below. One correct answer wins!",
-      });
+    const container = new ContainerBuilder();
 
-    await this.interaction.editReply({ embeds: [embed], components: [row] });
+    const titleText = new TextDisplayBuilder().setContent(
+      `# Multiple Choice Translation Game\nTranslate the following word into ${targetLanguageName}:\n## \`${
+        this.wordData[this.language]
+      }\`\n\n`
+    );
+
+    const footerText = new TextDisplayBuilder().setContent(
+      "-# Select one of the options below. One correct answer wins!"
+    );
+
+    container.addTextDisplayComponents(titleText, footerText);
+
+    container.addActionRowComponents((row) => row.addComponents(...buttons));
+
+    await this.interaction.editReply({
+      components: [container],
+      flags: MessageFlags.IsComponentsV2,
+    });
 
     const filter = (i) => !i.user.bot;
     this.collector = this.interaction.channel.createMessageComponentCollector({
@@ -84,35 +92,60 @@ export class MultipleChoiceGame {
           });
           return;
         }
-        const successEmbed = new EmbedBuilder()
-          .setDescription(`🎉 <@${i.user.id}> guessed correctly!`)
-          .addFields({
-            name: "Solution",
-            value: `${this.wordData[this.language]} ➡️ ${
-              this.wordData[targetLang]
-            }`,
-          })
-          .setColor("#2fb966")
-          .setFooter({
-            text: "Want to play again? Click the button below!",
-          });
-        const disabledRow = new ActionRowBuilder().addComponents(
-          ...buttons.map((btn) => ButtonBuilder.from(btn).setDisabled(true))
+
+        const disabledContainer = new ContainerBuilder();
+
+        disabledContainer.addTextDisplayComponents(titleText, footerText);
+
+        disabledContainer.addActionRowComponents((row) =>
+          row.addComponents(
+            ...buttons.map((btn) => ButtonBuilder.from(btn).setDisabled(true))
+          )
         );
-        await i.update({ components: [disabledRow] });
-        await this.interaction.channel.send({
-          embeds: [successEmbed],
-          components: [
-            new ActionRowBuilder().addComponents(
-              new ButtonBuilder()
-                .setCustomId(
-                  `wordgame_mc_again_${this.language}_${this.interaction.user.id}`
-                )
-                .setLabel("Play Again")
-                .setStyle(ButtonStyle.Primary)
-            ),
-          ],
+
+        await i.update({
+          components: [disabledContainer],
+          flags: MessageFlags.IsComponentsV2,
         });
+
+        const successContainer = new ContainerBuilder();
+
+        const winnerText = new TextDisplayBuilder().setContent(
+          `## 🎉 <@${i.user.id}> guessed correctly!`
+        );
+
+        const solutionText = new TextDisplayBuilder().setContent(
+          `### Solution\n${this.wordData[this.language]} ➡️ ${
+            this.wordData[targetLang]
+          }`
+        );
+
+        const playAgainText = new TextDisplayBuilder().setContent(
+          "-# Want to play again? Click the button below!"
+        );
+
+        successContainer.addTextDisplayComponents(
+          winnerText,
+          solutionText,
+          playAgainText
+        );
+
+        const playAgainButton = new ButtonBuilder()
+          .setCustomId(
+            `wordgame_mc_again_${this.language}_${this.interaction.user.id}`
+          )
+          .setLabel("Play Again")
+          .setStyle(ButtonStyle.Primary);
+
+        successContainer.addActionRowComponents((row) =>
+          row.addComponents(playAgainButton)
+        );
+
+        await this.interaction.channel.send({
+          components: [successContainer],
+          flags: MessageFlags.IsComponentsV2,
+        });
+
         this.collector.stop("guessed");
         activeGames.delete(this.channelId);
       } else if (type === "wrong") {
@@ -124,45 +157,77 @@ export class MultipleChoiceGame {
           return;
         }
         this.wrongGuessers.add(i.user.id);
-        const wrongEmbed = new EmbedBuilder()
-          .setDescription(`❌ <@${i.user.id}>, that's not correct!`)
-          .setColor("#ff6961");
-        await i.reply({ embeds: [wrongEmbed], ephemeral: true });
+
+        const wrongContainer = new ContainerBuilder();
+
+        const wrongText = new TextDisplayBuilder().setContent(
+          `## ❌ <@${i.user.id}>, that's not correct!`
+        );
+
+        wrongContainer.addTextDisplayComponents(wrongText);
+
+        await i.reply({
+          components: [wrongContainer],
+          flags: MessageFlags.IsComponentsV2,
+          ephemeral: true,
+        });
       }
     });
 
     this.collector.on("end", async (collected, reason) => {
       if (reason === "time") {
-        const timeoutEmbed = new EmbedBuilder()
-          .setTitle("Time's Up!")
-          .setDescription("Nobody guessed the correct translation.")
-          .addFields({
-            name: "Solution",
-            value: `${this.wordData[this.language]} ➡️ ${
-              this.wordData[targetLang]
-            }`,
-          })
-          .setColor("#ff6961")
-          .setFooter({
-            text: "Want to try again? Click the button below!",
-          });
-        const disabledRow = new ActionRowBuilder().addComponents(
-          ...buttons.map((btn) => ButtonBuilder.from(btn).setDisabled(true))
+        const disabledContainer = new ContainerBuilder();
+        disabledContainer.addTextDisplayComponents(titleText, footerText);
+
+        disabledContainer.addActionRowComponents((row) =>
+          row.addComponents(
+            ...buttons.map((btn) => ButtonBuilder.from(btn).setDisabled(true))
+          )
         );
-        await this.interaction.editReply({ components: [disabledRow] });
-        await this.interaction.channel.send({
-          embeds: [timeoutEmbed],
-          components: [
-            new ActionRowBuilder().addComponents(
-              new ButtonBuilder()
-                .setCustomId(
-                  `wordgame_mc_again_${this.language}_${this.interaction.user.id}`
-                )
-                .setLabel("Play Again")
-                .setStyle(ButtonStyle.Primary)
-            ),
-          ],
+
+        await this.interaction.editReply({
+          components: [disabledContainer],
+          flags: MessageFlags.IsComponentsV2,
         });
+
+        const timeoutContainer = new ContainerBuilder();
+
+        const timeoutTitleText = new TextDisplayBuilder().setContent(
+          "# Time's Up!\nNobody guessed the correct translation."
+        );
+
+        const solutionText = new TextDisplayBuilder().setContent(
+          `## Solution\n${this.wordData[this.language]} ➡️ ${
+            this.wordData[targetLang]
+          }`
+        );
+
+        const playAgainText = new TextDisplayBuilder().setContent(
+          "-# Want to try again? Click the button below!"
+        );
+
+        timeoutContainer.addTextDisplayComponents(
+          timeoutTitleText,
+          solutionText,
+          playAgainText
+        );
+
+        const playAgainButton = new ButtonBuilder()
+          .setCustomId(
+            `wordgame_mc_again_${this.language}_${this.interaction.user.id}`
+          )
+          .setLabel("Play Again")
+          .setStyle(ButtonStyle.Primary);
+
+        timeoutContainer.addActionRowComponents((row) =>
+          row.addComponents(playAgainButton)
+        );
+
+        await this.interaction.channel.send({
+          components: [timeoutContainer],
+          flags: MessageFlags.IsComponentsV2,
+        });
+
         activeGames.delete(this.channelId);
       }
     });

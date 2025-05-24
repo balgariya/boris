@@ -112,11 +112,7 @@ export const handleWordGameButton = async (interaction) => {
       language = parts[2];
     }
 
-    if (!interaction.replied && !interaction.deferred) {
-      await interaction.reply({ content: "New round!" });
-    } else {
-      await interaction.followUp({ content: "New round!" });
-    }
+    await interaction.deferReply({ ephemeral: false });
     const mode = customId.includes("mc") ? "multiplechoice" : "normal";
     const currentUserId = interaction.user.id;
     if (mode === "multiplechoice") {

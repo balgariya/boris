@@ -10,7 +10,10 @@ import {
   translateMessageCommand,
 } from "./commands/user/translate.js";
 import { helpCommand } from "./commands/user/help.js";
-import { resourcesCommand } from "./commands/user/resources.js";
+import {
+  resourcesCommand,
+  handleResourcesButtonInteraction,
+} from "./commands/user/resources.js";
 import { booksCommand } from "./commands/user/books.js";
 import { alphabetCommand } from "./commands/user/alphabet.js";
 import { checkCommand, checkMessageCommand } from "./commands/user/sentence.js";
@@ -29,6 +32,7 @@ import { handleContentFilter } from "./utils/content-filter.js";
 import { sendWelcomeMessage } from "./utils/welcome-message.js";
 
 import { modelCommand } from "./commands/user/model.js";
+import { clearCommand } from "./commands/user/clear.js";
 
 let chatChannel;
 
@@ -41,23 +45,42 @@ const client = new Client({
   ],
 });
 
+client.on(Events.GuildMemberUpdate, async (oldMember, newMember) => {
+  if (newMember.id !== client.user.id) return;
+
+  const oldNick = oldMember.nickname;
+  const newNick = newMember.nickname;
+
+  if (newNick !== "Boris") {
+    try {
+      await newMember.setNickname("Boris");
+    } catch (error) {}
+  }
+});
+
 client.once(Events.ClientReady, async (c) => {
   client.channels.fetch("658661467091894287").then((channel) => {
     chatChannel = channel;
   });
 
-  console.log("Bot with name " + client.user.username + " is running!");
-
   client.user.setPresence({
     activities: [
       {
-        name: "Слави Клашъра",
-        type: ActivityType.Streaming,
-        url: "https://discord.gg/gnuh77Dxgm",
+        name: "чалга",
+        type: ActivityType.Listening,
       },
     ],
     status: "online",
   });
+
+  /*for (const [guildId, guild] of client.guilds.cache) {
+    try {
+      const me = await guild.members.fetch(client.user.id);
+      await me.setNickname("Boris");
+    } catch (error) {}
+  }*/
+
+  console.log("Bot with name " + client.user.username + " is running!");
 });
 
 client.on(Events.GuildMemberAdd, async (member) => {
@@ -66,7 +89,6 @@ client.on(Events.GuildMemberAdd, async (member) => {
 
 client.on(Events.MessageCreate, async (message) => {
   if (message.author.bot) return;
-  if (message.guild?.id !== "658655311028289551") return;
   await handleGenerateCommand(message);
 
   try {
@@ -77,9 +99,12 @@ client.on(Events.MessageCreate, async (message) => {
   }
 
   if (
-    (message.mentions.has(client.user) && message.channelId != "1354474501072748695") ||
+    (message.mentions.has(client.user) && !message.mentions.everyone) ||
+    (message.content.toLowerCase().includes("bulgarian assistant") &&
+      message.channelId != "1354474501072748695") ||
     message.content.toLowerCase().includes("boris") ||
-    message.content.toLowerCase().includes("борис")
+    (message.content.toLowerCase().includes("борис") &&
+      message.guild?.id == "658655311028289551")
   ) {
     try {
       await handleBotMention(message, client);
@@ -101,6 +126,14 @@ client.on(Events.InteractionCreate, async (interaction) => {
       interaction.customId.startsWith("wordgame_mc_again_")
     ) {
       await executeCommandSafely(handleWordGameButton, interaction);
+      return;
+    }
+
+    if (
+      interaction.customId.startsWith("resources_prev_") ||
+      interaction.customId.startsWith("resources_next_")
+    ) {
+      await executeCommandSafely(handleResourcesButtonInteraction, interaction);
       return;
     }
   }
@@ -172,6 +205,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
       return;
     case "model":
       await executeCommandSafely(modelCommand.execute, interaction);
+      return;
+    case "clear":
+      await executeCommandSafely(clearCommand.execute, interaction);
       return;
   }
 });

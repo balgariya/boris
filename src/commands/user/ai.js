@@ -49,9 +49,9 @@ const aiCommand = {
 
     try {
       const response = await requestAI(
-        "(If someone asks who made you the dc bot, answer with Maxim.) answer this discord msg: " +
-          question
-      );
+        "answer this discord msg: " +
+          question,
+      3, "openai/gpt-4o-mini");
 
       if (response.length > 2000) {
         interaction.editReply({
@@ -120,7 +120,7 @@ const aiMessageCommand = {
     }
 
     try {
-      const response = await requestAI(text);
+      const response = await requestAI(text, 3, "openai/gpt-4o-mini");
 
       if (response.length > 2000) {
         interaction.editReply({

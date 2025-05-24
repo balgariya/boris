@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { EmbedBuilder } from "discord.js";
+import { ContainerBuilder, TextDisplayBuilder, MessageFlags } from "discord.js";
 import { requestAI } from "../../utils/ai-request.js";
 
 dotenv.config();
@@ -32,16 +32,18 @@ const checkCommand = {
     const text = interaction.options.getString("text");
     const hidden = interaction.options.getBoolean("hidden");
 
-    const errorEmbed = new EmbedBuilder()
-      .setTitle("Error")
-      .setColor(0xff0000)
-      .setDescription("An error occurred.");
-
     await interaction.deferReply({ ephemeral: hidden });
 
     if (text.length > MAX_TEXT_LENGTH) {
+      const errorContainer = new ContainerBuilder();
+      const errorText = new TextDisplayBuilder().setContent(
+        "# Error\nThe text is too long! Please limit it to 500 characters."
+      );
+      errorContainer.addTextDisplayComponents(errorText);
+
       await interaction.editReply({
-        content: "The text is too long! Please limit it to 500 characters.",
+        components: [errorContainer],
+        flags: MessageFlags.IsComponentsV2,
       });
       return;
     }
@@ -53,37 +55,77 @@ const checkCommand = {
       );
 
       if (response.length > 2000) {
+        const errorContainer = new ContainerBuilder();
+        const errorText = new TextDisplayBuilder().setContent(
+          "# Error\nThe answer is too long!"
+        );
+        errorContainer.addTextDisplayComponents(errorText);
+
         interaction.editReply({
-          content: "The answer is too long!",
+          components: [errorContainer],
+          flags: MessageFlags.IsComponentsV2,
         });
         return;
       }
 
       if (!response || response.trim().length === 0) {
+        const errorContainer = new ContainerBuilder();
+        const errorText = new TextDisplayBuilder().setContent(
+          "# Error\nThe check result is empty or something went wrong!"
+        );
+        errorContainer.addTextDisplayComponents(errorText);
+
         interaction.editReply({
-          content: "The check result is empty or something went wrong!",
+          components: [errorContainer],
+          flags: MessageFlags.IsComponentsV2,
         });
         return;
       }
 
       try {
-        const embed = new EmbedBuilder()
-          .setTitle("Grammar Check")
-          .setColor(0x00ff00)
-          .setDescription(response)
-          .setFooter({
-            text: "This check was performed by AI",
-          });
+        const container = new ContainerBuilder();
 
-        interaction.editReply({ embeds: [embed] });
+        const titleText = new TextDisplayBuilder().setContent(
+          "# Grammar Check"
+        );
+        container.addTextDisplayComponents(titleText);
+
+        const checkResultText = new TextDisplayBuilder().setContent(response);
+        container.addTextDisplayComponents(checkResultText);
+
+        const footerText = new TextDisplayBuilder().setContent(
+          "-# This check was performed by AI"
+        );
+        container.addTextDisplayComponents(footerText);
+
+        interaction.editReply({
+          components: [container],
+          flags: MessageFlags.IsComponentsV2,
+        });
       } catch (error) {
-        try {
-          interaction.editReply({ embeds: [errorEmbed] });
-        } catch (error) {}
+        const errorContainer = new ContainerBuilder();
+        const errorText = new TextDisplayBuilder().setContent(
+          "# Error\nAn error occurred."
+        );
+        errorContainer.addTextDisplayComponents(errorText);
+
+        interaction.editReply({
+          components: [errorContainer],
+          flags: MessageFlags.IsComponentsV2,
+        });
       }
     } catch (error) {
       console.log(error);
-      await interaction.editReply({ embeds: [errorEmbed] });
+      const errorContainer = new ContainerBuilder();
+      const errorText = new TextDisplayBuilder().setContent(
+        "# Error\nAn error occurred."
+      );
+      errorContainer.addTextDisplayComponents(errorText);
+
+      await interaction.editReply({
+        components: [errorContainer],
+        flags: MessageFlags.IsComponentsV2,
+      });
     }
   },
 };
@@ -100,23 +142,32 @@ const checkMessageCommand = {
     const text = message.content;
     const hidden = false;
 
-    const errorEmbed = new EmbedBuilder()
-      .setTitle("Error")
-      .setColor(0xff0000)
-      .setDescription("An error occurred.");
-
     await interaction.deferReply({ ephemeral: hidden });
 
     if (!text || text.length === 0) {
+      const errorContainer = new ContainerBuilder();
+      const errorText = new TextDisplayBuilder().setContent(
+        "# Error\nThe message has no text content to check."
+      );
+      errorContainer.addTextDisplayComponents(errorText);
+
       await interaction.editReply({
-        content: "The message has no text content to check.",
+        components: [errorContainer],
+        flags: MessageFlags.IsComponentsV2,
       });
       return;
     }
 
     if (text.length > MAX_TEXT_LENGTH) {
+      const errorContainer = new ContainerBuilder();
+      const errorText = new TextDisplayBuilder().setContent(
+        "# Error\nThe text is too long! Please limit it to 500 characters."
+      );
+      errorContainer.addTextDisplayComponents(errorText);
+
       await interaction.editReply({
-        content: "The text is too long! Please limit it to 500 characters.",
+        components: [errorContainer],
+        flags: MessageFlags.IsComponentsV2,
       });
       return;
     }
@@ -128,37 +179,77 @@ const checkMessageCommand = {
       );
 
       if (response.length > 2000) {
+        const errorContainer = new ContainerBuilder();
+        const errorText = new TextDisplayBuilder().setContent(
+          "# Error\nThe answer is too long!"
+        );
+        errorContainer.addTextDisplayComponents(errorText);
+
         interaction.editReply({
-          content: "The answer is too long!",
+          components: [errorContainer],
+          flags: MessageFlags.IsComponentsV2,
         });
         return;
       }
 
       if (!response || response.trim().length === 0) {
+        const errorContainer = new ContainerBuilder();
+        const errorText = new TextDisplayBuilder().setContent(
+          "# Error\nThe check result is empty or something went wrong!"
+        );
+        errorContainer.addTextDisplayComponents(errorText);
+
         interaction.editReply({
-          content: "The check result is empty or something went wrong!",
+          components: [errorContainer],
+          flags: MessageFlags.IsComponentsV2,
         });
         return;
       }
 
       try {
-        const embed = new EmbedBuilder()
-          .setTitle("Bulgarian Grammar Check")
-          .setColor(0x00ff00)
-          .setDescription(response)
-          .setFooter({
-            text: "This check was performed by AI",
-          });
+        const container = new ContainerBuilder();
 
-        interaction.editReply({ embeds: [embed] });
+        const titleText = new TextDisplayBuilder().setContent(
+          "# Bulgarian Grammar Check"
+        );
+        container.addTextDisplayComponents(titleText);
+
+        const checkResultText = new TextDisplayBuilder().setContent(response);
+        container.addTextDisplayComponents(checkResultText);
+
+        const footerText = new TextDisplayBuilder().setContent(
+          "-# This check was performed by AI"
+        );
+        container.addTextDisplayComponents(footerText);
+
+        interaction.editReply({
+          components: [container],
+          flags: MessageFlags.IsComponentsV2,
+        });
       } catch (error) {
-        try {
-          interaction.editReply({ embeds: [errorEmbed] });
-        } catch (error) {}
+        const errorContainer = new ContainerBuilder();
+        const errorText = new TextDisplayBuilder().setContent(
+          "# Error\nAn error occurred."
+        );
+        errorContainer.addTextDisplayComponents(errorText);
+
+        interaction.editReply({
+          components: [errorContainer],
+          flags: MessageFlags.IsComponentsV2,
+        });
       }
     } catch (error) {
       console.log(error);
-      await interaction.editReply({ embeds: [errorEmbed] });
+      const errorContainer = new ContainerBuilder();
+      const errorText = new TextDisplayBuilder().setContent(
+        "# Error\nAn error occurred."
+      );
+      errorContainer.addTextDisplayComponents(errorText);
+
+      await interaction.editReply({
+        components: [errorContainer],
+        flags: MessageFlags.IsComponentsV2,
+      });
     }
   },
 };

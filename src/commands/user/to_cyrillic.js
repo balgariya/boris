@@ -1,5 +1,7 @@
+
+
 import dotenv from "dotenv";
-import { EmbedBuilder } from "discord.js";
+import { ContainerBuilder, TextDisplayBuilder, MessageFlags } from "discord.js";
 
 dotenv.config();
 
@@ -27,25 +29,35 @@ const toCyrillicCommand = {
   },
   async execute(interaction) {
     const text = interaction.options.getString("text");
-
     const hidden = interaction.options.getBoolean("hidden");
 
     await interaction.deferReply({ ephemeral: hidden });
 
     try {
-      const embed = new EmbedBuilder()
-        .setTitle("Latin to Cyrillic conversion")
-        .setColor(0x0099ff);
+      const container = new ContainerBuilder();
 
-      embed.setDescription(convertToCyrillic(text, true));
+      const titleText = new TextDisplayBuilder().setContent(
+        "### Latin to Cyrillic"
+      );
+      container.addTextDisplayComponents(titleText);
 
-      await interaction.editReply({ embeds: [embed] });
+      const originalText = new TextDisplayBuilder().setContent(`-# ${text}`);
+      container.addTextDisplayComponents(originalText);
+
+      const convertedText = new TextDisplayBuilder().setContent(
+        convertToCyrillic(text, true)
+      );
+      container.addTextDisplayComponents(convertedText);
+
+      await interaction.editReply({
+        components: [container],
+        flags: MessageFlags.IsComponentsV2,
+      });
     } catch (error) {
       await interaction.editReply("За съжаление е възникнал проблем!");
     }
   },
 };
-
 const criticalWords = {
   as: "аз",
   sum: "съм",

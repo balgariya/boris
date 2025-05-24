@@ -1,7 +1,12 @@
 import dotenv from "dotenv";
-import axios from "axios";
-import * as cheerio from "cheerio";
-import { EmbedBuilder } from "discord.js";
+import {
+  ButtonBuilder,
+  ButtonStyle,
+  ContainerBuilder,
+  TextDisplayBuilder,
+  SectionBuilder,
+  MessageFlags,
+} from "discord.js";
 
 dotenv.config();
 
@@ -26,29 +31,65 @@ const helpCommand = {
 
     await interaction.deferReply({ ephemeral: hidden });
 
-    const embed = new EmbedBuilder()
-      .setTitle("About this bot")
-      .setColor("#2fb966")
-      .setDescription(
-        `# Commands
-- \`/translate\` - Translates any Bulgarian/English sentence into the other language
-- \`/word\` - Gives you information about the pronunciation of a Bulgarian word, its meaning, synonyms, and more
-- \`/stress\` - Shows the correct way to pronounce a word, e.g., кѝно
-- \`/resources\` - A list of resources for learning bulgarian
-- \`/to-cyrillic\` - Converts latin written bulgarian into cyrillic
-- \`/books\` - A list of books in bulgarian
-- \`/alphabet\` - An image of the alphabet
+    const container = new ContainerBuilder();
 
-# Source code
-This bot is open source, which means you can find the source code [here](https://github.com/Bulgarian-Assistant/Bot)
+    const titleText = new TextDisplayBuilder().setContent("# About this bot");
+    container.addTextDisplayComponents(titleText);
 
-# Do you want to use the bot yourself?
-You can install it on your own Discord server or globally. [Just click here](https://discord.com/oauth2/authorize?client_id=1276797546018377728)
+    const commandsText = new TextDisplayBuilder().setContent(
+      "# Commands\n" +
+        "- `/translate` - Translates any Bulgarian/English sentence into the other language\n" +
+        "- `/word` - Gives you information about the pronunciation of a Bulgarian word, its meaning, synonyms, and more\n" +
+        "- `/stress` - Shows the correct way to pronounce a word, e.g., кѝно\n" +
+        "- `/resources` - A list of resources for learning bulgarian\n" +
+        "- `/to-cyrillic` - Converts latin written bulgarian into cyrillic\n" +
+        "- `/books` - A list of books in bulgarian\n" +
+        "- `/wordgame` - Start a word gussing game\n" +
+        "- `/ai` - Ask the AI any question\n" +
+        "- `/dictionary` - Use the BAS Bulgarian dictionary\n" +
+        "- `/bgjargon` - Get definitions from Bulgarian slang dictionary at bgjargon.com\n" +
+        "- `/alphabet` - An image of the alphabet"
+    );
+    container.addTextDisplayComponents(commandsText);
 
-`
+    const sourceCodeText = new TextDisplayBuilder().setContent(
+      "# Source code\n" +
+        "This bot is open source, which means you can find the source code:"
+    );
+
+    const sourceCodeButton = new ButtonBuilder()
+      .setLabel("GitHub Repository")
+      .setStyle(ButtonStyle.Link)
+      .setURL("https://github.com/balgariya/boris");
+
+    const sourceCodeSection = new SectionBuilder()
+      .addTextDisplayComponents(sourceCodeText)
+      .setButtonAccessory(sourceCodeButton);
+
+    container.addSectionComponents(sourceCodeSection);
+
+    const installText = new TextDisplayBuilder().setContent(
+      "# Do you want to use the bot yourself?\n" +
+        "You can install it on your own Discord server or globally:"
+    );
+
+    const installButton = new ButtonBuilder()
+      .setLabel("Add to Discord")
+      .setStyle(ButtonStyle.Link)
+      .setURL(
+        "https://discord.com/oauth2/authorize?client_id=1276797546018377728"
       );
 
-    await interaction.editReply({ embeds: [embed] });
+    const installSection = new SectionBuilder()
+      .addTextDisplayComponents(installText)
+      .setButtonAccessory(installButton);
+
+    container.addSectionComponents(installSection);
+
+    await interaction.editReply({
+      components: [container],
+      flags: MessageFlags.IsComponentsV2,
+    });
   },
 };
 

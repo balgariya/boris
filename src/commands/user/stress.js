@@ -1,7 +1,14 @@
 import dotenv from "dotenv";
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { EmbedBuilder } from "discord.js";
+import {
+  ButtonBuilder,
+  ButtonStyle,
+  ContainerBuilder,
+  TextDisplayBuilder,
+  SectionBuilder,
+  MessageFlags,
+} from "discord.js";
 
 dotenv.config();
 
@@ -42,25 +49,33 @@ const stressCommand = {
 
       const stressedWord = $("[id^='name-stressed_']").first().text().trim();
 
-      const embed = new EmbedBuilder()
-        .setTitle("Pronunciation of the word " + word)
-        .setColor(0x0099ff)
+      const container = new ContainerBuilder();
+
+      const titleText = new TextDisplayBuilder().setContent(
+        `# Pronunciation of the word ${word}`
+      );
+      container.addTextDisplayComponents(titleText);
+
+      const resultText = new TextDisplayBuilder().setContent(
+        stressedWord
+          ? stressedWord
+          : `Pronunciation for the word ${word} not found :(`
+      );
+      container.addTextDisplayComponents(resultText);
+
+      const dictionaryButton = new ButtonBuilder()
+        .setLabel("View in Dictionary")
+        .setStyle(ButtonStyle.Link)
         .setURL(`https://rechnik.chitanka.info/w/${encodeURIComponent(word)}`);
 
-      if (stressedWord) {
-        embed.setDescription(stressedWord);
-      } else {
-        embed.setDescription(
-          "Pronunciation for the word " + word + " not found :("
-        );
-      }
+      container.addActionRowComponents((row) =>
+        row.addComponents(dictionaryButton)
+      );
 
-      embed.setFooter({
-        text: "Source: rechnik.chitanka.info",
-        iconURL: "https://rechnik.chitanka.info/favicon.ico",
+      await interaction.editReply({
+        components: [container],
+        flags: MessageFlags.IsComponentsV2,
       });
-
-      await interaction.editReply({ embeds: [embed] });
     } catch (error) {
       if (error.response && error.response.status === 404) {
         const $ = cheerio.load(error.response.data);
@@ -68,21 +83,41 @@ const stressCommand = {
           .map((i, el) => $(el).text().trim())
           .get();
 
-        const embed = new EmbedBuilder()
-          .setTitle("Думата не е намерена")
-          .setColor(0xff0000)
-          .setDescription("Търсената дума липсва в речника.")
-          .addFields({
-            name: "Подобни думи",
-            value: similarWords.join(", ") || "Няма подобни думи",
-            inline: false,
-          });
+        const container = new ContainerBuilder();
 
-        await interaction.editReply({ embeds: [embed] });
-      } else {
-        await interaction.editReply(
-          "Възникна грешка при търсенето на думата. Моля, опитайте отново по-късно."
+        const titleText = new TextDisplayBuilder().setContent(
+          "# Думата не е намерена\nТърсената дума липсва в речника."
         );
+        container.addTextDisplayComponents(titleText);
+
+        if (similarWords.length > 0) {
+          const similarWordsText = new TextDisplayBuilder().setContent(
+            `## Подобни думи\n${similarWords.join(", ")}`
+          );
+          container.addTextDisplayComponents(similarWordsText);
+        } else {
+          const noSimilarWordsText = new TextDisplayBuilder().setContent(
+            "## Подобни думи\nНяма подобни думи"
+          );
+          container.addTextDisplayComponents(noSimilarWordsText);
+        }
+
+        await interaction.editReply({
+          components: [container],
+          flags: MessageFlags.IsComponentsV2,
+        });
+      } else {
+        console.log(error);
+        const container = new ContainerBuilder();
+        const errorText = new TextDisplayBuilder().setContent(
+          "# Error\nВъзникна грешка при търсенето на думата. Моля, опитайте отново по-късно."
+        );
+        container.addTextDisplayComponents(errorText);
+
+        await interaction.editReply({
+          components: [container],
+          flags: MessageFlags.IsComponentsV2,
+        });
       }
     }
   },

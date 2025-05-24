@@ -1,8 +1,8 @@
 import {
-  ActionRowBuilder,
+  ContainerBuilder,
+  TextDisplayBuilder,
+  MessageFlags,
   ButtonBuilder,
-  ButtonStyle,
-  EmbedBuilder,
 } from "discord.js";
 import { activeGames } from "./game-storage.js";
 import {
@@ -28,19 +28,26 @@ export class WordGame {
     this.startTime = Date.now();
 
     const targetLanguage = this.language === "bg" ? "English" : "Bulgarian";
-    const embed = new EmbedBuilder()
-      .setTitle(`Translation Game`)
-      .setDescription(
-        `Translate the following word into ${targetLanguage}:\n## \`${
-          this.wordData[this.language]
-        }\`\n\n`
-      )
-      .setColor("#2fb966")
-      .setFooter({
-        text: "First person to type the correct translation wins!",
-      });
 
-    await this.interaction.editReply({ embeds: [embed] });
+    const container = new ContainerBuilder();
+
+    const titleText = new TextDisplayBuilder().setContent(
+      `# Translation Game\nTranslate the following word into ${targetLanguage}:\n## \`${
+        this.wordData[this.language]
+      }\`\n\n`
+    );
+
+    const footerText = new TextDisplayBuilder().setContent(
+      "-# First person to type the correct translation wins!"
+    );
+
+    container.addTextDisplayComponents(titleText, footerText);
+
+    await this.interaction.editReply({
+      components: [container],
+      flags: MessageFlags.IsComponentsV2,
+    });
+
     this.createCollector();
   }
 
@@ -100,26 +107,36 @@ export class WordGame {
   }
 
   async handleNoIdea(user) {
-    const embed = new EmbedBuilder()
-      .setTitle("Better Luck Next Time!")
-      .setDescription(
-        `It seems like <@${user.id}> didn't know the answer! Here's the correct translation:`
-      )
-      .addFields({
-        name: "The correct word was:",
-        value: `${this.wordData.bg} ➡️ ${this.wordData.en}`,
-      })
-      .setColor("#ffa500")
-      .setFooter({ text: "Want to try again? Click the button below!" });
+    const container = new ContainerBuilder();
 
-    const row = new ActionRowBuilder().addComponents(
-      new ButtonBuilder()
-        .setCustomId(`wordgame_again_${this.language}_${this.userId}`)
-        .setLabel("Play Again")
-        .setStyle(ButtonStyle.Primary)
+    const titleText = new TextDisplayBuilder().setContent(
+      `# Better Luck Next Time!\nIt seems like <@${user.id}> didn't know the answer! Here's the correct translation:`
     );
 
-    await this.interaction.channel.send({ embeds: [embed], components: [row] });
+    const answerText = new TextDisplayBuilder().setContent(
+      `## The correct word was:\n${this.wordData.bg} ➡️ ${this.wordData.en}`
+    );
+
+    const footerText = new TextDisplayBuilder().setContent(
+      "-# Want to try again? Click the button below!"
+    );
+
+    container.addTextDisplayComponents(titleText, answerText, footerText);
+
+    const playAgainButton = new ButtonBuilder()
+      .setCustomId(`wordgame_again_${this.language}_${this.userId}`)
+      .setLabel("Play Again")
+      .setStyle(ButtonStyle.Primary);
+
+    container.addActionRowComponents((row) =>
+      row.addComponents(playAgainButton)
+    );
+
+    await this.interaction.channel.send({
+      components: [container],
+      flags: MessageFlags.IsComponentsV2,
+    });
+
     activeGames.delete(this.channelId);
   }
 
@@ -162,50 +179,76 @@ export class WordGame {
     const totalWords = getTotalWordsCount();
     const progressText = `${solvedCount}/${totalWords} words solved`;
 
-    const embed = new EmbedBuilder()
-      .setDescription(`🎉 <@${winner.id}> won!`)
-      .addFields(
-        {
-          name: "Word",
-          value: `${this.wordData.bg} ➡️ ${this.wordData.en}`,
-          inline: true,
-        },
-        { name: "Time", value: `${timeTaken} seconds`, inline: true },
-        { name: "Progress", value: progressText, inline: true }
-      )
-      .setColor("#b300ff")
-      .setFooter({ text: "Want to play again? Click the button below!" });
+    const container = new ContainerBuilder();
 
-    const row = new ActionRowBuilder().addComponents(
-      new ButtonBuilder()
-        .setCustomId(`wordgame_again_${this.language}_${this.userId}`)
-        .setLabel("Play Again")
-        .setStyle(ButtonStyle.Primary)
+    const winnerText = new TextDisplayBuilder().setContent(
+      `## 🎉 <@${winner.id}> won!`
     );
 
-    await this.interaction.channel.send({ embeds: [embed], components: [row] });
+    container.addTextDisplayComponents(winnerText);
+
+    const infoText = new TextDisplayBuilder().setContent(
+      `### Word\n${this.wordData.bg} ➡️ ${this.wordData.en}\n` +
+        `### Time\n${timeTaken} seconds\n` +
+        `### Progress\n${progressText}`
+    );
+
+    container.addTextDisplayComponents(infoText);
+
+    const footerText = new TextDisplayBuilder().setContent(
+      "-# Want to play again? Click the button below!"
+    );
+
+    container.addTextDisplayComponents(footerText);
+
+    const playAgainButton = new ButtonBuilder()
+      .setCustomId(`wordgame_again_${this.language}_${this.userId}`)
+      .setLabel("Play Again")
+      .setStyle(ButtonStyle.Primary);
+
+    container.addActionRowComponents((row) =>
+      row.addComponents(playAgainButton)
+    );
+
+    await this.interaction.channel.send({
+      components: [container],
+      flags: MessageFlags.IsComponentsV2,
+    });
+
     activeGames.delete(this.channelId);
   }
 
   async handleTimeout() {
-    const embed = new EmbedBuilder()
-      .setTitle("Game Over")
-      .setDescription("Time's up! Nobody guessed the correct translation.")
-      .addFields({
-        name: "The answer was",
-        value: `${this.wordData.bg} ➡️ ${this.wordData.en}`,
-      })
-      .setColor("#ff6961")
-      .setFooter({ text: "Want to try again? Click the button below!" });
+    const container = new ContainerBuilder();
 
-    const row = new ActionRowBuilder().addComponents(
-      new ButtonBuilder()
-        .setCustomId(`wordgame_again_${this.language}_${this.userId}`)
-        .setLabel("Play Again")
-        .setStyle(ButtonStyle.Primary)
+    const titleText = new TextDisplayBuilder().setContent(
+      "# Game Over\nTime's up! Nobody guessed the correct translation."
     );
 
-    await this.interaction.channel.send({ embeds: [embed], components: [row] });
+    const answerText = new TextDisplayBuilder().setContent(
+      `## The answer was\n${this.wordData.bg} ➡️ ${this.wordData.en}`
+    );
+
+    const footerText = new TextDisplayBuilder().setContent(
+      "-# Want to try again? Click the button below!"
+    );
+
+    container.addTextDisplayComponents(titleText, answerText, footerText);
+
+    const playAgainButton = new ButtonBuilder()
+      .setCustomId(`wordgame_again_${this.language}_${this.userId}`)
+      .setLabel("Play Again")
+      .setStyle(ButtonStyle.Primary);
+
+    container.addActionRowComponents((row) =>
+      row.addComponents(playAgainButton)
+    );
+
+    await this.interaction.channel.send({
+      components: [container],
+      flags: MessageFlags.IsComponentsV2,
+    });
+
     activeGames.delete(this.channelId);
   }
 }

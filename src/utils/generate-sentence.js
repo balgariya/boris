@@ -1,14 +1,26 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { EmbedBuilder } from "discord.js";
+import {
+  ContainerBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  TextDisplayBuilder,
+  MessageFlags,
+  ActionRowBuilder,
+} from "discord.js";
 import { requestAI } from "./ai-request.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const topicsPath = path.join(__dirname, "../../resources/topics.txt");
 
 export async function handleGenerateCommand(message) {
-  if (message.channel.id !== "1354474501072748695") return;
+  if (
+    message.channel.id !== "1354474501072748695" &&
+    message.channel.id !== "1354753428248858737" &&
+    message.channel.id !== "1357798265038573773"
+  )
+    return;
 
   const parts = message.content.trim().split(/\s+/);
 
@@ -27,16 +39,24 @@ export async function handleGenerateCommand(message) {
 
     const randomTopic = topics[Math.floor(Math.random() * topics.length)];
 
-    let prompt = `Generate a random English sentence (only answer with the sentence) about this topic/situation for language learners: ${randomTopic}.`;
+    let prompt = "";
+    let language = message.channel.id == "1357798265038573773" ? "Greek" : "English";
+    let levelParam = "";
 
-    if (parts.length > 1) {
-      const levelParam = parts.slice(1).join(" ");
-      prompt = `Generate a random English sentence (only answer with the sentence) about this topic/situation for language learners. The sentence should use vocabulary and grammar suitable for the following language level: ${levelParam}. Please use simpler words, simpler sentence structure, and keep it concise if the level is beginner (e.g., a1 or a2). Topic: ${randomTopic}.`;
+    if (parts.length > 2) {
+      levelParam = parts[1];
+      language = parts[2];
+      prompt = `Generate a random ${language} sentence (only answer with the sentence) about this topic/situation for language learners. The sentence should use vocabulary and grammar suitable for the following language level: ${levelParam}. Please use simpler words, simpler sentence structure, and keep it concise if the level is beginner (e.g., a1 or a2). Topic: ${randomTopic}.`;
+    } else if (parts.length > 1) {
+      levelParam = parts[1];
+      prompt = `Generate a random ${language} sentence (only answer with the sentence) about this topic/situation for language learners. The sentence should use vocabulary and grammar suitable for the following language level: ${levelParam}. Please use simpler words, simpler sentence structure, and keep it concise if the level is beginner (e.g., a1 or a2). Topic: ${randomTopic}.`;
+    } else {
+      prompt = `Generate a random ${language} sentence (only answer with the sentence) about this topic/situation for language learners: ${randomTopic}.`;
     }
 
     await message.channel.sendTyping();
 
-    const response = await requestAI(prompt, 3, 2, "openai/gpt-4o-mini");
+    const response = await requestAI(prompt, 3, "openai/gpt-4o-mini");
 
     if (!response || response.trim().length === 0) {
       return message.reply(
@@ -48,16 +68,39 @@ export async function handleGenerateCommand(message) {
       return message.reply("The generated sentence is too long to display.");
     }
 
-    const embed = new EmbedBuilder()
-      .setTitle("Translate this into Bulgarian")
-      .setColor(0x00ff00)
-      .setDescription(`### ${response}`);
+    const container = new ContainerBuilder();
 
-    embed.setFooter({
-      text: "A native speaker will review your translation (If you are lucky)",
+    const titleText = new TextDisplayBuilder().setContent(
+      `**Translate this ${language} sentence into Bulgarian**`
+    );
+
+    const sentenceText = new TextDisplayBuilder().setContent(`## ${response}`);
+
+    container.addTextDisplayComponents(titleText, sentenceText);
+
+    const footerText = new TextDisplayBuilder().setContent(
+      "-# A native speaker will review your translation (If you are lucky)\n"
+    );
+
+    const spoiler = await requestAI(
+      `Translate the following ${language} sentence into Bulgarian: ${response}`,
+      2
+    );
+
+    const spoilerWords = spoiler
+      .split(" ")
+      .map((word) => `||${word}||`)
+      .join(" ");
+    const spoilerText = new TextDisplayBuilder().setContent(
+      "-# Spoiler translation:\n" + spoilerWords
+    );
+
+    container.addTextDisplayComponents(spoilerText, footerText);
+
+    await message.channel.send({
+      flags: MessageFlags.IsComponentsV2,
+      components: [container],
     });
-
-    await message.channel.send({ embeds: [embed] });
   } catch (error) {
     console.error("Error in handleGenerateCommand:", error);
     message.reply("An error occurred while generating the sentence.");

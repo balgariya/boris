@@ -19,6 +19,7 @@ import { wordGameCommand } from "./commands/user/wordgame.js";
 import { dictionaryCommand } from "./commands/user/dictionary.js";
 import { leaderboardCommand } from "./commands/user/leaderboard.js";
 import { modelCommand } from "./commands/user/model.js";
+import { clearCommand } from "./commands/user/clear.js";
 
 const rest = new REST().setToken(process.env.TOKEN);
 
@@ -44,7 +45,8 @@ const commands = [
   wordGameCommand.data,
   dictionaryCommand.data,
   leaderboardCommand.data,
-  modelCommand.data
+  modelCommand.data,
+  clearCommand.data
 ];
 
 rest

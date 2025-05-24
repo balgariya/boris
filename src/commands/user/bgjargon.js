@@ -1,5 +1,11 @@
 import dotenv from "dotenv";
-import { EmbedBuilder } from "discord.js";
+import {
+  ContainerBuilder,
+  TextDisplayBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  MessageFlags,
+} from "discord.js";
 import { scrapeBgJargon } from "../../utils/bgjargon-scraper.js";
 
 dotenv.config();
@@ -35,54 +41,54 @@ const bgjargonCommand = {
 
     try {
       const jargonData = await scrapeBgJargon(word);
+      const container = new ContainerBuilder();
 
       if (!jargonData) {
-        const embed = new EmbedBuilder()
-          .setTitle(`Думата "${word}" не е намерена в БГ Жаргон`)
-          .setColor(0xff0000)
-          .setDescription(
+        const notFoundText = new TextDisplayBuilder().setContent(
+          `# Думата "${word}" не е намерена в БГ Жаргон\n` +
             "Тази дума не съществува в речника на жаргона или сайтът е недостъпен."
-          )
-          .setURL(
-            `https://www.bgjargon.com/word/meaning/${encodeURIComponent(word)}`
-          );
-
-        await interaction.editReply({ embeds: [embed] });
-        return;
-      }
-
-      const embed = new EmbedBuilder()
-        .setTitle(`${jargonData.word} - БГ Жаргон`)
-        .setColor(0x00cc00)
-        .setURL(
-          `https://www.bgjargon.com/word/meaning/${encodeURIComponent(word)}`
-        )
-        .setDescription(
-          `Открити са ${jargonData.definitions.length} значения в речника на жаргона.`
         );
 
-      jargonData.definitions.forEach((def, index) => {
-        let fieldText = def.meaning;
+        container.addTextDisplayComponents(notFoundText);
+      } else {
+        const titleText = new TextDisplayBuilder().setContent(
+          `# ${jargonData.word} - БГ Жаргон\n` +
+            `Открити са ${jargonData.definitions.length} значения в речника на жаргона.`
+        );
 
-        if (def.example) {
-          fieldText += `\n\n*"${def.example}"*`;
-        }
+        container.addTextDisplayComponents(titleText);
 
-        fieldText += `\n-# 👍 ${def.votesYes}   👎 ${def.votesNo}\n\u200E\n`;
+        jargonData.definitions.forEach((def, index) => {
+          let definitionContent = `## Значение ${index + 1}\n${def.meaning}`;
 
-        embed.addFields({
-          name: `Значение ${index + 1}`,
-          value: fieldText,
-          inline: false,
+          if (def.example) {
+            definitionContent += `\n\n*"${def.example}"*`;
+          }
+
+          definitionContent += `\n\n👍 ${def.votesYes}   👎 ${def.votesNo}`;
+
+          const definitionText = new TextDisplayBuilder().setContent(
+            definitionContent
+          );
+          container.addTextDisplayComponents(definitionText);
         });
-      });
+      }
 
-      embed.setFooter({
-        text: "Източник: bgjargon.com",
-        iconURL: "https://avatars.githubusercontent.com/u/179294549?s=200&v=4",
-      });
+      const lookupButton = new ButtonBuilder()
+        .setLabel("Отвори в БГ Жаргон")
+        .setStyle(ButtonStyle.Link)
+        .setURL(
+          `https://www.bgjargon.com/word/meaning/${encodeURIComponent(word)}`
+        );
 
-      await interaction.editReply({ embeds: [embed] });
+      container.addActionRowComponents((row) =>
+        row.addComponents(lookupButton)
+      );
+
+      await interaction.editReply({
+        components: [container],
+        flags: MessageFlags.IsComponentsV2,
+      });
     } catch (error) {
       console.error("Error in bgjargon command:", error);
       await interaction.editReply({

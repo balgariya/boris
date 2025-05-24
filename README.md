@@ -1,16 +1,16 @@
-# Bulgarian Assistant
-This bot helps you learn Bulgarian with commands for translation, word meanings, pronunciation, and more. 
-You view resource lists for learning bulgarian, book recommendations & more.
+# Български асистент (Борис)
+Този бот ти помага да учиш български с команди за превод, значения на думи, произношение и други.
+Можеш да разглеждаш списъци с ресурси за учене на български, препоръки за книги и още.
 
 [Click to install](https://discord.com/oauth2/authorize?client_id=1276797546018377728)
 
-## Commands
-- /translate - Translates any Bulgarian/English sentence into the other language
-- /word - Gives you information about the pronunciation of a Bulgarian word, its meaning, synonyms, and more
-- /stress - Shows the correct way to pronounce a word, e.g., кѝно
-- /resources - A list of resources for learning bulgarian
-- /books - A list of books in bulgarian
-- /alphabet - An image of the alphabet
+## Команди
+- /translate - Превежда всяко изречение от български на английски или обратно
+- /word - Дава информация за произношението на дума на български, нейното значение, синоними и други
+- /stress - Показва къде е правилното ударение в дума, напр. кѝно
+- /resources - Списък с ресурси за учене на български
+- /books - Списък с книги на български
+- /alphabet - Азбуката
 - /bgjargon
 
 И така нататък 
